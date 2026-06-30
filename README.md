@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Sage Institute
 
-## Getting Started
+A production-ready, multi-page marketing website for **The Sage Institute** — a premium
+coaching, training, and organizational-development consultancy. Built to feel like
+"McKinsey meets a boutique wellness brand": clean, authoritative, and elegant.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 14 (App Router) + TypeScript
+- **Styling:** Tailwind CSS with a custom brand theme
+- **UI primitives:** shadcn/ui-style components (Button, Input, Textarea, Label, Select, Card)
+- **Animations:** Framer Motion (scroll-triggered reveals + staggered grids)
+- **Icons:** Lucide React (brand/social marks ship as local inline SVGs)
+- **Fonts:** Playfair Display (headings) + Inter (body) via `next/font/google`
+
+## Brand palette
+
+| Token        | Hex       | Use                        |
+| ------------ | --------- | -------------------------- |
+| `forest`     | `#1B4332` | Primary (trust, growth)    |
+| `gold`       | `#D4A853` | Accent (prestige, insight) |
+| `cream`      | `#F9F6F0` | Page background            |
+| `ink`        | `#1C1917` | Primary text               |
+| `gray-500/600` | —       | Secondary text             |
+
+## Pages
+
+- `/` — Hero, stats bar, services preview, testimonials, CTA banner
+- `/services` — 6-service grid + 4-step process timeline (Discovery → Design → Deliver → Debrief)
+- `/about` — Mission, story, values, team, accreditations
+- `/contact` — Contact details + Google Maps embed + validated form with simulated submit
+
+## Project structure
+
+```
+app/
+  layout.tsx          Root layout: fonts, metadata, Navbar, Footer
+  page.tsx            Landing page
+  globals.css         Tailwind layers + smooth scroll + base styles
+  services/page.tsx
+  about/page.tsx
+  contact/page.tsx
+components/
+  ui/                 Button, Input, Textarea, Label, Select, Card
+  Navbar.tsx          Sticky nav, active-link highlight, animated mobile menu
+  Footer.tsx
+  HeroSection.tsx
+  ServiceCard.tsx
+  TestimonialCard.tsx
+  TeamCard.tsx
+  ContactForm.tsx     Client-side validation + simulated success state
+  AnimatedSection.tsx Framer Motion wrappers (AnimatedSection / StaggerGroup / StaggerItem)
+  SocialIcons.tsx     Inline brand SVGs (LinkedIn, X, Instagram)
+lib/
+  utils.ts            cn() helper
+  site.ts             Brand config + nav links
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Other scripts:
 
-## Learn More
+```bash
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint     # eslint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- The contact form has **no backend** — it validates locally and simulates a successful
+  submission with a `setTimeout`.
+- Remote images are loaded from `images.unsplash.com` (whitelisted in `next.config.js`).
+- All copy is original, professional content for a coaching/consulting institute.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+```bash
+npm i -g vercel
+vercel            # preview deployment (follow the prompts)
+vercel --prod     # production deployment
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Or push to GitHub and import the repo at [vercel.com/new](https://vercel.com/new) — no
+configuration is required; Vercel auto-detects Next.js.

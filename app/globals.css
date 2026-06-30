@@ -3,25 +3,85 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --eyebrow: #8a6e1a; /* AA-compliant deep gold for small text on light backgrounds */
+  --focus: #1b4332; /* focus ring on light backgrounds */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* On forest / dark sections, flip the accent + focus colour to bright gold for contrast */
+.bg-forest {
+  --eyebrow: #d4a853;
+  --focus: #d4a853;
+}
+
+/* Visible, AA-contrast keyboard focus ring on every interactive element */
+*:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  /* Clear the sticky navbar when jumping to anchors */
+  scroll-padding-top: 6rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f6f0;
+  color: #1c1917;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    letter-spacing: -0.01em;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+::selection {
+  background-color: #d4a853;
+  color: #123524;
+}
+
+/* Subtle, branded scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #efe9dc;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9b896;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8902f;
 }
