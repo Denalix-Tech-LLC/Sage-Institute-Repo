@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Compass, Users, GraduationCap, ArrowRight } from "lucide-react";
+import { Pill, Coffee, Leaf, ArrowRight } from "lucide-react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/button";
 import { FounderPhoto } from "@/components/FounderPhoto";
 
 export const metadata: Metadata = {
-  title: "Cultivating Wisdom. Transforming Lives.",
+  title: "Learn, Heal, Grow",
   description:
-    "The Sage Institute offers evidence-based coaching, leadership training, and organizational development for individuals and teams ready to grow.",
+    "The Sage Institute was founded on the principle that health is a holistic experience — helping people learn skills to support their mental, physical, and spiritual health.",
 };
 
 const stats: { value: string; label: string }[] = [
@@ -40,6 +40,21 @@ export default function Home() {
     <>
       <HeroSection />
 
+      {/* Mission statement */}
+      <section className="border-b border-stone-200/60 bg-cream">
+        <AnimatedSection className="container py-24 md:py-32">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="mx-auto block h-px w-12 bg-gold" />
+            <p className="mt-8 font-serif text-xl leading-relaxed text-forest text-balance md:text-2xl">
+              The Sage Institute was founded on the principle that health is a
+              holistic experience. You can be empowered to nurture patterns in
+              your life that support your physical and mental health and well
+              being.
+            </p>
+          </div>
+        </AnimatedSection>
+      </section>
+
       {/* Stats bento */}
       <section className="bg-cream">
         <AnimatedSection className="container py-24 md:py-32">
@@ -48,8 +63,8 @@ export default function Home() {
             <div className="col-span-2 flex flex-col justify-center rounded-2xl bg-forest p-8 text-cream md:row-span-2">
               <span className="block h-px w-12 bg-gold" />
               <p className="mt-6 font-serif text-2xl leading-snug">
-                Fifteen years guiding people and teams toward their fullest
-                potential.
+                Health is a holistic experience — learn, heal, and grow with
+                us.
               </p>
             </div>
 
@@ -78,35 +93,35 @@ export default function Home() {
               Services that meet you where you are
             </h2>
             <p className="mt-4 leading-relaxed text-gray-600">
-              Practical, evidence-based support for the moments that matter most
-              — delivered one-to-one, in teams, and across whole organizations.
+              Evidence-based, compassionate support for your mental, physical,
+              and spiritual health — delivered with genuine humanity.
             </p>
           </div>
 
           <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <StaggerItem>
               <ServiceCard
-                icon={Compass}
-                title="Executive Coaching"
-                description="One-on-one coaching for senior leaders navigating complexity, transition, and growth. We pair rigorous assessment with confidential, challenging conversation to sharpen judgement and presence."
+                icon={Pill}
+                title="Medication Management"
+                description="Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you."
                 href="/services"
                 cta="Learn more"
               />
             </StaggerItem>
             <StaggerItem>
               <ServiceCard
-                icon={Users}
-                title="Team Development"
-                description="Workshops and facilitation that turn capable groups into genuinely high-performing teams. We surface the unspoken dynamics and leave teams with practical rituals they actually keep."
+                icon={Coffee}
+                title="Therapy"
+                description="Therapy should be as comfortable and destigmatized as chatting over coffee. Talk therapy creates a safe space in your life to process thoughts, emotions, behavioral patterns, transitions, stressors, losses, challenges, and joys."
                 href="/services"
                 cta="Learn more"
               />
             </StaggerItem>
             <StaggerItem>
               <ServiceCard
-                icon={GraduationCap}
-                title="Leadership Training"
-                description="Multi-session programmes that develop emerging leaders into confident, values-driven managers through evidence-based content, live practice, and peer coaching."
+                icon={Leaf}
+                title="Holistic Psychiatry"
+                description="From Walk and Talk Therapy and Nutritional Psychiatry to sleep hygiene, time in nature, movement, creative expression, and mind-body activities to ground and calm your nervous system."
                 href="/services"
                 cta="Learn more"
               />

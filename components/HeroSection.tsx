@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ClipboardList } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -32,38 +32,45 @@ export function HeroSection() {
   return (
     <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80"
-        alt="Sunlight streaming through a tall tree, symbolising growth and wisdom"
+        src="/home-hero.jpg"
+        alt="A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
         fill
         priority
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-forest/80" />
+      <div className="absolute inset-0 bg-forest/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent" />
 
       <div className="container relative z-10">
-        <motion.div variants={container} initial="hidden" animate="visible">
-          <motion.p
-            variants={item}
-            className="text-gold text-xs font-semibold uppercase tracking-[0.2em]"
-          >
-            The Sage Institute
-          </motion.p>
-
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+        >
           <motion.h1
             variants={item}
-            className="mt-6 max-w-3xl font-serif text-4xl font-semibold leading-tight tracking-tight text-cream text-balance sm:text-5xl md:text-6xl"
+            className="font-serif text-5xl font-semibold leading-tight tracking-tight text-cream text-balance sm:text-6xl md:text-7xl"
           >
-            Cultivating Wisdom. Transforming Lives.
+            The Sage Institute
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/85"
+            className="mt-6 font-serif text-xl text-gold-light sm:text-2xl"
           >
-            Evidence-based coaching, training, and organizational development
-            for individuals and teams ready to grow.
+            Learn, Heal, Grow
+          </motion.p>
+
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-2xl text-base leading-relaxed text-cream/85 md:text-lg"
+          >
+            Our mission is to help people learn skills to support their mental,
+            physical, and spiritual health; to facilitate a therapeutic space
+            that allows for healing and inspiration; and to promote resilience,
+            vitality, and growth in individuals and in our community.
           </motion.p>
 
           <motion.div
@@ -71,12 +78,15 @@ export function HeroSection() {
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <Button asChild variant="gold" size="lg">
-              <Link href="/services">
-                Explore Services <ArrowRight className="h-4 w-4" />
+              <Link href="/contact">
+                <ClipboardList className="h-4 w-4" />
+                Client Screening
               </Link>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
-              <Link href="/about">Meet Our Team</Link>
+              <Link href="/services">
+                Explore Services <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
           </motion.div>
         </motion.div>

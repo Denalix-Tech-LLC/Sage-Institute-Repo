@@ -1,72 +1,68 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Compass,
-  Users,
-  GraduationCap,
-  Building2,
-  Leaf,
-  Mic,
+  ArrowRight,
   Search,
   PenLine,
   Sparkles,
   LineChart,
   ChevronRight,
 } from "lucide-react";
-import { ServiceCard } from "@/components/ServiceCard";
 import { Eyebrow } from "@/components/Eyebrow";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Executive coaching, team development, leadership training, organizational consulting, mindfulness programmes, and keynote speaking from The Sage Institute.",
+    "Medication management, therapy, holistic psychiatry, groups and classes, and yoga, mindfulness, and meditation at The Sage Institute.",
 };
 
-const services = [
+interface Service {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  featured?: boolean;
+}
+
+const services: Service[] = [
   {
-    icon: Compass,
-    title: "Executive Coaching",
+    title: "Medication Management",
     description:
-      "One-on-one coaching for senior leaders navigating complexity, transition, and growth. We pair rigorous assessment with confidential, challenging conversation to sharpen judgement, presence, and decision-making.",
-    tags: ["Individual", "Senior Leaders"],
+      "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you. We can also assist you to safely come off of psychiatric medications.",
+    image: "/services/medication-management.jpg",
+    imageAlt: "A clinician consulting with a client about medication",
     featured: true,
   },
   {
-    icon: Users,
-    title: "Team Development",
+    title: "Therapy",
     description:
-      "Workshops and facilitation that turn capable groups into genuinely high-performing teams. We surface the unspoken dynamics, rebuild trust where it has frayed, and leave teams with practical rituals they actually keep.",
-    tags: ["Group", "Facilitation"],
-  },
-  {
-    icon: Building2,
-    title: "Organizational Consulting",
-    description:
-      "Strategic alignment and culture change for organizations in transition. We diagnose what is really getting in the way, co-design the path forward with your people, and stay close through implementation.",
-    tags: ["Organization", "Strategy"],
-  },
-  {
-    icon: GraduationCap,
-    title: "Leadership Training",
-    description:
-      "Multi-session programmes that develop emerging leaders into confident, values-driven managers. Cohorts learn together through evidence-based content, live practice, and peer coaching.",
-    tags: ["Cohort", "Multi-session"],
+      "Therapy should be as comfortable and destigmatized as chatting over coffee. Talk therapy creates a safe space in your life to process thoughts, emotions, behavioral patterns, transitions, stressors, losses, challenges, and joys. It is a way to reflect in the moment, while looking back at the past and forward to the future. You are more than a diagnosis. You are a human being with a unique story. Therapy can be the mirror to show you your worth, the classroom to learn and practice new skills, and the healing waters to help you transcend your suffering and cultivate meaning, connection, and growth.",
+    image: "/services/therapy.jpg",
+    imageAlt: "A woman talking warmly during a video therapy session",
     featured: true,
   },
   {
-    icon: Leaf,
-    title: "Mindfulness Programs",
+    title: "Holistic Psychiatry",
     description:
-      "Evidence-based mindfulness for workplace wellbeing and sustained attention. Our programmes draw on clinical research rather than wellness trends, translating practice into the real demands of a working week.",
-    tags: ["Wellbeing", "Group"],
+      "Walk and Talk Therapy, Nutritional Psychiatry (ways to enhance and support your mental health through food choices as well as fostering a mindful and joyful relationship to eating), various supplements, sleep hygiene, spending time in nature, light therapy, movement and/or exercise, social connection, creative expression, spirituality, and mind-body activities to ground and calm your nervous system can all be a part of your mental wellness plan.",
+    image: "/services/holistic-psychiatry.jpg",
+    imageAlt: "A composition of fresh, healthy food on a wooden table",
   },
   {
-    icon: Mic,
-    title: "Keynote Speaking",
+    title: "Groups & Classes",
     description:
-      "Inspiring, substantive talks for conferences and corporate events. Our speakers blend research with story to leave audiences with ideas they can act on the very next morning.",
-    tags: ["Events", "Keynote"],
+      "We offer groups and classes to draw on the power of social connection and learning in a group setting and to educate, encourage, and empower each other in mental health and wellness strategies.",
+    image: "/services/groups-classes.jpg",
+    imageAlt: "A diverse group sitting together around a couch in conversation",
+  },
+  {
+    title: "Yoga, Mindfulness, and Meditation",
+    description:
+      "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continuing your practice in a supportive community.",
+    image: "/services/yoga-mindfulness.jpg",
+    imageAlt: "Two people practicing yoga together on a beach",
   },
 ];
 
@@ -117,30 +113,59 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-cream/80">
-            We offer a focused set of services for individuals, teams, and organizations. Each
-            engagement is tailored, evidence-based, and designed to create change that lasts well
-            beyond our involvement.
+            Support for your mental, physical, and spiritual health — from
+            medication management and therapy to holistic psychiatry, groups,
+            and mind-body practice.
           </p>
         </div>
       </section>
 
       <section className="py-24 md:py-32">
         <div className="container">
-          <StaggerGroup className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:auto-rows-fr lg:grid-cols-3">
+          <StaggerGroup className="grid grid-cols-1 gap-6 md:grid-cols-6">
             {services.map((service) => (
               <StaggerItem
                 key={service.title}
-                className={service.featured ? "md:col-span-2 lg:col-span-2 lg:row-span-2" : undefined}
+                className={service.featured ? "md:col-span-3" : "md:col-span-6 lg:col-span-2"}
               >
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  tags={service.tags}
-                  href="/contact"
-                  cta="Enquire"
-                  featured={service.featured}
-                />
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-7 md:p-8">
+                    <h2
+                      className={
+                        service.featured
+                          ? "font-serif text-2xl font-semibold text-forest"
+                          : "font-serif text-xl font-semibold text-forest"
+                      }
+                    >
+                      {service.title}
+                    </h2>
+                    <p
+                      className={
+                        service.featured
+                          ? "mt-4 flex-grow leading-relaxed text-gray-600"
+                          : "mt-3 flex-grow text-sm leading-relaxed text-gray-600"
+                      }
+                    >
+                      {service.description}
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-forest transition-all hover:gap-2.5"
+                    >
+                      Enquire
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
               </StaggerItem>
             ))}
           </StaggerGroup>
