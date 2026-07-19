@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --eyebrow: #8a6e1a; /* AA-compliant deep gold for small text on light backgrounds */
-  --focus: #1b4332; /* focus ring on light backgrounds */
+  --eyebrow: #5f5378; /* AA-compliant deep lavender for small text on light backgrounds */
+  --focus: #365b6b; /* focus ring on light backgrounds */
 }
 
-/* On forest / dark sections, flip the accent + focus colour to bright gold for contrast */
+/* On teal / dark sections, flip the accent + focus colour to light lavender for contrast */
 .bg-forest {
-  --eyebrow: #d4a853;
-  --focus: #d4a853;
+  --eyebrow: #cfc8e2;
+  --focus: #cfc8e2;
 }
 
 /* Visible, AA-contrast keyboard focus ring on every interactive element */
@@ -41,7 +41,7 @@ html {
 }
 
 body {
-  background-color: #f9f6f0;
+  background-color: #f1ecec;
   color: #1c1917;
   font-feature-settings: "liga" 1, "calt" 1;
 }
@@ -66,8 +66,8 @@ body {
 }
 
 ::selection {
-  background-color: #d4a853;
-  color: #123524;
+  background-color: #cfc8e2;
+  color: #22394a;
 }
 
 /* Subtle, branded scrollbar */
@@ -76,12 +76,12 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #efe9dc;
+  background: #e7e0e0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9b896;
+  background: #a9b8bf;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8902f;
+  background: #685c81;
 }

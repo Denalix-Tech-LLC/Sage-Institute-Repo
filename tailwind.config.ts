@@ -20,20 +20,23 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // Primary: deep teal-slate (token name kept as `forest`).
         forest: {
-          DEFAULT: "#1B4332",
-          dark: "#123524",
-          light: "#2D6A4F",
+          DEFAULT: "#365B6B",
+          dark: "#22394A",
+          light: "#47758C",
         },
+        // Accent: muted lavender #A092BE (token name kept as `gold`).
         gold: {
-          DEFAULT: "#D4A853",
-          dark: "#B8902F",
-          deep: "#8A6E1A",
-          light: "#E4C684",
+          DEFAULT: "#A092BE",
+          dark: "#685C81",
+          deep: "#5F5378",
+          light: "#CFC8E2",
         },
+        // Backgrounds: warm light gray + soft mint (token name kept as `cream`).
         cream: {
-          DEFAULT: "#F9F6F0",
-          dark: "#EFE9DC",
+          DEFAULT: "#F1ECEC",
+          dark: "#E1F6F3",
         },
         ink: "#1C1917",
         // Adapts per-section via CSS vars (deep gold on light, bright gold on forest)
@@ -48,9 +51,14 @@ const config: Config = {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        sway: {
+          from: { transform: "rotate(-0.4deg)" },
+          to: { transform: "rotate(0.7deg)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out both",
+        sway: "sway 18s ease-in-out infinite alternate",
       },
     },
   },

@@ -1,19 +1,24 @@
 export const siteConfig = {
   name: "The Sage Institute",
   shortName: "Sage Institute",
-  tagline: "Cultivating wisdom. Transforming lives.",
+  tagline: "Learn, Heal, Grow",
   description:
-    "Evidence-based coaching, leadership training, and organizational development for individuals and teams ready to grow.",
-  url: "https://sageinstitute.com",
+    "Compassionate, evidence-based psychiatric care — medication management, therapy, and holistic psychiatry via telehealth across North Carolina.",
+  url: "https://thesageinstitute.com",
+  // New-client screening lives in the practice's own HIPAA-covered tools
+  // (Microsoft 365 BAA); PHI never touches this site's infrastructure.
+  screeningFormUrl:
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=W5H1hw18gEixhjajJI8x-j-CWXtpGlpDtQ5LPzDBA89UNFFUODFFUlpFSU1JNVBMT0wwS0Q5VVFMSi4u",
+  clientPortalUrl: "https://www.therapyportal.com/p/thesageinstitute/",
   contact: {
-    email: "hello@sageinstitute.com",
-    phone: "+44 (0)20 7946 0123",
+    email: "hello@sageinstitute.com", // TODO: confirm practice email address
+    phone: "336-920-3487",
     address: {
-      line1: "27 Bloomsbury Square",
-      line2: "London, WC1A 2PJ",
-      country: "United Kingdom",
+      line1: "Telehealth across North Carolina", // TODO: confirm office address, if any
+      line2: "",
+      country: "United States",
     },
-    hours: "Monday – Friday, 9:00 – 18:00 GMT",
+    hours: "Monday – Friday", // TODO: confirm office hours
   },
 } as const;
 
@@ -27,4 +32,5 @@ export const navLinks: NavLink[] = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Events & Classes", href: "/events-classes" },
 ];

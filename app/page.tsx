@@ -4,11 +4,11 @@ import { Pill, Coffee, Leaf, ArrowRight } from "lucide-react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { ServiceCard } from "@/components/ServiceCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { Eyebrow } from "@/components/Eyebrow";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { FounderPhoto } from "@/components/FounderPhoto";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Learn, Heal, Grow",
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const stats: { value: string; label: string }[] = [
-  { value: "500+", label: "Clients Served" },
-  { value: "15", label: "Years of Experience" },
-  { value: "98%", label: "Satisfaction Rate" },
-  { value: "30+", label: "Programmes Delivered" },
+  { value: "4", label: "Psychiatric Clinicians" },
+  { value: "16+", label: "Ages We Serve" },
+  { value: "NC", label: "Statewide Telehealth" },
+  { value: "7+", label: "In-Network Insurance Plans" },
 ];
 
 const team: {
@@ -32,7 +32,7 @@ const team: {
   { name: "Laurie L. Arena", role: "Founder · PMHNP", image: "/laurie-arena.jpg", initials: "LA" },
   { name: "Jade Montana", role: "Psychiatric NP · CNM", image: "/jade-montana.png", initials: "JM" },
   { name: "Amy Main", role: "Psychiatric NP", image: "/amy-main.jpg", initials: "AM" },
-  { name: "Lindsey Rebollar", role: "Psychiatric Provider", image: "/lindsey-rebollar.png", initials: "LR" },
+  { name: "Lindsey Rebollar", role: "Psychiatric NP", image: "/lindsey-rebollar.png", initials: "LR" },
 ];
 
 export default function Home() {
@@ -121,7 +121,7 @@ export default function Home() {
               <ServiceCard
                 icon={Leaf}
                 title="Holistic Psychiatry"
-                description="From Walk and Talk Therapy and Nutritional Psychiatry to sleep hygiene, time in nature, movement, creative expression, and mind-body activities to ground and calm your nervous system."
+                description="From Nutritional Psychiatry to sleep hygiene, time in nature, movement, creative expression, and mind-body activities to ground and calm your nervous system."
                 href="/services"
                 cta="Learn more"
               />
@@ -136,47 +136,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-cream-dark/40 py-24 md:py-32">
-        <div className="container">
-          <div className="max-w-2xl">
-            <Eyebrow>Testimonials</Eyebrow>
-            <h2 className="mt-3 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-              Trusted by leaders and teams
-            </h2>
-          </div>
-
-          <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-3">
-            <StaggerItem>
-              <TestimonialCard
-                quote="The coaching I received reshaped how I lead under pressure. Six months on, my team is more candid, more aligned, and noticeably more resilient."
-                name="Elena Marsh"
-                title="VP of Operations, Northwind Logistics"
-                initials="EM"
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <TestimonialCard
-                quote="Sage didn’t hand us a framework and walk away. They stayed with our hardest questions until the culture work actually took hold."
-                name="David Osei"
-                title="Chief People Officer, Meridian Health"
-                initials="DO"
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <TestimonialCard
-                quote="Our emerging leaders came back with language for things they’d always felt but couldn’t name. The effect on retention has been real and measurable."
-                name="Hannah Whitfield"
-                title="Head of Talent, Bright & Co."
-                initials="HW"
-              />
-            </StaggerItem>
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* Team preview */}
-      <section className="py-24 md:py-32">
+      <section className="bg-cream-dark/40 py-24 md:py-32">
         <div className="container">
           <div className="max-w-2xl">
             <Eyebrow>Our team</Eyebrow>
@@ -185,7 +146,7 @@ export default function Home() {
             </h2>
             <p className="mt-4 leading-relaxed text-gray-600">
               Led by founder Laurie Arena, our clinicians bring evidence-based,
-              compassionate, and deeply individualized mental health care.
+              compassionate, and individualized mental health care.
             </p>
           </div>
 
@@ -215,29 +176,52 @@ export default function Home() {
 
           <div className="mt-12 flex justify-center">
             <Button asChild variant="outline">
-              <Link href="/about">Meet the team</Link>
+              <Link href="/about#founder">Meet the team</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* CTA banner */}
-      <section className="bg-forest">
-        <AnimatedSection className="container py-24 text-center md:py-32">
-          <Eyebrow className="text-gold">Begin</Eyebrow>
-          <h2 className="mt-3 font-serif text-3xl font-semibold text-cream text-balance md:text-4xl">
-            Ready to begin your journey?
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-cream/80">
-            Whether you are navigating a transition, building a team, or
-            reshaping a culture, we would love to hear where you are and where
-            you want to go.
-          </p>
-          <Button asChild variant="gold" size="lg" className="mt-8">
-            <Link href="/contact">
-              Get in touch <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+      {/* CTA banner — inset panel so it reads as its own moment, clearly
+          separated from the footer by the cream page background. */}
+      <section className="py-16 md:py-24">
+        <AnimatedSection className="container">
+          <div className="relative overflow-hidden rounded-3xl bg-forest bg-gradient-to-br from-forest via-forest to-forest-dark px-6 py-16 text-center shadow-sm md:px-12 md:py-20">
+            {/* Ripple rings — a stone dropped in still water, bleeding off the right edge */}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 400 400"
+              fill="none"
+              className="pointer-events-none absolute -right-36 top-1/2 h-[24rem] w-[24rem] -translate-y-1/2 sm:-right-28 md:-right-16 md:h-[28rem] md:w-[28rem]"
+            >
+              <circle cx="200" cy="200" r="4" className="fill-gold-light/50" />
+              <circle cx="200" cy="200" r="46" className="stroke-gold-light/30" strokeWidth="1.2" />
+              <circle cx="200" cy="200" r="92" className="stroke-cream/15" strokeWidth="1.2" />
+              <circle cx="200" cy="200" r="140" className="stroke-gold-light/10" strokeWidth="1.2" />
+              <circle cx="200" cy="200" r="188" className="stroke-cream/[0.07]" strokeWidth="1.2" />
+            </svg>
+
+            <div className="relative z-10">
+              <Eyebrow className="text-gold">Begin</Eyebrow>
+              <h2 className="mt-3 font-serif text-3xl font-semibold text-cream text-balance md:text-4xl">
+                Ready to begin your journey?
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-cream/80">
+                Whether you are starting medication, seeking therapy, or
+                exploring a more holistic approach to your mental health, we
+                would love to hear where you are and where you want to go.
+              </p>
+              <Button asChild variant="gold" size="lg" className="mt-8">
+                <a
+                  href={siteConfig.screeningFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  New Client Screening Form <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
         </AnimatedSection>
       </section>
     </>

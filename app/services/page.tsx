@@ -3,12 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Search,
-  PenLine,
-  Sparkles,
-  LineChart,
-  ChevronRight,
+  ClipboardList,
+  MessageSquare,
+  Mail,
+  Video,
 } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
 import { Eyebrow } from "@/components/Eyebrow";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 
@@ -28,11 +28,11 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Medication Management",
+    title: "Holistic Psychiatry",
     description:
-      "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you. We can also assist you to safely come off of psychiatric medications.",
-    image: "/services/medication-management.jpg",
-    imageAlt: "A clinician consulting with a client about medication",
+      "Nutritional Psychiatry (ways to enhance and support your mental health through food choices as well as fostering a mindful and joyful relationship to eating), various supplements, sleep hygiene, spending time in nature, light therapy, movement and/or exercise, social connection, creative expression, spirituality, and mind-body activities to ground and calm your nervous system can all be a part of your mental wellness plan.",
+    image: "/services/holistic-psychiatry.jpg",
+    imageAlt: "A composition of fresh, healthy food on a wooden table",
     featured: true,
   },
   {
@@ -44,11 +44,11 @@ const services: Service[] = [
     featured: true,
   },
   {
-    title: "Holistic Psychiatry",
+    title: "Medication Management",
     description:
-      "Walk and Talk Therapy, Nutritional Psychiatry (ways to enhance and support your mental health through food choices as well as fostering a mindful and joyful relationship to eating), various supplements, sleep hygiene, spending time in nature, light therapy, movement and/or exercise, social connection, creative expression, spirituality, and mind-body activities to ground and calm your nervous system can all be a part of your mental wellness plan.",
-    image: "/services/holistic-psychiatry.jpg",
-    imageAlt: "A composition of fresh, healthy food on a wooden table",
+      "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you. We can also assist you to safely come off of psychiatric medications.",
+    image: "/services/medication-management.jpg",
+    imageAlt: "A clinician consulting with a client about medication",
   },
   {
     title: "Groups & Classes",
@@ -60,7 +60,7 @@ const services: Service[] = [
   {
     title: "Yoga, Mindfulness, and Meditation",
     description:
-      "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continuing your practice in a supportive community.",
+      "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continue your practice with the support of a wider community.",
     image: "/services/yoga-mindfulness.jpg",
     imageAlt: "Two people practicing yoga together on a beach",
   },
@@ -68,57 +68,43 @@ const services: Service[] = [
 
 const processSteps = [
   {
-    icon: Search,
+    icon: ClipboardList,
     number: "01",
-    title: "Discovery",
+    title: "Intake",
     description:
-      "We listen first. Through interviews, assessment, and honest conversation, we map where you are today and where you want to be.",
+      "Complete our secure new client intake form — it takes about 7 minutes and helps us understand where you are and what you're looking for.",
   },
   {
-    icon: PenLine,
+    icon: MessageSquare,
     number: "02",
-    title: "Design",
+    title: "Review",
     description:
-      "We co-create a tailored approach — never a template — grounded in evidence and shaped around your context.",
+      "Our team reviews your information, then sends you a text and an invite to our secure messaging app, Spruce Health.",
   },
   {
-    icon: Sparkles,
+    icon: Mail,
     number: "03",
-    title: "Deliver",
+    title: "Setup",
     description:
-      "We bring the work to life through coaching, facilitation, and programmes that build real, durable capability.",
+      "You'll receive an email from TherapyPortal on behalf of The Sage Institute — and, depending on billing status, possibly from Headway.co.",
   },
   {
-    icon: LineChart,
+    icon: Video,
     number: "04",
-    title: "Debrief",
+    title: "First Visit",
     description:
-      "We measure what changed, capture the learning, and ensure the impact outlasts our engagement.",
+      "Meet your clinician virtually. We see clients by telehealth when they are in North Carolina at the time of the visit.",
   },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-forest">
-        <div className="container py-24 md:py-28">
-          <nav className="text-sm" aria-label="Breadcrumb">
-            <Link href="/" className="text-cream/60 transition-colors hover:text-gold">
-              Home
-            </Link>
-            <ChevronRight className="mx-1 inline h-4 w-4 text-cream/40" aria-hidden="true" />
-            <span className="text-cream">Services</span>
-          </nav>
-          <h1 className="mt-4 font-serif text-4xl font-semibold text-cream md:text-5xl">
-            Our Services
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-cream/80">
-            Support for your mental, physical, and spiritual health — from
-            medication management and therapy to holistic psychiatry, groups,
-            and mind-body practice.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        crumb="Services"
+        title="Our Services"
+        intro="Support for your mental, physical, and spiritual health — from medication management and therapy to holistic psychiatry, groups, and mind-body practice."
+      />
 
       <section className="py-24 md:py-32">
         <div className="container">
@@ -161,7 +147,7 @@ export default function ServicesPage() {
                       href="/contact"
                       className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-forest transition-all hover:gap-2.5"
                     >
-                      Enquire
+                      Learn More
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>
@@ -175,12 +161,12 @@ export default function ServicesPage() {
       <section className="bg-cream-dark/40 py-24 md:py-32">
         <div className="container">
           <AnimatedSection className="max-w-2xl">
-            <Eyebrow>How we work</Eyebrow>
+            <Eyebrow>Getting started</Eyebrow>
             <h2 className="mt-4 text-balance font-serif text-3xl font-semibold tracking-tight text-forest md:text-4xl">
-              A simple, rigorous process
+              From intake to first visit
             </h2>
             <p className="mt-4 text-gray-600">
-              Every engagement follows the same disciplined arc — adapted entirely to your context.
+              Becoming a client is simple — here is what to expect.
             </p>
           </AnimatedSection>
 
@@ -193,17 +179,20 @@ export default function ServicesPage() {
               const Icon = step.icon;
               const isLast = index === processSteps.length - 1;
               return (
-                <StaggerItem key={step.number} className="relative pl-16 md:pl-0">
+                <StaggerItem
+                  key={step.number}
+                  className="relative pl-16 md:flex md:h-full md:flex-col md:pl-0"
+                >
                   {!isLast && (
                     <div
                       className="absolute left-7 top-7 bottom-[-3.75rem] w-px -translate-x-1/2 bg-stone-200/60 md:hidden"
                       aria-hidden="true"
                     />
                   )}
-                  <div className="absolute left-0 top-0 flex h-14 w-14 items-center justify-center rounded-full border border-stone-200/60 bg-forest font-serif text-lg text-cream md:relative md:mb-6">
+                  <div className="absolute left-0 top-0 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-stone-200/60 bg-forest font-serif text-lg text-cream md:relative md:mb-6">
                     {step.number}
                   </div>
-                  <div className="rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm">
+                  <div className="rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm md:flex-1">
                     <div className="flex items-center gap-3">
                       <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden="true" />
                       <h3 className="font-serif text-lg text-forest">{step.title}</h3>

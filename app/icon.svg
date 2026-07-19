@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-107 -10 614 614">
+  <!-- The Sage Institute — flower-only mark, based on original logo -->
+  <!-- Transparent background -->
+
+  <g stroke="#1A1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Main stem -->
+    <path d="M210 560 C204 500 198 440 196 380 C194 320 194 260 200 200 C203 170 208 140 216 112" fill="none"/>
+
+    <!-- Lower left large leaf -->
+    <path d="M200 470 C160 468 122 452 100 420 C96 414 94 408 96 404 C130 398 168 412 192 440 C198 448 201 458 200 470 Z" fill="#5FAF3C"/>
+    <path d="M196 462 C168 442 138 424 106 412" fill="none" stroke-width="2.5"/>
+
+    <!-- Lower right leaf -->
+    <path d="M202 440 C240 434 274 414 290 382 C293 376 294 370 292 366 C260 364 226 382 208 412 C203 421 201 430 202 440 Z" fill="#6DBE4B"/>
+    <path d="M206 432 C232 414 258 396 284 374" fill="none" stroke-width="2.5"/>
+
+    <!-- Mid left leaf -->
+    <path d="M197 380 C162 376 132 358 118 328 C116 322 115 317 117 313 C146 310 176 328 190 356 C195 364 197 372 197 380 Z" fill="#6DBE4B"/>
+    <path d="M193 372 C170 352 148 336 124 320" fill="none" stroke-width="2.5"/>
+
+    <!-- Mid right small leaf -->
+    <path d="M198 330 C226 324 248 306 256 280 C257 275 257 271 255 268 C231 268 208 284 200 308 C197 316 197 323 198 330 Z" fill="#5FAF3C"/>
+    <path d="M202 322 C220 306 236 290 250 274" fill="none" stroke-width="2.5"/>
+
+    <!-- Upper left small leaf -->
+    <path d="M198 268 C174 262 156 246 150 224 C149 220 149 216 151 214 C172 214 190 228 196 248 C198 255 199 262 198 268 Z" fill="#6DBE4B"/>
+    <path d="M195 260 C180 246 168 234 156 222" fill="none" stroke-width="2.5"/>
+
+    <!-- Upper right tiny leaf -->
+    <path d="M202 232 C220 226 233 213 237 196 C238 192 237 189 235 187 C219 189 205 200 201 216 C200 222 200 227 202 232 Z" fill="#5FAF3C"/>
+  </g>
+
+  <!-- Flower spike: tubular sage blossoms -->
+  <g stroke="#2A1A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- lowest pair -->
+    <path d="M214 118 C200 114 188 104 184 92 C192 88 204 92 212 100 C217 106 218 112 214 118 Z" fill="#6A4FB6"/>
+    <path d="M218 112 C232 108 242 98 244 86 C236 82 226 86 220 94 C216 100 215 106 218 112 Z" fill="#7B5FC7"/>
+    <!-- second pair -->
+    <path d="M220 92 C208 88 198 78 196 68 C204 64 214 68 220 76 C224 82 224 88 220 92 Z" fill="#7B5FC7"/>
+    <path d="M224 86 C236 82 244 72 245 62 C237 59 228 63 223 71 C220 77 220 82 224 86 Z" fill="#6A4FB6"/>
+    <!-- third pair -->
+    <path d="M226 66 C216 62 208 54 206 44 C213 41 222 45 227 52 C230 58 230 63 226 66 Z" fill="#8A6FD0"/>
+    <path d="M230 60 C240 56 246 48 247 39 C240 36 232 40 228 47 C226 52 227 57 230 60 Z" fill="#7B5FC7"/>
+    <!-- top buds -->
+    <path d="M232 42 C226 38 222 32 221 25 C227 23 233 26 236 32 C238 36 236 40 232 42 Z" fill="#8A6FD0"/>
+    <path d="M236 30 C236 24 239 18 244 15 C248 19 248 25 244 30 C241 33 238 33 236 30 Z" fill="#9B82DB"/>
+    <ellipse cx="240" cy="12" rx="5" ry="6" fill="#8A6FD0"/>
+  </g>
+
+  <!-- Flower stem connecting blossoms -->
+  <path d="M216 112 C222 88 228 62 236 34" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"/>
+</svg>

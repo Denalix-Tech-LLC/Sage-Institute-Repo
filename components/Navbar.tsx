@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { Sprout } from "lucide-react";
 
 import { navLinks } from "@/lib/site";
 import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/LogoMark";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -27,9 +27,9 @@ export function Navbar() {
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5" aria-label="The Sage Institute home">
-          <Sprout className="h-6 w-6 text-gold" />
+          <LogoMark className="h-12 w-8" />
           <span className="flex flex-col leading-none">
-            <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-gold">
+            <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">
               The
             </span>
             <span className="font-serif text-xl font-semibold text-forest">

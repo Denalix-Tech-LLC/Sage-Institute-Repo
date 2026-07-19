@@ -2,21 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ShieldCheck,
-  Award,
-  Lightbulb,
-  Target,
   ChevronRight,
   Sparkles,
-  Brain,
+  Stethoscope,
   HeartHandshake,
   Pill,
   Check,
+  Users,
+  ShieldCheck,
+  CreditCard,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 import { Eyebrow } from "@/components/Eyebrow";
 import { FounderPhoto } from "@/components/FounderPhoto";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
+import { PageHeader } from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,31 +25,37 @@ export const metadata: Metadata = {
     "Meet Laurie L. Arena, MSW, PMHNP — founder of The Sage Institute — and learn about her holistic, evidence-based, and trauma-informed approach to psychiatric care.",
 };
 
-const values = [
-  {
-    icon: ShieldCheck,
-    title: "Integrity",
-    description: "We tell the truth with care, and we do what we say we will.",
-  },
-  {
-    icon: Award,
-    title: "Excellence",
-    description:
-      "We hold our work to the standard of the best research and the finest craft.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Curiosity",
-    description:
-      "We stay students of human behavior, always asking what else might be true.",
-  },
-  {
-    icon: Target,
-    title: "Impact",
-    description:
-      "We measure success by the lasting healing and growth we help create.",
-  },
+const SELF_PAY_RATES = [
+  "$280 — intake (60–90 minutes)",
+  "$140 — standard follow-up (20–30 minutes)",
+  "$200 — extended follow-up (50–60 minutes)",
 ];
+
+const CARRIERS = [
+  "Cigna",
+  "United Healthcare",
+  "Aetna",
+  "Oxford",
+  "Meritain",
+  "Carelon",
+  "Oscar (commercial)",
+];
+
+const INSURANCES_WITH_BCBS = {
+  carriers: [...CARRIERS, "Most BCBS plans"],
+  notes: [
+    "BCBS excludes Blue Local, UNC Health Alliance, and other local / closed-network plans.",
+    "Not in-network with Medicaid or Medicare plans.",
+  ],
+};
+
+const INSURANCES_WITHOUT_BCBS = {
+  carriers: CARRIERS,
+  notes: [
+    "Not in-network with BCBS.",
+    "Not in-network with Medicaid or Medicare plans.",
+  ],
+};
 
 const philosophyAreas = [
   {
@@ -64,7 +71,7 @@ const philosophyAreas = [
     ],
   },
   {
-    icon: Brain,
+    icon: Stethoscope,
     title: "Conditions I work with",
     items: [
       "Anxiety & Depression",
@@ -88,6 +95,12 @@ const philosophyAreas = [
   },
 ];
 
+const lauriePractical = {
+  ages: "Adults, age 18 and up",
+  insurance: INSURANCES_WITH_BCBS,
+  selfPay: SELF_PAY_RATES,
+};
+
 const influences = [
   "Existential Psychotherapy (Irvin Yalom)",
   "DBT — Dialectical Behavior Therapy (Marsha Linehan)",
@@ -101,14 +114,6 @@ const influences = [
   "Motivational Interviewing",
   "Psychodynamic",
   "Person-Centered",
-];
-
-const credentials = [
-  "Boston College",
-  "Boston University",
-  "Cambridge Health Alliance",
-  "Queens University of Charlotte",
-  "Seaside Yoga · RYT-200",
 ];
 
 const team = [
@@ -126,6 +131,40 @@ const team = [
       "Mental health is like the tide of the ocean — as the tide comes in and the waves crash against the sand, it can be difficult to find the seashells. This is comparable to what we can experience during times of anxiety, turmoil, stress, and change. It is my job to help you calm the sea, cultivate peace of mind, and find your shell.",
       "I believe safety is first, then discovery, and eventually moving on to recovery. Taking a holistic approach and prioritizing your mental health is imperative for your wellbeing.",
     ],
+    sections: [
+      {
+        icon: Sparkles,
+        title: "Areas of focus",
+        items: [
+          "Psychiatric medication management",
+          "Supportive therapy integrated with visits",
+          "Holistic, whole-person care — mind, body, and soul",
+          "Optimizing your medication plan",
+        ],
+      },
+      {
+        icon: Stethoscope,
+        title: "Conditions I work with",
+        // TODO: confirm — Jade's conditions list not yet provided
+        items: [
+          "Visits are tailored toward your needs and goals — reach out about what you're navigating",
+        ],
+      },
+      {
+        icon: HeartHandshake,
+        title: "How I work",
+        items: [
+          "Patience and open-mindedness — meeting you where you are",
+          "A safe place, without stigma or judgement",
+          "Safety first, then discovery, then recovery",
+        ],
+      },
+    ],
+    practical: {
+      ages: "Ages 16 and up",
+      insurance: INSURANCES_WITH_BCBS,
+      selfPay: SELF_PAY_RATES,
+    },
   },
   {
     name: "Amy Main, PMHNP, FNP",
@@ -139,10 +178,45 @@ const team = [
     quotes: [
       "My goal is to provide a welcoming, comfortable experience, where you will feel seen and heard.",
     ],
+    sections: [
+      {
+        icon: Sparkles,
+        title: "Areas of focus",
+        items: [
+          "Medication management (primary focus)",
+          "Lifestyle modifications that support mental health",
+        ],
+      },
+      {
+        icon: Stethoscope,
+        title: "Conditions I work with",
+        items: [
+          "Depression & anxiety disorders",
+          "Bipolar disorder",
+          "Psychotic disorders",
+          "Substance use disorders",
+          "Adolescents and adults",
+        ],
+      },
+      {
+        icon: HeartHandshake,
+        title: "How I work",
+        items: [
+          "No guilt or judgement about mental-health struggles",
+          "Listening to your concerns and working with you through the journey",
+          "A welcoming, comfortable experience where you feel seen and heard",
+        ],
+      },
+    ],
+    practical: {
+      ages: "Ages 16 and up",
+      insurance: INSURANCES_WITHOUT_BCBS,
+      selfPay: SELF_PAY_RATES,
+    },
   },
   {
-    name: "Lindsey Rebollar",
-    title: "Psychiatric Provider · Registered Nurse",
+    name: "Lindsey Rebollar, PMHNP",
+    title: "Psychiatric Nurse Practitioner",
     image: "/lindsey-rebollar.png",
     initials: "LR",
     bio: [
@@ -150,34 +224,151 @@ const team = [
       "As a psychiatric provider and nurse with 13 years of experience in emergency medicine and the operating room, I have cared for people during some of their most vulnerable moments. Those experiences taught me the value of compassion, connection, and truly listening to each person’s story. When you work with me, you’ll find someone who combines years of nursing experience with a trauma-informed, compassionate approach to mental health care — because I understand that healing isn’t linear.",
     ],
     quotes: ["My philosophy is simple: nobody walks alone."],
+    sections: [
+      {
+        icon: Sparkles,
+        title: "Areas of focus",
+        items: [
+          "Trauma-informed psychiatric care",
+          "13 years of nursing experience in emergency medicine and the operating room",
+          "Compassionate, connection-centered care",
+        ],
+      },
+      {
+        icon: Stethoscope,
+        title: "Conditions I work with",
+        items: [
+          "Anxiety",
+          "Depression",
+          "Trauma",
+          "Burnout",
+          "Relationship challenges",
+          "Major life transitions",
+        ],
+      },
+      {
+        icon: HeartHandshake,
+        title: "How I work",
+        items: [
+          "Nobody walks alone — I'll walk alongside you",
+          "Truly listening to each person's story",
+          "Understanding that healing isn't linear",
+        ],
+      },
+    ],
+    practical: {
+      ages: "Ages 16 and up",
+      insurance: INSURANCES_WITH_BCBS,
+      selfPay: SELF_PAY_RATES,
+    },
   },
 ];
+
+function DetailCard({
+  icon: Icon,
+  title,
+  items,
+}: {
+  icon: LucideIcon;
+  title: string;
+  items: readonly string[];
+}) {
+  return (
+    <div className="h-full rounded-2xl border border-stone-200/60 bg-white p-7 shadow-sm transition-transform duration-300 hover:-translate-y-1">
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
+        <Icon className="h-5 w-5 text-forest" aria-hidden="true" />
+      </div>
+      <h3 className="mt-4 font-serif text-lg text-forest">{title}</h3>
+      <ul className="mt-4 space-y-2.5">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
+          >
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function PracticalPanel({
+  ages,
+  insurance,
+  selfPay,
+}: {
+  ages: string;
+  insurance: { carriers: readonly string[]; notes: readonly string[] };
+  selfPay: readonly string[];
+}) {
+  return (
+    <div className="grid divide-y divide-stone-200/60 rounded-2xl border border-stone-200/60 bg-white shadow-sm md:grid-cols-3 md:divide-x md:divide-y-0">
+      <div className="p-7">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
+          <Users className="h-5 w-5 text-forest" aria-hidden="true" />
+        </div>
+        <h3 className="mt-4 font-serif text-lg text-forest">Ages I Treat</h3>
+        <p className="mt-3 text-sm leading-relaxed text-gray-600">{ages}</p>
+      </div>
+
+      <div className="p-7">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
+          <CreditCard className="h-5 w-5 text-forest" aria-hidden="true" />
+        </div>
+        <h3 className="mt-4 font-serif text-lg text-forest">Self-Pay Rates</h3>
+        <ul className="mt-3 space-y-2.5">
+          {selfPay.map((rate) => (
+            <li
+              key={rate}
+              className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
+            >
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <span>{rate}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="p-7">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
+          <ShieldCheck className="h-5 w-5 text-forest" aria-hidden="true" />
+        </div>
+        <h3 className="mt-4 font-serif text-lg text-forest">
+          Insurances I accept
+        </h3>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {insurance.carriers.map((carrier) => (
+            <span
+              key={carrier}
+              className="rounded-full border border-stone-200/60 bg-cream px-3 py-1 text-xs text-gray-700"
+            >
+              {carrier}
+            </span>
+          ))}
+        </div>
+        <ul className="mt-4 space-y-1.5">
+          {insurance.notes.map((note) => (
+            <li key={note} className="text-xs leading-relaxed text-gray-500">
+              {note}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
     <>
       {/* Page header band */}
-      <section className="bg-forest">
-        <div className="container py-24 md:py-28">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-sm text-cream/70"
-          >
-            <Link href="/" className="transition-colors hover:text-cream">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4 text-cream/50" aria-hidden="true" />
-            <span className="text-cream">About</span>
-          </nav>
-          <h1 className="mt-4 font-serif text-4xl text-cream md:text-5xl">
-            About The Sage Institute
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-cream/80">
-            A boutique psychiatric practice bringing scientific rigor and genuine
-            humanity to mental health, healing, and the whole person.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        crumb="About"
+        title="About The Sage Institute"
+        intro="A psychiatric practice bringing scientific rigor and genuine humanity to mental health, healing, and the whole person."
+      />
 
       {/* Mission */}
       <section className="py-24 md:py-32">
@@ -185,16 +376,13 @@ export default function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow>Our mission</Eyebrow>
-              <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-                We exist to help individuals discover their full potential through
-                evidence-based, human-centered approaches.
+              <h2 className="mt-4 font-serif text-2xl font-medium leading-snug tracking-tight text-forest text-balance md:text-3xl">
+                Our mission is to help people learn skills to support their
+                mental, physical, and spiritual health; to facilitate a
+                therapeutic space that allows for healing and inspiration; and
+                to promote resilience, vitality, health, and growth in
+                individuals and in our community.
               </h2>
-              <p className="mt-6 max-w-2xl leading-relaxed text-gray-600">
-                Everything we do — every conversation, session, and care plan — is in
-                service of that purpose. We combine the rigor of medicine and
-                behavioral science with a genuinely human approach, because lasting
-                healing is never purely technical.
-              </p>
             </div>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
               <Image
@@ -211,7 +399,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="bg-cream-dark/40 py-24 md:py-32">
+      <section id="founder" className="bg-cream-dark/40 py-24 md:py-32">
         <AnimatedSection className="container">
           <div className="max-w-2xl">
             <Eyebrow>Our founder</Eyebrow>
@@ -259,11 +447,14 @@ export default function AboutPage() {
                   Abuse Treatment, Addiction Services, Crisis Stabilization Unit,
                   Psychiatric Emergency Room, Assisted Living Facilities, and Middle
                   and High School school-based therapy programs. In addition to her
-                  work with A Path to Wellness, Laurie continues to work with an ACT
+                  work with The Sage Institute, Laurie continues to work with an ACT
                   (Assertive Community Treatment) Team, which entails working with
                   clients with severe and persistent mental illness (primarily
                   psychotic disorders) in the community and utilizes an
-                  interdisciplinary, person-centered, and empowerment model.
+                  interdisciplinary, person-centered, and empowerment model. Laurie
+                  is also currently pursuing a PhD in Nursing at Case Western
+                  Reserve University, with a focus on nutrition and mental
+                  health-related research.
                 </p>
                 <p>
                   Personally, Laurie is anchored by her family, yoga, meditation, a
@@ -306,28 +497,18 @@ export default function AboutPage() {
           <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
             {philosophyAreas.map((area) => (
               <StaggerItem key={area.title}>
-                <div className="h-full rounded-2xl border border-stone-200/60 bg-white p-7 shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
-                    <area.icon className="h-5 w-5 text-forest" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-4 font-serif text-lg text-forest">
-                    {area.title}
-                  </h3>
-                  <ul className="mt-4 space-y-2.5">
-                    {area.items.map((item) => (
-                      <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-gray-600">
-                        <Check
-                          className="mt-0.5 h-4 w-4 shrink-0 text-gold"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <DetailCard icon={area.icon} title={area.title} items={area.items} />
               </StaggerItem>
             ))}
           </StaggerGroup>
+
+          <AnimatedSection className="mt-6">
+            <PracticalPanel
+              ages={lauriePractical.ages}
+              insurance={lauriePractical.insurance}
+              selfPay={lauriePractical.selfPay}
+            />
+          </AnimatedSection>
 
           {/* Medication philosophy */}
           <AnimatedSection className="mt-14 grid gap-8 rounded-2xl border border-stone-200/60 bg-white p-8 shadow-sm lg:grid-cols-[auto_1fr] lg:gap-10 lg:p-10">
@@ -386,7 +567,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-6 max-w-2xl leading-relaxed text-gray-600">
               Alongside Laurie, our clinicians share a commitment to evidence-based,
-              compassionate, and deeply individualized mental health care.
+              compassionate, and individualized mental health care.
             </p>
           </div>
 
@@ -427,74 +608,32 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
+
+                <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
+                  {member.sections.map((section) => (
+                    <StaggerItem key={section.title}>
+                      <DetailCard
+                        icon={section.icon}
+                        title={section.title}
+                        items={section.items}
+                      />
+                    </StaggerItem>
+                  ))}
+                </StaggerGroup>
+
+                <div className="mt-6">
+                  <PracticalPanel
+                    ages={member.practical.ages}
+                    insurance={member.practical.insurance}
+                    selfPay={member.practical.selfPay}
+                  />
+                </div>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-24 md:py-32">
-        <div className="container">
-          <div className="max-w-2xl">
-            <Eyebrow>What we value</Eyebrow>
-            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-              The principles behind our work
-            </h2>
-          </div>
-          <StaggerGroup className="mt-14 grid grid-cols-2 gap-5 lg:grid-cols-3">
-            {/* Feature cell */}
-            <StaggerItem className="col-span-2 lg:col-span-2">
-              <div className="flex h-full flex-col justify-center rounded-2xl bg-forest p-8 text-cream">
-                <span className="h-px w-12 bg-gold" aria-hidden="true" />
-                <p className="mt-6 font-serif text-2xl leading-snug">
-                  Principles we will not compromise on.
-                </p>
-                <p className="mt-4 text-cream/80">
-                  Four commitments that guide every conversation, session, and care
-                  plan at The Sage Institute.
-                </p>
-              </div>
-            </StaggerItem>
-
-            {/* Value cells */}
-            {values.map((value) => (
-              <StaggerItem key={value.title}>
-                <div className="h-full rounded-2xl border border-stone-200/60 bg-white p-6 transition-transform duration-300 hover:-translate-y-1">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
-                    <value.icon className="h-5 w-5 text-forest" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-4 font-serif text-lg text-forest">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                    {value.description}
-                  </p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* Credentials & training */}
-      <section className="border-t border-stone-200/60 py-16">
-        <div className="container">
-          <h2 className="text-center text-sm font-semibold uppercase tracking-widest text-gray-500">
-            Credentials & training
-          </h2>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
-            {credentials.map((label) => (
-              <div
-                key={label}
-                className="flex h-16 w-48 items-center justify-center rounded-lg border border-stone-200/60 bg-ink/[0.03] px-4 text-center text-sm font-medium text-gray-500"
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -18,36 +18,61 @@ const inter = Inter({
   display: "swap",
 });
 
+const defaultTitle = `${siteConfig.name} — Psychiatric Care & Therapy in North Carolina`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Evidence-Based Coaching & Organizational Development`,
+    default: defaultTitle,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "executive coaching",
-    "leadership training",
-    "organizational development",
-    "team development",
-    "mindfulness programs",
-    "keynote speaking",
-    "coaching institute",
+    "psychiatric care",
+    "medication management",
+    "psychotherapy",
+    "telehealth psychiatry",
+    "North Carolina",
+    "psychiatric nurse practitioner",
+    "PMHNP",
+    "holistic psychiatry",
+    "mental health",
   ],
   authors: [{ name: siteConfig.name }],
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: defaultTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: defaultTitle,
     description: siteConfig.description,
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  // E.164-style format per Google structured-data guidance; the
+  // human-readable form in siteConfig is used everywhere else on the site.
+  telephone: `+1-${siteConfig.contact.phone}`,
+  description: siteConfig.description,
+  medicalSpecialty: "Psychiatry",
+  areaServed: { "@type": "State", name: "North Carolina" },
+  availableService: [
+    { "@type": "MedicalTherapy", name: "Medication Management" },
+    { "@type": "MedicalTherapy", name: "Psychotherapy" },
+    { "@type": "MedicalTherapy", name: "Holistic Psychiatry" },
+  ],
 };
 
 export default function RootLayout({
@@ -58,6 +83,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-cream font-sans text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Navbar />
         <main className="flex min-h-screen flex-col">{children}</main>
         <Footer />

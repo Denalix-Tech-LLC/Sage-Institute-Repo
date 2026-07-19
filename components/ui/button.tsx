@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-forest text-cream shadow-sm hover:bg-forest-dark",
-        gold: "bg-gold text-forest-dark shadow-sm hover:bg-gold-dark hover:text-cream",
+        gold: "bg-gold text-ink shadow-sm hover:bg-gold-dark hover:text-cream",
         outline:
           "border border-forest/30 bg-transparent text-forest hover:bg-forest hover:text-cream",
         outlineLight:

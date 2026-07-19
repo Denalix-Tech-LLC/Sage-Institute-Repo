@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ClipboardList } from "lucide-react";
+import { ArrowRight, ClipboardList, LogIn } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -78,10 +79,24 @@ export function HeroSection() {
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <Button asChild variant="gold" size="lg">
-              <Link href="/contact">
+              <a
+                href={siteConfig.screeningFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ClipboardList className="h-4 w-4" />
                 Client Screening
-              </Link>
+              </a>
+            </Button>
+            <Button asChild variant="outlineLight" size="lg">
+              <a
+                href={siteConfig.clientPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LogIn className="h-4 w-4" />
+                Established Client Portal
+              </a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
               <Link href="/services">
