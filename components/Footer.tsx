@@ -129,7 +129,7 @@ export function Footer() {
                 <Fragment key={word}>
                   {index > 0 ? ", " : ""}
                   {index === 1 ? (
-                    <span className="italic text-gold-light">{word}</span>
+                    <span className="text-gold-light">{word}</span>
                   ) : (
                     word
                   )}

@@ -38,7 +38,7 @@ const styles = {
     padding: "0.75rem 2rem",
     borderRadius: "9999px",
     border: "none",
-    backgroundColor: "#A092BE", // gold token (muted lavender)
+    backgroundColor: "#D6D3D1", // neutral grey (matches the site's grey CTA buttons)
     color: "#1C1917", // ink
     fontSize: "1rem",
     fontWeight: 500,

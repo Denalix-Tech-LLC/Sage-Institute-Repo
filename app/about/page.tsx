@@ -386,8 +386,8 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
               <Image
-                src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1200&q=80"
-                alt="Sunlight through a forest, symbolising growth and healing"
+                src="/home-hero.jpg"
+                alt="A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"

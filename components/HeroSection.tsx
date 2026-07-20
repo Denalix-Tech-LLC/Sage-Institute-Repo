@@ -85,7 +85,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
               >
                 <ClipboardList className="h-4 w-4" />
-                Client Screening
+                New Client Screening
               </a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">

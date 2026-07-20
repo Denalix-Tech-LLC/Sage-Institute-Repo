@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Pill, Coffee, Leaf, ArrowRight } from "lucide-react";
+import {
+  Pill,
+  Coffee,
+  Leaf,
+  ArrowRight,
+  ShieldCheck,
+  ExternalLink,
+  Phone,
+} from "lucide-react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -63,8 +71,7 @@ export default function Home() {
             <div className="col-span-2 flex flex-col justify-center rounded-2xl bg-forest p-8 text-cream md:row-span-2">
               <span className="block h-px w-12 bg-gold" />
               <p className="mt-6 font-serif text-2xl leading-snug">
-                Health is a holistic experience — learn, heal, and grow with
-                us.
+                Health is a holistic experience. We are here to guide you.
               </p>
             </div>
 
@@ -179,6 +186,106 @@ export default function Home() {
               <Link href="/about#founder">Meet the team</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* No Surprises Act / Good Faith Estimate */}
+      <section className="bg-cream-dark/40 py-24 md:py-32">
+        <div className="container">
+          <AnimatedSection>
+            <Eyebrow>Your rights</Eyebrow>
+            <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
+              No Surprises Act/Good Faith Estimate
+            </h2>
+            <p className="mt-6 font-serif text-xl leading-relaxed text-forest text-pretty md:text-2xl">
+              You have the right to receive a &ldquo;Good Faith Estimate&rdquo;
+              explaining how much your medical and mental health care will
+              cost.
+            </p>
+          </AnimatedSection>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+            {/* The law, framed */}
+            <AnimatedSection>
+              <div className="rounded-2xl border border-stone-200/60 bg-white p-8 shadow-sm md:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest/5">
+                  <ShieldCheck className="h-6 w-6 text-forest" aria-hidden="true" />
+                </div>
+                <div className="mt-6 space-y-5 leading-relaxed text-gray-600">
+                  <p>
+                    Under Section 2799B-6 of the Public Health Service Act,
+                    health care providers and health care facilities are
+                    required to inform individuals who are not enrolled in a
+                    plan or coverage or a Federal health care program, or not
+                    seeking to file a claim with their plan or coverage both
+                    orally and in writing of their ability, upon request or at
+                    the time of scheduling health care items and services, to
+                    receive a &ldquo;Good Faith Estimate&rdquo; of expected
+                    charges.
+                  </p>
+                  <p>
+                    Under the law, health care providers need to give clients
+                    who don&rsquo;t have insurance or who are not using
+                    insurance an estimate of the expected charges for medical
+                    services, including psychotherapy services.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Your rights, numbered */}
+            <StaggerGroup className="grid gap-4">
+              {[
+                "You have the right to receive a Good Faith Estimate for the total expected cost of any non-emergency items or services.",
+                "You can ask your health care provider, and any other provider you choose, for a Good Faith Estimate before you schedule a service.",
+                "If you receive a bill that is at least $400 more than your Good Faith Estimate, you can dispute the bill.",
+                "Make sure to save a copy or picture of your Good Faith Estimate.",
+              ].map((item, index) => (
+                <StaggerItem key={item}>
+                  <div className="flex items-start gap-4 rounded-2xl border border-stone-200/60 bg-white p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 md:p-6">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest font-serif text-sm text-cream">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <p className="text-sm leading-relaxed text-gray-600">
+                      {item}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+
+          {/* Questions panel */}
+          <AnimatedSection className="mt-6">
+            <div className="rounded-2xl bg-forest px-8 py-12 text-center md:px-12 md:py-16">
+              <span
+                className="mx-auto block h-px w-12 bg-gold"
+                aria-hidden="true"
+              />
+              <p className="mx-auto mt-8 max-w-4xl font-serif text-xl leading-loose text-cream md:text-2xl">
+                For questions or more information about your right to a Good
+                Faith Estimate, visit{" "}
+                <a
+                  href="https://www.cms.gov/nosurprises"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 whitespace-nowrap rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
+                >
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  www.cms.gov/nosurprises
+                </a>{" "}
+                or call{" "}
+                <a
+                  href="tel:8003681019"
+                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 whitespace-nowrap rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  (800) 368-1019
+                </a>
+                .
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
