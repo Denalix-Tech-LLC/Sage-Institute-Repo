@@ -10,8 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-forest text-cream shadow-sm hover:bg-forest-dark",
-        // Primary CTA is neutral grey by client request (was lavender).
-        gold: "bg-stone-300 text-ink shadow-sm hover:bg-stone-400",
+        // Primary CTA is cream (#F1ECEC) by client request. The subtle border
+        // keeps the button visible on same-colored cream/white sections.
+        gold: "border border-stone-300/60 bg-cream text-ink shadow-sm hover:bg-stone-200",
         outline:
           "border border-forest/30 bg-transparent text-forest hover:bg-forest hover:text-cream",
         outlineLight:

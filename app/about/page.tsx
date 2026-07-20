@@ -445,16 +445,16 @@ export default function AboutPage() {
                   Laurie has worked in various mental health settings including
                   Inpatient Psychiatric Units, Outpatient Treatment, Detox/Substance
                   Abuse Treatment, Addiction Services, Crisis Stabilization Unit,
-                  Psychiatric Emergency Room, Assisted Living Facilities, and Middle
-                  and High School school-based therapy programs. In addition to her
-                  work with The Sage Institute, Laurie continues to work with an ACT
+                  Psychiatric Emergency Room, Assisted Living Facilities, Middle and
+                  High School school-based therapy program, and with an ACT
                   (Assertive Community Treatment) Team, which entails working with
                   clients with severe and persistent mental illness (primarily
                   psychotic disorders) in the community and utilizes an
-                  interdisciplinary, person-centered, and empowerment model. Laurie
-                  is also currently pursuing a PhD in Nursing at Case Western
-                  Reserve University, with a focus on nutrition and mental
-                  health-related research.
+                  interdisciplinary, person-centered, and empowerment model. In
+                  addition to her work with The Sage Institute, Laurie is also
+                  currently pursuing a PhD in Nursing at Case Western Reserve
+                  University, with a focus on nutrition and mental health-related
+                  research.
                 </p>
                 <p>
                   Personally, Laurie is anchored by her family, yoga, meditation, a

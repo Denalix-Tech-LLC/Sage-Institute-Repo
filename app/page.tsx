@@ -71,7 +71,8 @@ export default function Home() {
             <div className="col-span-2 flex flex-col justify-center rounded-2xl bg-forest p-8 text-cream md:row-span-2">
               <span className="block h-px w-12 bg-gold" />
               <p className="mt-6 font-serif text-2xl leading-snug">
-                Health is a holistic experience. We are here to guide you.
+                Health is a holistic experience. We are here to collaborate
+                with you.
               </p>
             </div>
 

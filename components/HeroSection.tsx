@@ -98,7 +98,7 @@ export function HeroSection() {
                 Established Client Portal
               </a>
             </Button>
-            <Button asChild variant="outlineLight" size="lg">
+            <Button asChild variant="gold" size="lg">
               <Link href="/services">
                 Explore Services <ArrowRight className="h-4 w-4" />
               </Link>

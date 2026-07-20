@@ -37,8 +37,8 @@ const styles = {
     display: "inline-block",
     padding: "0.75rem 2rem",
     borderRadius: "9999px",
-    border: "none",
-    backgroundColor: "#D6D3D1", // neutral grey (matches the site's grey CTA buttons)
+    border: "1px solid #D6D3D1",
+    backgroundColor: "#F1ECEC", // cream (matches the site's CTA buttons)
     color: "#1C1917", // ink
     fontSize: "1rem",
     fontWeight: 500,
