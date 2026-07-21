@@ -270,7 +270,7 @@ export default function Home() {
                   href="https://www.cms.gov/nosurprises"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 whitespace-nowrap rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
+                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 max-w-full break-all rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
                 >
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   www.cms.gov/nosurprises
@@ -278,7 +278,7 @@ export default function Home() {
                 or call{" "}
                 <a
                   href="tel:8003681019"
-                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 whitespace-nowrap rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
+                  className="mx-1 inline-flex translate-y-[-2px] items-center gap-2 max-w-full break-all rounded-full border border-gold/40 bg-cream/10 px-4 py-1 align-middle text-lg text-gold-light transition-colors hover:border-gold hover:bg-cream/20 hover:text-cream md:text-xl"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   (800) 368-1019

@@ -19,9 +19,15 @@ const inter = Inter({
 });
 
 const defaultTitle = `${siteConfig.name} — Psychiatric Care & Therapy in North Carolina`;
+// Title shown on social share cards (Facebook/LinkedIn og:title, Twitter card).
+const shareTitle = "The Sage Institute — Mental Health and Wellness";
+
+// Absolute base for canonical + Open Graph URLs. Defaults to the production
+// domain; set NEXT_PUBLIC_SITE_URL to preview OG cards on a tunnel/staging host.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(siteUrl),
   title: {
     default: defaultTitle,
     template: `%s | ${siteConfig.name}`,
@@ -45,14 +51,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
-    title: defaultTitle,
+    url: siteUrl,
+    title: shareTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: defaultTitle,
+    title: shareTitle,
     description: siteConfig.description,
   },
 };
@@ -61,7 +67,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   name: siteConfig.name,
-  url: siteConfig.url,
+  url: siteUrl,
   // E.164-style format per Google structured-data guidance; the
   // human-readable form in siteConfig is used everywhere else on the site.
   telephone: `+1-${siteConfig.contact.phone}`,

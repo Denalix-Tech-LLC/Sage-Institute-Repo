@@ -10,6 +10,10 @@ export const siteConfig = {
   screeningFormUrl:
     "https://forms.office.com/Pages/ResponsePage.aspx?id=W5H1hw18gEixhjajJI8x-j-CWXtpGlpDtQ5LPzDBA89UNFFUODFFUlpFSU1JNVBMT0wwS0Q5VVFMSi4u",
   clientPortalUrl: "https://www.therapyportal.com/p/thesageinstitute/",
+  social: {
+    facebook: "https://m.facebook.com/SageInstitute/",
+    instagram: "https://www.instagram.com/thesageinstitute/",
+  },
   contact: {
     email: "hello@sageinstitute.com", // TODO: confirm practice email address
     phone: "336-920-3487",

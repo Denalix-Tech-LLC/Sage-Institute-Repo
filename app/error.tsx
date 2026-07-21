@@ -6,10 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export default function Error({
-  error,
   reset,
 }: {
-  error: Error & { digest?: string };
   reset: () => void;
 }) {
   return (

@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks, siteConfig } from "@/lib/site";
-import { LogoMark } from "@/components/LogoMark";
-import { LinkedinIcon, XIcon, InstagramIcon } from "@/components/SocialIcons";
+import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
 
 function FooterHeading({ label }: { label: string }) {
   return (
@@ -46,80 +46,42 @@ export function Footer() {
         className="h-px w-full bg-gradient-to-r from-transparent via-gold-light/40 to-transparent"
       />
 
-      {/* Botanical grove: hand-drawn sage-branch etching rising from the bottom-left,
-          in the same line-art language as the inner-page headers. Fainter on
-          mobile where the stacked columns sit on top of it. */}
-      <svg
+      {/* The actual sage-plant logo as an oversized botanical watermark,
+          bleeding off the bottom-left corner. Very low opacity so it reads as
+          a texture behind the columns; fainter still on mobile where the
+          stacked content sits over it. */}
+      <div
         aria-hidden="true"
-        viewBox="0 0 440 560"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="pointer-events-none absolute -bottom-16 -left-14 h-[24rem] w-auto origin-bottom animate-sway text-cream opacity-[0.08] sm:h-[32rem] sm:opacity-[0.14]"
+        className="pointer-events-none absolute -left-16 bottom-0 top-0 flex items-stretch opacity-[0.06] sm:opacity-[0.12]"
       >
-        <defs>
-          <g id="footer-sage-leaf">
-            <path
-              vectorEffect="non-scaling-stroke"
-              d="M0 0C22 -15 60 -17 90 -2C60 13 22 15 0 0Z"
-            />
-            <path vectorEffect="non-scaling-stroke" d="M7 0C35 -4 62 -5 83 -2" />
-          </g>
-          <g id="footer-sage-whorl">
-            <circle vectorEffect="non-scaling-stroke" cx="0" cy="0" r="3" />
-            <circle vectorEffect="non-scaling-stroke" cx="0" cy="-11" r="4" />
-            <circle vectorEffect="non-scaling-stroke" cx="10" cy="-4" r="4" />
-            <circle vectorEffect="non-scaling-stroke" cx="-10" cy="-4" r="4" />
-            <circle vectorEffect="non-scaling-stroke" cx="7" cy="8" r="3.5" />
-            <circle vectorEffect="non-scaling-stroke" cx="-7" cy="8" r="3.5" />
-          </g>
-        </defs>
-
-        {/* main stem + side branch */}
-        <path d="M92 560C86 486 98 420 124 356C152 288 172 224 182 156C188 116 190 78 188 34" />
-        <path d="M138 330C190 318 240 316 288 326" />
-
-        {/* opposite lanceolate leaf pairs, tapering toward the tip */}
-        <use href="#footer-sage-leaf" transform="translate(94 530) rotate(-12) scale(1.05)" />
-        <use href="#footer-sage-leaf" transform="translate(94 530) rotate(-168) scale(1.05)" />
-        <use href="#footer-sage-leaf" transform="translate(100 470) rotate(-25)" />
-        <use href="#footer-sage-leaf" transform="translate(100 470) rotate(-155)" />
-        <use href="#footer-sage-leaf" transform="translate(116 396) rotate(-30) scale(0.95)" />
-        <use href="#footer-sage-leaf" transform="translate(116 396) rotate(-150) scale(0.95)" />
-        <use href="#footer-sage-leaf" transform="translate(138 330) rotate(-38) scale(0.85)" />
-        <use href="#footer-sage-leaf" transform="translate(138 330) rotate(-142) scale(0.85)" />
-        <use href="#footer-sage-leaf" transform="translate(160 264) rotate(-42) scale(0.72)" />
-        <use href="#footer-sage-leaf" transform="translate(160 264) rotate(-138) scale(0.72)" />
-        <use href="#footer-sage-leaf" transform="translate(174 204) rotate(-48) scale(0.58)" />
-        <use href="#footer-sage-leaf" transform="translate(174 204) rotate(-132) scale(0.58)" />
-
-        {/* side-branch leaves */}
-        <use href="#footer-sage-leaf" transform="translate(205 320) rotate(-55) scale(0.55)" />
-        <use href="#footer-sage-leaf" transform="translate(205 320) rotate(55) scale(0.55)" />
-        <use href="#footer-sage-leaf" transform="translate(250 317) rotate(-50) scale(0.45)" />
-        <use href="#footer-sage-leaf" transform="translate(250 317) rotate(50) scale(0.45)" />
-
-        {/* lavender flower whorls */}
-        <g className="text-gold-light">
-          <use href="#footer-sage-whorl" transform="translate(182 150)" />
-          <use href="#footer-sage-whorl" transform="translate(186 110) scale(0.85)" />
-          <use href="#footer-sage-whorl" transform="translate(188 72) scale(0.7)" />
-          <use href="#footer-sage-whorl" transform="translate(188 38) scale(0.55)" />
-          <use href="#footer-sage-whorl" transform="translate(288 326) scale(0.7)" />
-        </g>
-      </svg>
+        <Image
+          src="/logo.png"
+          alt=""
+          width={324}
+          height={798}
+          className="h-full w-auto"
+        />
+      </div>
+      {/* A mirrored plant on the bottom-right, filling the open space beside
+          the Contact/Connect columns. Flipped so it leans the opposite way. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 bottom-0 top-0 hidden items-stretch opacity-[0.07] lg:flex"
+      >
+        <Image
+          src="/logo.png"
+          alt=""
+          width={324}
+          height={798}
+          className="h-full w-auto -scale-x-100"
+        />
+      </div>
 
       <div className="container relative py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Brand statement */}
           <div className="md:col-span-2 lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-3">
-              {/* Cream tile keeps the mark's dark strokes visible on the teal footer */}
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-cream">
-                <LogoMark className="h-9 w-6" />
-              </span>
+            <Link href="/" className="inline-flex items-center">
               <span className="font-serif text-2xl text-cream">
                 The Sage Institute
               </span>
@@ -224,26 +186,21 @@ export function Footer() {
             <ul className="mt-6 flex gap-3">
               <li>
                 <a
-                  href="#"
-                  aria-label="LinkedIn"
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="The Sage Institute on Facebook"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 text-cream/80 transition-colors hover:border-gold-light/70 hover:bg-gold-light/10 hover:text-gold-light"
                 >
-                  <LinkedinIcon className="h-4 w-4" />
+                  <FacebookIcon className="h-4 w-4" />
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  aria-label="X (Twitter)"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 text-cream/80 transition-colors hover:border-gold-light/70 hover:bg-gold-light/10 hover:text-gold-light"
-                >
-                  <XIcon className="h-4 w-4" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  aria-label="Instagram"
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="The Sage Institute on Instagram"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 text-cream/80 transition-colors hover:border-gold-light/70 hover:bg-gold-light/10 hover:text-gold-light"
                 >
                   <InstagramIcon className="h-4 w-4" />

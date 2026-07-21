@@ -40,15 +40,15 @@ export function HeroSection() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-forest/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent" />
+      <div className="absolute inset-0 bg-forest/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/70 via-forest/20 to-forest-dark/40" />
 
       <div className="container relative z-10">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+          className="mx-auto flex max-w-4xl flex-col items-center text-center [text-shadow:0_2px_16px_rgba(18,28,37,0.6)]"
         >
           <motion.h1
             variants={item}

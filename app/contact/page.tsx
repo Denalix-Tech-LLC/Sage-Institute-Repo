@@ -37,7 +37,7 @@ export default function ContactPage() {
 
       <section className="py-24 md:py-32">
         <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 [&>*]:min-w-0">
             <AnimatedSection>
               <Eyebrow>Get in touch</Eyebrow>
 

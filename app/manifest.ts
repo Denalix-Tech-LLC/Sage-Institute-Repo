@@ -12,13 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#365B6B",
     icons: [
       {
-        // Flower-only brand mark; scales to any size.
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-      },
-      {
-        // Raster fallback for platforms without SVG manifest support.
+        // Sage-plant brand mark.
         src: "/icons/icon-192.png",
         sizes: "192x192",
         type: "image/png",

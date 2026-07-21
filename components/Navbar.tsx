@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5" aria-label="The Sage Institute home">
-          <LogoMark className="h-12 w-8" />
+          <LogoMark className="h-12 w-auto" priority />
           <span className="flex flex-col leading-none">
             <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">
               The
