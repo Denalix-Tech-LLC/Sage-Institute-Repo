@@ -5,12 +5,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { navLinks } from "@/lib/site";
+import type { LinkItem } from "@/types/content";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/LogoMark";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+interface NavbarProps {
+  nav: LinkItem[];
+  ctaLabel: string;
+  brandName: string;
+  logoSrc: string;
+}
+
+export function Navbar({ nav, ctaLabel, brandName, logoSrc }: NavbarProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -22,29 +29,32 @@ export function Navbar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href;
 
+  const [brandFirst, ...brandRest] = brandName.split(" ");
+  const brandRestJoined = brandRest.join(" ");
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200/50 bg-white/70 backdrop-blur-md">
       <div className="container flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5" aria-label="The Sage Institute home">
-          <LogoMark className="h-12 w-auto" priority />
+        <Link href="/" className="flex items-center gap-2.5" aria-label={`${brandName} home`}>
+          <LogoMark src={logoSrc} className="h-12 w-auto" priority />
           <span className="flex flex-col leading-none">
             <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">
-              The
+              {brandFirst}
             </span>
             <span className="font-serif text-xl font-semibold text-forest">
-              Sage Institute
+              {brandRestJoined}
             </span>
           </span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => {
+          {nav.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
-                key={link.href}
+                key={link.id}
                 href={link.href}
                 className={cn(
                   "relative py-1 text-sm transition-colors",
@@ -65,7 +75,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:inline-flex">
           <Button asChild variant="gold" size="sm">
-            <Link href="/contact">Get in touch</Link>
+            <Link href="/contact">{ctaLabel}</Link>
           </Button>
         </div>
 
@@ -110,11 +120,11 @@ export function Navbar() {
             className="overflow-hidden border-t border-stone-200/50 bg-white/90 backdrop-blur-md md:hidden"
           >
             <nav className="container flex flex-col py-4">
-              {navLinks.map((link) => {
+              {nav.map((link) => {
                 const active = isActive(link.href);
                 return (
                   <Link
-                    key={link.href}
+                    key={link.id}
                     href={link.href}
                     onClick={() => setOpen(false)}
                     className={cn(
@@ -135,7 +145,7 @@ export function Navbar() {
                 className="mt-4 w-full"
               >
                 <Link href="/contact" onClick={() => setOpen(false)}>
-                  Get in touch
+                  {ctaLabel}
                 </Link>
               </Button>
             </nav>

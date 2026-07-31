@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site";
+import { getContent } from "@/lib/content";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { site } = await getContent();
+  const baseUrl = site.url;
 
   return [
     {

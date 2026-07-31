@@ -9,13 +9,15 @@ import Image from "next/image";
 export function LogoMark({
   className,
   priority = false,
+  src = "/logo.png",
 }: {
   className?: string;
   priority?: boolean;
+  src?: string;
 }) {
   return (
     <Image
-      src="/logo.png"
+      src={src}
       alt=""
       width={324}
       height={798}

@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site";
+import { getContent } from "@/lib/content";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const { site } = await getContent();
   return {
     rules: {
       userAgent: "*",
       allow: "/",
       // Dormant, noindexed screening route; PHI intake lives off-site.
-      disallow: "/intake",
+      // The admin editor is also kept out of search results.
+      disallow: ["/intake", "/admin"],
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: `${site.url}/sitemap.xml`,
   };
 }

@@ -1,0 +1,12 @@
+# Treat binary assets as binary so line-ending normalization can't corrupt them
+# (important for images committed via the admin editor's GitHub fallback).
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.avif  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary

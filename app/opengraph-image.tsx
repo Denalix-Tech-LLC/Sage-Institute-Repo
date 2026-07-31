@@ -1,12 +1,19 @@
 import { ImageResponse } from "next/og";
 
-import { siteConfig } from "@/lib/site";
+// Edge runtime can't read the content file per request (no fs), so this card's
+// brand text is imported from the JSON at BUILD time — the one documented
+// exception to the per-request rule. It refreshes on the next deploy, which is
+// exactly when social scrapers re-fetch the card. See content/SCHEMA.md.
+import siteContent from "@/content/site-content.json";
+
+const siteName = siteContent.site.name;
+const siteTagline = siteContent.site.tagline;
 
 // Edge runtime is required here: @vercel/og's Node build fails to resolve
 // its bundled assets when the project path contains spaces (Windows dev).
 export const runtime = "edge";
 
-export const alt = `${siteConfig.name} — ${siteConfig.tagline}`;
+export const alt = `${siteName} — ${siteTagline}`;
 
 export const size = {
   width: 1200,
@@ -120,7 +127,7 @@ export default async function OpenGraphImage() {
               letterSpacing: "-0.01em",
             }}
           >
-            {siteConfig.name}
+            {siteName}
           </div>
           <div
             style={{
@@ -133,7 +140,7 @@ export default async function OpenGraphImage() {
               marginTop: 20,
             }}
           >
-            {siteConfig.tagline}
+            {siteTagline}
           </div>
         </div>
       </div>

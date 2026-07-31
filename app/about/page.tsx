@@ -1,266 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  Sparkles,
-  Stethoscope,
-  HeartHandshake,
-  Pill,
-  Check,
-  Users,
-  ShieldCheck,
-  CreditCard,
-} from "lucide-react";
+import { Check, Users, ShieldCheck, CreditCard } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import { Eyebrow } from "@/components/Eyebrow";
 import { FounderPhoto } from "@/components/FounderPhoto";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { PageHeader } from "@/components/PageHeader";
+import { getContent } from "@/lib/content";
+import { resolveIcon } from "@/lib/icons";
+import type { PracticalPanel as PracticalPanelData, TextItem } from "@/types/content";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Meet Laurie L. Arena, MSW, PMHNP — founder of The Sage Institute — and learn about her holistic, evidence-based, and trauma-informed approach to psychiatric care.",
-};
-
-const SELF_PAY_RATES = [
-  "$280 — intake (60–90 minutes)",
-  "$140 — standard follow-up (20–30 minutes)",
-  "$200 — extended follow-up (50–60 minutes)",
-];
-
-const CARRIERS = [
-  "Cigna",
-  "United Healthcare",
-  "Aetna",
-  "Oxford",
-  "Meritain",
-  "Carelon",
-  "Oscar (commercial)",
-];
-
-const INSURANCES_WITH_BCBS = {
-  carriers: [...CARRIERS, "Most BCBS plans"],
-  notes: [
-    "BCBS excludes Blue Local, UNC Health Alliance, and other local / closed-network plans.",
-    "Not in-network with Medicaid or Medicare plans.",
-  ],
-};
-
-const INSURANCES_WITHOUT_BCBS = {
-  carriers: CARRIERS,
-  notes: [
-    "Not in-network with BCBS.",
-    "Not in-network with Medicaid or Medicare plans.",
-  ],
-};
-
-const philosophyAreas = [
-  {
-    icon: Sparkles,
-    title: "Areas of focus",
-    items: [
-      "Psychopharmacology",
-      "Lifestyle & Holistic Psychiatry",
-      "Mindfulness & Meditation",
-      "Yoga for Mental Health",
-      "Psychoeducation & Nutritional Psychiatry",
-      "Psychotherapy, coping skills & self-compassion",
-    ],
-  },
-  {
-    icon: Stethoscope,
-    title: "Conditions I work with",
-    items: [
-      "Anxiety & Depression",
-      "Bipolar Disorder",
-      "ADHD",
-      "PTSD",
-      "Psychotic disorders (Schizophrenia & Schizoaffective), including LAI antipsychotics",
-      "Substance use & addiction",
-    ],
-  },
-  {
-    icon: HeartHandshake,
-    title: "How I work",
-    items: [
-      "Trauma-informed care",
-      "LGBTQIA-allied",
-      "Inclusion & social justice",
-      "Person-centered & empowerment model",
-      "Assertive communication & boundaries",
-    ],
-  },
-];
-
-const lauriePractical = {
-  ages: "Adults, age 18 and up",
-  insurance: INSURANCES_WITH_BCBS,
-  selfPay: SELF_PAY_RATES,
-};
-
-const influences = [
-  "Existential Psychotherapy (Irvin Yalom)",
-  "DBT — Dialectical Behavior Therapy (Marsha Linehan)",
-  "Internal Family Systems (Richard Schwartz)",
-  "Relational Life Therapy (Terry Real)",
-  "The Gottman Approach",
-  "Solution-Focused Therapy",
-  "Cognitive Behavioral Therapy (CBT)",
-  "Narrative Therapy",
-  "Mindfulness & Buddhist Psychology (Tara Brach)",
-  "Motivational Interviewing",
-  "Psychodynamic",
-  "Person-Centered",
-];
-
-const team = [
-  {
-    name: "Jade Montana, PMHNP, CNM, FNP",
-    title: "Psychiatric Nurse Practitioner · Certified Nurse Midwife",
-    image: "/jade-montana.png",
-    initials: "JM",
-    bio: [
-      "Jade Montana, PMHNP, CNM, FNP is a Psychiatric Nurse Practitioner and a practicing Certified Nurse Midwife with additional Family Nurse Practitioner training.",
-      "Jade provides psychiatric medication management services integrated with supportive therapy. She practices with patience and open-mindedness to help meet you where you are. Visits are tailored toward your needs and goals. Jade can help you decide if psychiatric medication is right for you and work with you to optimize your medication plan, as well as consider a range of interventions to support your mental health. Jade’s goal is to ensure you have a safe place — without stigma or judgement — to be yourself, and to grow.",
-    ],
-    quotes: [
-      "The mind, body, and soul are at the core of each individual. We are all unique and should be treated as such.",
-      "Mental health is like the tide of the ocean — as the tide comes in and the waves crash against the sand, it can be difficult to find the seashells. This is comparable to what we can experience during times of anxiety, turmoil, stress, and change. It is my job to help you calm the sea, cultivate peace of mind, and find your shell.",
-      "I believe safety is first, then discovery, and eventually moving on to recovery. Taking a holistic approach and prioritizing your mental health is imperative for your wellbeing.",
-    ],
-    sections: [
-      {
-        icon: Sparkles,
-        title: "Areas of focus",
-        items: [
-          "Psychiatric medication management",
-          "Supportive therapy integrated with visits",
-          "Holistic, whole-person care — mind, body, and soul",
-          "Optimizing your medication plan",
-        ],
-      },
-      {
-        icon: Stethoscope,
-        title: "Conditions I work with",
-        // TODO: confirm — Jade's conditions list not yet provided
-        items: [
-          "Visits are tailored toward your needs and goals — reach out about what you're navigating",
-        ],
-      },
-      {
-        icon: HeartHandshake,
-        title: "How I work",
-        items: [
-          "Patience and open-mindedness — meeting you where you are",
-          "A safe place, without stigma or judgement",
-          "Safety first, then discovery, then recovery",
-        ],
-      },
-    ],
-    practical: {
-      ages: "Ages 16 and up",
-      insurance: INSURANCES_WITH_BCBS,
-      selfPay: SELF_PAY_RATES,
-    },
-  },
-  {
-    name: "Amy Main, PMHNP, FNP",
-    title: "Psychiatric Nurse Practitioner",
-    image: "/amy-main.jpg",
-    initials: "AM",
-    bio: [
-      "I believe that no one should be made to feel guilty about their struggles with mental health, and that everyone deserves to have a safe place to talk about these issues. Just as every person is unique, there is no one right way to treat mental illness. I strive to approach each individual with this in mind, knowing that they may have been through many treatment options already.",
-      "I know this can be a challenging and frustrating process, but I will listen to your concerns and work with you through the journey. My primary focus is on medication management, while also incorporating lifestyle modifications because of the connection between physical and mental health. My experience includes working with adolescents and adults with a variety of mental health concerns, including depression and anxiety disorders, bipolar disorder, psychotic disorders, and substance use disorders.",
-    ],
-    quotes: [
-      "My goal is to provide a welcoming, comfortable experience, where you will feel seen and heard.",
-    ],
-    sections: [
-      {
-        icon: Sparkles,
-        title: "Areas of focus",
-        items: [
-          "Medication management (primary focus)",
-          "Lifestyle modifications that support mental health",
-        ],
-      },
-      {
-        icon: Stethoscope,
-        title: "Conditions I work with",
-        items: [
-          "Depression & anxiety disorders",
-          "Bipolar disorder",
-          "Psychotic disorders",
-          "Substance use disorders",
-          "Adolescents and adults",
-        ],
-      },
-      {
-        icon: HeartHandshake,
-        title: "How I work",
-        items: [
-          "No guilt or judgement about mental-health struggles",
-          "Listening to your concerns and working with you through the journey",
-          "A welcoming, comfortable experience where you feel seen and heard",
-        ],
-      },
-    ],
-    practical: {
-      ages: "Ages 16 and up",
-      insurance: INSURANCES_WITHOUT_BCBS,
-      selfPay: SELF_PAY_RATES,
-    },
-  },
-  {
-    name: "Lindsey Rebollar, PMHNP",
-    title: "Psychiatric Nurse Practitioner",
-    image: "/lindsey-rebollar.png",
-    initials: "LR",
-    bio: [
-      "Life can feel overwhelming at times, and when you’re struggling, it’s easy to feel like you’re carrying the weight of everything on your own. Whether you’re facing anxiety, depression, trauma, burnout, relationship challenges, or a major life transition, you deserve support from someone who will walk alongside you.",
-      "As a psychiatric provider and nurse with 13 years of experience in emergency medicine and the operating room, I have cared for people during some of their most vulnerable moments. Those experiences taught me the value of compassion, connection, and truly listening to each person’s story. When you work with me, you’ll find someone who combines years of nursing experience with a trauma-informed, compassionate approach to mental health care — because I understand that healing isn’t linear.",
-    ],
-    quotes: ["My philosophy is simple: nobody walks alone."],
-    sections: [
-      {
-        icon: Sparkles,
-        title: "Areas of focus",
-        items: [
-          "Trauma-informed psychiatric care",
-          "13 years of nursing experience in emergency medicine and the operating room",
-          "Compassionate, connection-centered care",
-        ],
-      },
-      {
-        icon: Stethoscope,
-        title: "Conditions I work with",
-        items: [
-          "Anxiety",
-          "Depression",
-          "Trauma",
-          "Burnout",
-          "Relationship challenges",
-          "Major life transitions",
-        ],
-      },
-      {
-        icon: HeartHandshake,
-        title: "How I work",
-        items: [
-          "Nobody walks alone — I'll walk alongside you",
-          "Truly listening to each person's story",
-          "Understanding that healing isn't linear",
-        ],
-      },
-    ],
-    practical: {
-      ages: "Ages 16 and up",
-      insurance: INSURANCES_WITH_BCBS,
-      selfPay: SELF_PAY_RATES,
-    },
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const { pages } = await getContent();
+  return {
+    title: pages.about.seoTitle,
+    description: pages.about.seoDescription,
+  };
+}
 
 function DetailCard({
   icon: Icon,
@@ -269,7 +26,7 @@ function DetailCard({
 }: {
   icon: LucideIcon;
   title: string;
-  items: readonly string[];
+  items: TextItem[];
 }) {
   return (
     <div className="h-full rounded-2xl border border-stone-200/60 bg-white p-7 shadow-sm transition-transform duration-300 hover:-translate-y-1">
@@ -280,11 +37,11 @@ function DetailCard({
       <ul className="mt-4 space-y-2.5">
         {items.map((item) => (
           <li
-            key={item}
+            key={item.id}
             className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
           >
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-            <span>{item}</span>
+            <span>{item.text}</span>
           </li>
         ))}
       </ul>
@@ -294,12 +51,11 @@ function DetailCard({
 
 function PracticalPanel({
   ages,
-  insurance,
   selfPay,
-}: {
-  ages: string;
-  insurance: { carriers: readonly string[]; notes: readonly string[] };
-  selfPay: readonly string[];
+  insurance,
+  labels,
+}: PracticalPanelData & {
+  labels: { ages: string; selfPay: string; insurance: string };
 }) {
   return (
     <div className="grid divide-y divide-stone-200/60 rounded-2xl border border-stone-200/60 bg-white shadow-sm md:grid-cols-3 md:divide-x md:divide-y-0">
@@ -307,7 +63,7 @@ function PracticalPanel({
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
           <Users className="h-5 w-5 text-forest" aria-hidden="true" />
         </div>
-        <h3 className="mt-4 font-serif text-lg text-forest">Ages I Treat</h3>
+        <h3 className="mt-4 font-serif text-lg text-forest">{labels.ages}</h3>
         <p className="mt-3 text-sm leading-relaxed text-gray-600">{ages}</p>
       </div>
 
@@ -315,15 +71,15 @@ function PracticalPanel({
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
           <CreditCard className="h-5 w-5 text-forest" aria-hidden="true" />
         </div>
-        <h3 className="mt-4 font-serif text-lg text-forest">Self-Pay Rates</h3>
+        <h3 className="mt-4 font-serif text-lg text-forest">{labels.selfPay}</h3>
         <ul className="mt-3 space-y-2.5">
           {selfPay.map((rate) => (
             <li
-              key={rate}
+              key={rate.id}
               className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
             >
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-              <span>{rate}</span>
+              <span>{rate.text}</span>
             </li>
           ))}
         </ul>
@@ -334,22 +90,22 @@ function PracticalPanel({
           <ShieldCheck className="h-5 w-5 text-forest" aria-hidden="true" />
         </div>
         <h3 className="mt-4 font-serif text-lg text-forest">
-          Insurances I accept
+          {labels.insurance}
         </h3>
         <div className="mt-3 flex flex-wrap gap-2">
           {insurance.carriers.map((carrier) => (
             <span
-              key={carrier}
+              key={carrier.id}
               className="rounded-full border border-stone-200/60 bg-cream px-3 py-1 text-xs text-gray-700"
             >
-              {carrier}
+              {carrier.text}
             </span>
           ))}
         </div>
         <ul className="mt-4 space-y-1.5">
           {insurance.notes.map((note) => (
-            <li key={note} className="text-xs leading-relaxed text-gray-500">
-              {note}
+            <li key={note.id} className="text-xs leading-relaxed text-gray-500">
+              {note.text}
             </li>
           ))}
         </ul>
@@ -358,14 +114,18 @@ function PracticalPanel({
   );
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { pages } = await getContent();
+  const about = pages.about;
+  const MedicationIcon = resolveIcon(about.philosophy.medication.icon);
+
   return (
     <>
       {/* Page header band */}
       <PageHeader
-        crumb="About"
-        title="About The Sage Institute"
-        intro="A psychiatric practice bringing scientific rigor and genuine humanity to mental health, healing, and the whole person."
+        crumb={about.header.crumb}
+        title={about.header.title}
+        intro={about.header.intro}
       />
 
       {/* Mission */}
@@ -373,19 +133,15 @@ export default function AboutPage() {
         <AnimatedSection className="container">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <Eyebrow>Our mission</Eyebrow>
+              <Eyebrow>{about.mission.eyebrow}</Eyebrow>
               <h2 className="mt-4 font-serif text-2xl font-medium leading-snug tracking-tight text-forest text-balance md:text-3xl">
-                Our mission is to help people learn skills to support their
-                mental, physical, and spiritual health; to facilitate a
-                therapeutic space that allows for healing and inspiration; and
-                to promote resilience, vitality, health, and growth in
-                individuals and in our community.
+                {about.mission.heading}
               </h2>
             </div>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
               <Image
-                src="/home-hero.jpg"
-                alt="A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
+                src={about.mission.image}
+                alt={about.mission.imageAlt}
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -400,9 +156,9 @@ export default function AboutPage() {
       <section id="founder" className="bg-cream-dark/40 py-24 md:py-32">
         <AnimatedSection className="container">
           <div className="max-w-2xl">
-            <Eyebrow>Our founder</Eyebrow>
+            <Eyebrow>{about.founder.eyebrow}</Eyebrow>
             <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-              Meet Laurie Arena
+              {about.founder.sectionHeading}
             </h2>
           </div>
 
@@ -410,62 +166,24 @@ export default function AboutPage() {
             <div className="lg:sticky lg:top-28 lg:self-start">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
                 <FounderPhoto
-                  src="/laurie-arena.jpg"
-                  alt="Laurie L. Arena, MSW, PMHNP, founder of The Sage Institute"
-                  initials="LA"
+                  src={about.founder.image}
+                  alt={about.founder.imageAlt}
+                  initials={about.founder.initials}
                 />
               </div>
             </div>
 
             <div>
               <h3 className="font-serif text-2xl font-semibold text-forest">
-                Laurie L. Arena, MSW, PMHNP
+                {about.founder.name}
               </h3>
               <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-gold-deep">
-                Founder · Psychiatric Nurse Practitioner
+                {about.founder.role}
               </p>
               <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700">
-                <p>
-                  Laurie L. Arena, MSW, PMHNP is the founder of The Sage Institute.
-                  She has been a Psychiatric Nurse Practitioner since 2010. She
-                  earned her Master’s of Nursing degree from Boston College and then
-                  went on to complete a Psychopharmacology Fellowship through
-                  Cambridge Health Alliance in 2011. Prior to this, she obtained a
-                  Master of Social Work (MSW) from Boston University in 2006 with a
-                  concentration in Group Work. Her training as a social worker paved a
-                  foundation of therapy skills and was also rooted in the social work
-                  tradition of advocating for human rights. Her undergraduate degree
-                  is from Queens University of Charlotte as a double major in Music
-                  and Psychology. Laurie has also completed a 200-hour level Yoga
-                  Teacher Training through Seaside Yoga in Wilmington, NC in 2009.
-                </p>
-                <p>
-                  Laurie has worked in various mental health settings including
-                  Inpatient Psychiatric Units, Outpatient Treatment, Detox/Substance
-                  Abuse Treatment, Addiction Services, Crisis Stabilization Unit,
-                  Psychiatric Emergency Room, Assisted Living Facilities, Middle and
-                  High School school-based therapy program, and with an ACT
-                  (Assertive Community Treatment) Team, which entails working with
-                  clients with severe and persistent mental illness (primarily
-                  psychotic disorders) in the community and utilizes an
-                  interdisciplinary, person-centered, and empowerment model. In
-                  addition to her work with The Sage Institute, Laurie is also
-                  currently pursuing a PhD in Nursing at Case Western Reserve
-                  University, with a focus on nutrition and mental health-related
-                  research.
-                </p>
-                <p>
-                  Personally, Laurie is anchored by her family, yoga, meditation, a
-                  vegan diet, nature, and music. She has learned through her travels to
-                  appreciate the importance of connecting to each moment, grounded by
-                  the ebb and flow of each breath, and to stay connected to one’s
-                  heart, emotions, values, and body while facing and interacting with
-                  the world. She believes there is intrinsic value and healing
-                  potential in all human beings and that science, medical advances,
-                  art, therapy, spirituality, and healing traditions can all combine to
-                  offer a reprieve from suffering and to support us in living our most
-                  meaningful, vibrant, and empowered life.
-                </p>
+                {about.founder.paragraphs.map((paragraph) => (
+                  <p key={paragraph.id}>{paragraph.text}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -476,78 +194,63 @@ export default function AboutPage() {
       <section className="py-24 md:py-32">
         <div className="container">
           <div className="max-w-2xl">
-            <Eyebrow>Her approach</Eyebrow>
+            <Eyebrow>{about.philosophy.eyebrow}</Eyebrow>
             <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-              Laurie’s Philosophy
+              {about.philosophy.heading}
             </h2>
             <p className="mt-6 leading-relaxed text-gray-700">
-              My approach to supporting people with their mental health needs is
-              holistic and comprehensive. I specialize in Psychopharmacology and
-              Lifestyle or Holistic Psychiatry. I also offer Mindfulness and
-              Meditation techniques, Yoga for Mental Health, Psychoeducation,
-              Nutritional Psychiatry, and Psychotherapy — with a focus on coping
-              skills, self-compassion, and assertive communication and boundaries. My
-              work is trauma-informed, LGBTQIA-allied, and prioritizes inclusion and
-              social justice.
+              {about.philosophy.intro}
             </p>
           </div>
 
           <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
-            {philosophyAreas.map((area) => (
-              <StaggerItem key={area.title}>
-                <DetailCard icon={area.icon} title={area.title} items={area.items} />
+            {about.philosophy.cards.map((card) => (
+              <StaggerItem key={card.id}>
+                <DetailCard icon={resolveIcon(card.icon)} title={card.title} items={card.items} />
               </StaggerItem>
             ))}
           </StaggerGroup>
 
           <AnimatedSection className="mt-6">
             <PracticalPanel
-              ages={lauriePractical.ages}
-              insurance={lauriePractical.insurance}
-              selfPay={lauriePractical.selfPay}
+              ages={about.philosophy.practical.ages}
+              selfPay={about.philosophy.practical.selfPay}
+              insurance={about.philosophy.practical.insurance}
+              labels={about.practicalLabels}
             />
           </AnimatedSection>
 
           {/* Medication philosophy */}
           <AnimatedSection className="mt-14 grid gap-8 rounded-2xl border border-stone-200/60 bg-white p-8 shadow-sm lg:grid-cols-[auto_1fr] lg:gap-10 lg:p-10">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest/5">
-              <Pill className="h-6 w-6 text-forest" aria-hidden="true" />
+              <MedicationIcon className="h-6 w-6 text-forest" aria-hidden="true" />
             </div>
             <div className="space-y-4 leading-relaxed text-gray-700">
               <h3 className="font-serif text-xl text-forest">
-                A thoughtful approach to medication
+                {about.philosophy.medication.heading}
               </h3>
-              <p>
-                My philosophy with psychiatric medications is to work with you to find
-                the most effective medications, with the fewest risks or adverse
-                effects. While for some people numerous psychiatric medications may be
-                necessary, with distinct mechanisms of action, I work to avoid or
-                reduce polypharmacy.
-              </p>
+              <p>{about.philosophy.medication.body}</p>
               <p className="border-l-2 border-gold/60 pl-4 text-sm text-gray-600">
-                As a disclaimer, I prescribe controlled substances sparingly and only
-                for FDA-approved indications. Many supplements and herbal remedies have
-                an evidence base for psychiatric conditions, and while I can discuss
-                such research and options with you, I do not formally prescribe
-                supplements (although most do not require a prescription).
+                {about.philosophy.medication.disclaimer}
               </p>
             </div>
           </AnimatedSection>
 
           {/* Therapeutic influences */}
           <AnimatedSection className="mt-14 max-w-3xl">
-            <h3 className="font-serif text-xl text-forest">Therapeutic influences</h3>
+            <h3 className="font-serif text-xl text-forest">
+              {about.philosophy.influences.heading}
+            </h3>
             <p className="mt-3 leading-relaxed text-gray-700">
-              Therapeutic approaches are woven into medication-management sessions as
-              needed. The influences that shape my work include:
+              {about.philosophy.influences.intro}
             </p>
             <div className="mt-6 flex flex-wrap gap-2.5">
-              {influences.map((influence) => (
+              {about.philosophy.influences.chips.map((influence) => (
                 <span
-                  key={influence}
+                  key={influence.id}
                   className="rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm"
                 >
-                  {influence}
+                  {influence.text}
                 </span>
               ))}
             </div>
@@ -559,25 +262,24 @@ export default function AboutPage() {
       <section className="bg-cream-dark/40 py-24 md:py-32">
         <div className="container">
           <div className="max-w-2xl">
-            <Eyebrow>Our team</Eyebrow>
+            <Eyebrow>{about.team.eyebrow}</Eyebrow>
             <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-forest text-balance md:text-4xl">
-              Meet the team
+              {about.team.heading}
             </h2>
             <p className="mt-6 max-w-2xl leading-relaxed text-gray-600">
-              Alongside Laurie, our clinicians share a commitment to evidence-based,
-              compassionate, and individualized mental health care.
+              {about.team.intro}
             </p>
           </div>
 
           <div className="mt-16 space-y-16 md:space-y-24">
-            {team.map((member, index) => (
-              <AnimatedSection key={member.name}>
+            {about.team.members.map((member, index) => (
+              <AnimatedSection key={member.id}>
                 <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
                   <div className={index % 2 === 1 ? "lg:order-last" : ""}>
                     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
                       <FounderPhoto
                         src={member.image}
-                        alt={`${member.name}, clinician at The Sage Institute`}
+                        alt={member.imageAlt}
                         initials={member.initials}
                       />
                     </div>
@@ -591,16 +293,16 @@ export default function AboutPage() {
                     </p>
                     <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700">
                       {member.bio.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
+                        <p key={paragraph.id}>{paragraph.text}</p>
                       ))}
                     </div>
                     <div className="mt-6 max-w-2xl space-y-3">
                       {member.quotes.map((quote) => (
                         <blockquote
-                          key={quote}
+                          key={quote.id}
                           className="border-l-2 border-gold/60 pl-4 text-[15px] italic leading-relaxed text-ink/80"
                         >
-                          &ldquo;{quote}&rdquo;
+                          &ldquo;{quote.text}&rdquo;
                         </blockquote>
                       ))}
                     </div>
@@ -609,9 +311,9 @@ export default function AboutPage() {
 
                 <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
                   {member.sections.map((section) => (
-                    <StaggerItem key={section.title}>
+                    <StaggerItem key={section.id}>
                       <DetailCard
-                        icon={section.icon}
+                        icon={resolveIcon(section.icon)}
                         title={section.title}
                         items={section.items}
                       />
@@ -622,8 +324,9 @@ export default function AboutPage() {
                 <div className="mt-6">
                   <PracticalPanel
                     ages={member.practical.ages}
-                    insurance={member.practical.insurance}
                     selfPay={member.practical.selfPay}
+                    insurance={member.practical.insurance}
+                    labels={about.practicalLabels}
                   />
                 </div>
               </AnimatedSection>
@@ -631,7 +334,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

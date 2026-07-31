@@ -1,0 +1,1147 @@
+{
+  "_comment": "The Sage Institute — editable site content. Edit at /admin (no code needed). Rules: never DELETE a key, blank it (\"\") instead. Keys starting with _ are notes and never appear on the site. See content/SCHEMA.md for a full guide.",
+  "site": {
+    "name": "The Sage Institute",
+    "shortName": "Sage Institute",
+    "tagline": "Learn, Heal, Grow",
+    "description": "Compassionate, evidence-based psychiatric care — medication management, therapy, and holistic psychiatry via telehealth across North Carolina.",
+    "url": "https://thesageinstitute.com",
+    "logo": {
+      "src": "/logo.png"
+    },
+    "contact": {
+      "email": "hello@sageinstitute.com",
+      "phone": "336-920-3487",
+      "addressLine1": "Telehealth across North Carolina",
+      "addressLine2": "",
+      "country": "United States",
+      "hours": "Monday – Friday"
+    },
+    "social": {
+      "facebook": "https://m.facebook.com/SageInstitute/",
+      "instagram": "https://www.instagram.com/thesageinstitute/"
+    },
+    "links": {
+      "screeningFormUrl": "https://forms.office.com/Pages/ResponsePage.aspx?id=W5H1hw18gEixhjajJI8x-j-CWXtpGlpDtQ5LPzDBA89UNFFUODFFUlpFSU1JNVBMT0wwS0Q5VVFMSi4u",
+      "clientPortalUrl": "https://www.therapyportal.com/p/thesageinstitute/"
+    },
+    "nav": [
+      {
+        "id": "nav-home",
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "id": "nav-services",
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "id": "nav-about",
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "id": "nav-contact",
+        "label": "Contact",
+        "href": "/contact"
+      },
+      {
+        "id": "nav-events",
+        "label": "Events & Classes",
+        "href": "/events-classes"
+      }
+    ],
+    "navbar": {
+      "ctaLabel": "Get in touch"
+    },
+    "footer": {
+      "blurb": "Calm, thoughtful telehealth psychiatry for North Carolina — evidence-based care from wherever you feel most at ease.",
+      "exploreHeading": "Explore",
+      "contactHeading": "Contact",
+      "connectHeading": "Connect",
+      "screeningLabel": "Begin a Screening",
+      "portalLabel": "Client Portal",
+      "rightsText": "All rights reserved.",
+      "colophon": "Set in Playfair Display & Inter",
+      "legal": [
+        {
+          "id": "legal-privacy",
+          "label": "Privacy Policy",
+          "href": "#"
+        },
+        {
+          "id": "legal-terms",
+          "label": "Terms of Service",
+          "href": "#"
+        }
+      ]
+    }
+  },
+  "seo": {
+    "browserTitle": "The Sage Institute — Psychiatric Care & Therapy in North Carolina",
+    "shareTitle": "The Sage Institute — Mental Health and Wellness",
+    "keywords": [
+      {
+        "id": "kw-1",
+        "text": "psychiatric care"
+      },
+      {
+        "id": "kw-2",
+        "text": "medication management"
+      },
+      {
+        "id": "kw-3",
+        "text": "psychotherapy"
+      },
+      {
+        "id": "kw-4",
+        "text": "telehealth psychiatry"
+      },
+      {
+        "id": "kw-5",
+        "text": "North Carolina"
+      },
+      {
+        "id": "kw-6",
+        "text": "psychiatric nurse practitioner"
+      },
+      {
+        "id": "kw-7",
+        "text": "PMHNP"
+      },
+      {
+        "id": "kw-8",
+        "text": "holistic psychiatry"
+      },
+      {
+        "id": "kw-9",
+        "text": "mental health"
+      }
+    ]
+  },
+  "pages": {
+    "home": {
+      "seoTitle": "Learn, Heal, Grow",
+      "seoDescription": "The Sage Institute was founded on the principle that health is a holistic experience — helping people learn skills to support their mental, physical, and spiritual health.",
+      "hero": {
+        "image": "/home-hero.jpg",
+        "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance",
+        "title": "The Sage Institute",
+        "tagline": "Learn, Heal, Grow",
+        "description": "Our mission is to help people learn skills to support their mental, physical, and spiritual health; to facilitate a therapeutic space that allows for healing and inspiration; and to promote resilience, vitality, and growth in individuals and in our community.",
+        "screeningLabel": "New Client Screening",
+        "portalLabel": "Established Client Portal",
+        "servicesLabel": "Explore Services"
+      },
+      "mission": {
+        "text": "The Sage Institute was founded on the principle that health is a holistic experience. You can be empowered to nurture patterns in your life that support your physical and mental health and well being."
+      },
+      "stats": {
+        "featured": "Health is a holistic experience. We are here to collaborate with you.",
+        "items": [
+          {
+            "id": "stat-clinicians",
+            "value": "4",
+            "label": "Psychiatric Clinicians"
+          },
+          {
+            "id": "stat-ages",
+            "value": "16+",
+            "label": "Ages We Serve"
+          },
+          {
+            "id": "stat-telehealth",
+            "value": "NC",
+            "label": "Statewide Telehealth"
+          },
+          {
+            "id": "stat-insurance",
+            "value": "7+",
+            "label": "In-Network Insurance Plans"
+          }
+        ]
+      },
+      "servicesPreview": {
+        "eyebrow": "What we do",
+        "heading": "Services that meet you where you are",
+        "intro": "Evidence-based, compassionate support for your mental, physical, and spiritual health — delivered with genuine humanity.",
+        "cards": [
+          {
+            "id": "home-svc-medication",
+            "icon": "pill",
+            "title": "Medication Management",
+            "description": "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you.",
+            "cta": "Learn more"
+          },
+          {
+            "id": "home-svc-therapy",
+            "icon": "coffee",
+            "title": "Therapy",
+            "description": "Therapy should be as comfortable and destigmatized as chatting over coffee. Talk therapy creates a safe space in your life to process thoughts, emotions, behavioral patterns, transitions, stressors, losses, challenges, and joys.",
+            "cta": "Learn more"
+          },
+          {
+            "id": "home-svc-holistic",
+            "icon": "leaf",
+            "title": "Holistic Psychiatry",
+            "description": "From Nutritional Psychiatry to sleep hygiene, time in nature, movement, creative expression, and mind-body activities to ground and calm your nervous system.",
+            "cta": "Learn more"
+          }
+        ],
+        "buttonLabel": "View all services"
+      },
+      "teamPreview": {
+        "eyebrow": "Our team",
+        "heading": "The people behind your care",
+        "intro": "Led by founder Laurie Arena, our clinicians bring evidence-based, compassionate, and individualized mental health care.",
+        "members": [
+          {
+            "id": "home-team-laurie",
+            "name": "Laurie L. Arena",
+            "role": "Founder · PMHNP",
+            "image": "/laurie-arena.jpg",
+            "imageAlt": "Laurie L. Arena, clinician at The Sage Institute",
+            "initials": "LA"
+          },
+          {
+            "id": "home-team-jade",
+            "name": "Jade Montana",
+            "role": "Psychiatric NP · CNM",
+            "image": "/jade-montana.png",
+            "imageAlt": "Jade Montana, clinician at The Sage Institute",
+            "initials": "JM"
+          },
+          {
+            "id": "home-team-amy",
+            "name": "Amy Main",
+            "role": "Psychiatric NP",
+            "image": "/amy-main.jpg",
+            "imageAlt": "Amy Main, clinician at The Sage Institute",
+            "initials": "AM"
+          },
+          {
+            "id": "home-team-lindsey",
+            "name": "Lindsey Rebollar",
+            "role": "Psychiatric NP",
+            "image": "/lindsey-rebollar.png",
+            "imageAlt": "Lindsey Rebollar, clinician at The Sage Institute",
+            "initials": "LR"
+          }
+        ],
+        "buttonLabel": "Meet the team"
+      },
+      "rights": {
+        "eyebrow": "Your rights",
+        "heading": "No Surprises Act/Good Faith Estimate",
+        "lead": "You have the right to receive a “Good Faith Estimate” explaining how much your medical and mental health care will cost.",
+        "lawParagraphs": [
+          {
+            "id": "law-1",
+            "text": "Under Section 2799B-6 of the Public Health Service Act, health care providers and health care facilities are required to inform individuals who are not enrolled in a plan or coverage or a Federal health care program, or not seeking to file a claim with their plan or coverage both orally and in writing of their ability, upon request or at the time of scheduling health care items and services, to receive a “Good Faith Estimate” of expected charges."
+          },
+          {
+            "id": "law-2",
+            "text": "Under the law, health care providers need to give clients who don’t have insurance or who are not using insurance an estimate of the expected charges for medical services, including psychotherapy services."
+          }
+        ],
+        "items": [
+          {
+            "id": "right-1",
+            "text": "You have the right to receive a Good Faith Estimate for the total expected cost of any non-emergency items or services."
+          },
+          {
+            "id": "right-2",
+            "text": "You can ask your health care provider, and any other provider you choose, for a Good Faith Estimate before you schedule a service."
+          },
+          {
+            "id": "right-3",
+            "text": "If you receive a bill that is at least $400 more than your Good Faith Estimate, you can dispute the bill."
+          },
+          {
+            "id": "right-4",
+            "text": "Make sure to save a copy or picture of your Good Faith Estimate."
+          }
+        ],
+        "panel": {
+          "textBefore": "For questions or more information about your right to a Good Faith Estimate, visit",
+          "linkUrl": "https://www.cms.gov/nosurprises",
+          "linkLabel": "www.cms.gov/nosurprises",
+          "textMiddle": "or call",
+          "phoneNumber": "8003681019",
+          "phoneLabel": "(800) 368-1019",
+          "textAfter": "."
+        }
+      },
+      "cta": {
+        "eyebrow": "Begin",
+        "heading": "Ready to begin your journey?",
+        "description": "Whether you are starting medication, seeking therapy, or exploring a more holistic approach to your mental health, we would love to hear where you are and where you want to go.",
+        "buttonLabel": "New Client Screening Form"
+      }
+    },
+    "about": {
+      "seoTitle": "About",
+      "seoDescription": "Meet Laurie L. Arena, MSW, PMHNP — founder of The Sage Institute — and learn about her holistic, evidence-based, and trauma-informed approach to psychiatric care.",
+      "header": {
+        "crumb": "About",
+        "title": "About The Sage Institute",
+        "intro": "A psychiatric practice bringing scientific rigor and genuine humanity to mental health, healing, and the whole person."
+      },
+      "practicalLabels": {
+        "ages": "Ages I Treat",
+        "selfPay": "Self-Pay Rates",
+        "insurance": "Insurances I accept"
+      },
+      "mission": {
+        "eyebrow": "Our mission",
+        "heading": "Our mission is to help people learn skills to support their mental, physical, and spiritual health; to facilitate a therapeutic space that allows for healing and inspiration; and to promote resilience, vitality, health, and growth in individuals and in our community.",
+        "image": "/home-hero.jpg",
+        "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
+      },
+      "founder": {
+        "eyebrow": "Our founder",
+        "sectionHeading": "Meet Laurie Arena",
+        "image": "/laurie-arena.jpg",
+        "imageAlt": "Laurie L. Arena, MSW, PMHNP, founder of The Sage Institute",
+        "initials": "LA",
+        "name": "Laurie L. Arena, MSW, PMHNP",
+        "role": "Founder · Psychiatric Nurse Practitioner",
+        "paragraphs": [
+          {
+            "id": "laurie-p1",
+            "text": "Laurie L. Arena, MSW, PMHNP is the founder of The Sage Institute. She has been a Psychiatric Nurse Practitioner since 2010. She earned her Master’s of Nursing degree from Boston College and then went on to complete a Psychopharmacology Fellowship through Cambridge Health Alliance in 2011. Prior to this, she obtained a Master of Social Work (MSW) from Boston University in 2006 with a concentration in Group Work. Her training as a social worker paved a foundation of therapy skills and was also rooted in the social work tradition of advocating for human rights. Her undergraduate degree is from Queens University of Charlotte as a double major in Music and Psychology. Laurie has also completed a 200-hour level Yoga Teacher Training through Seaside Yoga in Wilmington, NC in 2009."
+          },
+          {
+            "id": "laurie-p2",
+            "text": "Laurie has worked in various mental health settings including Inpatient Psychiatric Units, Outpatient Treatment, Detox/Substance Abuse Treatment, Addiction Services, Crisis Stabilization Unit, Psychiatric Emergency Room, Assisted Living Facilities, Middle and High School school-based therapy program, and with an ACT (Assertive Community Treatment) Team, which entails working with clients with severe and persistent mental illness (primarily psychotic disorders) in the community and utilizes an interdisciplinary, person-centered, and empowerment model. In addition to her work with The Sage Institute, Laurie is also currently pursuing a PhD in Nursing at Case Western Reserve University, with a focus on nutrition and mental health-related research."
+          },
+          {
+            "id": "laurie-p3",
+            "text": "Personally, Laurie is anchored by her family, yoga, meditation, a vegan diet, nature, and music. She has learned through her travels to appreciate the importance of connecting to each moment, grounded by the ebb and flow of each breath, and to stay connected to one’s heart, emotions, values, and body while facing and interacting with the world. She believes there is intrinsic value and healing potential in all human beings and that science, medical advances, art, therapy, spirituality, and healing traditions can all combine to offer a reprieve from suffering and to support us in living our most meaningful, vibrant, and empowered life."
+          }
+        ]
+      },
+      "philosophy": {
+        "eyebrow": "Her approach",
+        "heading": "Laurie’s Philosophy",
+        "intro": "My approach to supporting people with their mental health needs is holistic and comprehensive. I specialize in Psychopharmacology and Lifestyle or Holistic Psychiatry. I also offer Mindfulness and Meditation techniques, Yoga for Mental Health, Psychoeducation, Nutritional Psychiatry, and Psychotherapy — with a focus on coping skills, self-compassion, and assertive communication and boundaries. My work is trauma-informed, LGBTQIA-allied, and prioritizes inclusion and social justice.",
+        "cards": [
+          {
+            "id": "phil-focus",
+            "icon": "sparkles",
+            "title": "Areas of focus",
+            "items": [
+              {
+                "id": "phil-focus-1",
+                "text": "Psychopharmacology"
+              },
+              {
+                "id": "phil-focus-2",
+                "text": "Lifestyle & Holistic Psychiatry"
+              },
+              {
+                "id": "phil-focus-3",
+                "text": "Mindfulness & Meditation"
+              },
+              {
+                "id": "phil-focus-4",
+                "text": "Yoga for Mental Health"
+              },
+              {
+                "id": "phil-focus-5",
+                "text": "Psychoeducation & Nutritional Psychiatry"
+              },
+              {
+                "id": "phil-focus-6",
+                "text": "Psychotherapy, coping skills & self-compassion"
+              }
+            ]
+          },
+          {
+            "id": "phil-conditions",
+            "icon": "stethoscope",
+            "title": "Conditions I work with",
+            "items": [
+              {
+                "id": "phil-cond-1",
+                "text": "Anxiety & Depression"
+              },
+              {
+                "id": "phil-cond-2",
+                "text": "Bipolar Disorder"
+              },
+              {
+                "id": "phil-cond-3",
+                "text": "ADHD"
+              },
+              {
+                "id": "phil-cond-4",
+                "text": "PTSD"
+              },
+              {
+                "id": "phil-cond-5",
+                "text": "Psychotic disorders (Schizophrenia & Schizoaffective), including LAI antipsychotics"
+              },
+              {
+                "id": "phil-cond-6",
+                "text": "Substance use & addiction"
+              }
+            ]
+          },
+          {
+            "id": "phil-howiwork",
+            "icon": "heartHandshake",
+            "title": "How I work",
+            "items": [
+              {
+                "id": "phil-how-1",
+                "text": "Trauma-informed care"
+              },
+              {
+                "id": "phil-how-2",
+                "text": "LGBTQIA-allied"
+              },
+              {
+                "id": "phil-how-3",
+                "text": "Inclusion & social justice"
+              },
+              {
+                "id": "phil-how-4",
+                "text": "Person-centered & empowerment model"
+              },
+              {
+                "id": "phil-how-5",
+                "text": "Assertive communication & boundaries"
+              }
+            ]
+          }
+        ],
+        "practical": {
+          "ages": "Adults, age 18 and up",
+          "selfPay": [
+            {
+              "id": "laurie-pay-1",
+              "text": "$280 — intake (60–90 minutes)"
+            },
+            {
+              "id": "laurie-pay-2",
+              "text": "$140 — standard follow-up (20–30 minutes)"
+            },
+            {
+              "id": "laurie-pay-3",
+              "text": "$200 — extended follow-up (50–60 minutes)"
+            }
+          ],
+          "insurance": {
+            "carriers": [
+              {
+                "id": "laurie-ins-1",
+                "text": "Cigna"
+              },
+              {
+                "id": "laurie-ins-2",
+                "text": "United Healthcare"
+              },
+              {
+                "id": "laurie-ins-3",
+                "text": "Aetna"
+              },
+              {
+                "id": "laurie-ins-4",
+                "text": "Oxford"
+              },
+              {
+                "id": "laurie-ins-5",
+                "text": "Meritain"
+              },
+              {
+                "id": "laurie-ins-6",
+                "text": "Carelon"
+              },
+              {
+                "id": "laurie-ins-7",
+                "text": "Oscar (commercial)"
+              },
+              {
+                "id": "laurie-ins-8",
+                "text": "Most BCBS plans"
+              }
+            ],
+            "notes": [
+              {
+                "id": "laurie-note-1",
+                "text": "BCBS excludes Blue Local, UNC Health Alliance, and other local / closed-network plans."
+              },
+              {
+                "id": "laurie-note-2",
+                "text": "Not in-network with Medicaid or Medicare plans."
+              }
+            ]
+          }
+        },
+        "medication": {
+          "icon": "pill",
+          "heading": "A thoughtful approach to medication",
+          "body": "My philosophy with psychiatric medications is to work with you to find the most effective medications, with the fewest risks or adverse effects. While for some people numerous psychiatric medications may be necessary, with distinct mechanisms of action, I work to avoid or reduce polypharmacy.",
+          "disclaimer": "As a disclaimer, I prescribe controlled substances sparingly and only for FDA-approved indications. Many supplements and herbal remedies have an evidence base for psychiatric conditions, and while I can discuss such research and options with you, I do not formally prescribe supplements (although most do not require a prescription)."
+        },
+        "influences": {
+          "heading": "Therapeutic influences",
+          "intro": "Therapeutic approaches are woven into medication-management sessions as needed. The influences that shape my work include:",
+          "chips": [
+            {
+              "id": "infl-1",
+              "text": "Existential Psychotherapy (Irvin Yalom)"
+            },
+            {
+              "id": "infl-2",
+              "text": "DBT — Dialectical Behavior Therapy (Marsha Linehan)"
+            },
+            {
+              "id": "infl-3",
+              "text": "Internal Family Systems (Richard Schwartz)"
+            },
+            {
+              "id": "infl-4",
+              "text": "Relational Life Therapy (Terry Real)"
+            },
+            {
+              "id": "infl-5",
+              "text": "The Gottman Approach"
+            },
+            {
+              "id": "infl-6",
+              "text": "Solution-Focused Therapy"
+            },
+            {
+              "id": "infl-7",
+              "text": "Cognitive Behavioral Therapy (CBT)"
+            },
+            {
+              "id": "infl-8",
+              "text": "Narrative Therapy"
+            },
+            {
+              "id": "infl-9",
+              "text": "Mindfulness & Buddhist Psychology (Tara Brach)"
+            },
+            {
+              "id": "infl-10",
+              "text": "Motivational Interviewing"
+            },
+            {
+              "id": "infl-11",
+              "text": "Psychodynamic"
+            },
+            {
+              "id": "infl-12",
+              "text": "Person-Centered"
+            }
+          ]
+        }
+      },
+      "team": {
+        "eyebrow": "Our team",
+        "heading": "Meet the team",
+        "intro": "Alongside Laurie, our clinicians share a commitment to evidence-based, compassionate, and individualized mental health care.",
+        "members": [
+          {
+            "id": "clinician-jade",
+            "name": "Jade Montana, PMHNP, CNM, FNP",
+            "title": "Psychiatric Nurse Practitioner · Certified Nurse Midwife",
+            "image": "/jade-montana.png",
+            "imageAlt": "Jade Montana, PMHNP, CNM, FNP, clinician at The Sage Institute",
+            "initials": "JM",
+            "bio": [
+              {
+                "id": "jade-bio-1",
+                "text": "Jade Montana, PMHNP, CNM, FNP is a Psychiatric Nurse Practitioner and a practicing Certified Nurse Midwife with additional Family Nurse Practitioner training."
+              },
+              {
+                "id": "jade-bio-2",
+                "text": "Jade provides psychiatric medication management services integrated with supportive therapy. She practices with patience and open-mindedness to help meet you where you are. Visits are tailored toward your needs and goals. Jade can help you decide if psychiatric medication is right for you and work with you to optimize your medication plan, as well as consider a range of interventions to support your mental health. Jade’s goal is to ensure you have a safe place — without stigma or judgement — to be yourself, and to grow."
+              }
+            ],
+            "quotes": [
+              {
+                "id": "jade-quote-1",
+                "text": "The mind, body, and soul are at the core of each individual. We are all unique and should be treated as such."
+              },
+              {
+                "id": "jade-quote-2",
+                "text": "Mental health is like the tide of the ocean — as the tide comes in and the waves crash against the sand, it can be difficult to find the seashells. This is comparable to what we can experience during times of anxiety, turmoil, stress, and change. It is my job to help you calm the sea, cultivate peace of mind, and find your shell."
+              },
+              {
+                "id": "jade-quote-3",
+                "text": "I believe safety is first, then discovery, and eventually moving on to recovery. Taking a holistic approach and prioritizing your mental health is imperative for your wellbeing."
+              }
+            ],
+            "sections": [
+              {
+                "id": "jade-focus",
+                "icon": "sparkles",
+                "title": "Areas of focus",
+                "items": [
+                  {
+                    "id": "jade-focus-1",
+                    "text": "Psychiatric medication management"
+                  },
+                  {
+                    "id": "jade-focus-2",
+                    "text": "Supportive therapy integrated with visits"
+                  },
+                  {
+                    "id": "jade-focus-3",
+                    "text": "Holistic, whole-person care — mind, body, and soul"
+                  },
+                  {
+                    "id": "jade-focus-4",
+                    "text": "Optimizing your medication plan"
+                  }
+                ]
+              },
+              {
+                "id": "jade-conditions",
+                "icon": "stethoscope",
+                "title": "Conditions I work with",
+                "items": [
+                  {
+                    "id": "jade-cond-1",
+                    "text": "Visits are tailored toward your needs and goals — reach out about what you're navigating"
+                  }
+                ]
+              },
+              {
+                "id": "jade-howiwork",
+                "icon": "heartHandshake",
+                "title": "How I work",
+                "items": [
+                  {
+                    "id": "jade-how-1",
+                    "text": "Patience and open-mindedness — meeting you where you are"
+                  },
+                  {
+                    "id": "jade-how-2",
+                    "text": "A safe place, without stigma or judgement"
+                  },
+                  {
+                    "id": "jade-how-3",
+                    "text": "Safety first, then discovery, then recovery"
+                  }
+                ]
+              }
+            ],
+            "practical": {
+              "ages": "Ages 16 and up",
+              "selfPay": [
+                {
+                  "id": "jade-pay-1",
+                  "text": "$280 — intake (60–90 minutes)"
+                },
+                {
+                  "id": "jade-pay-2",
+                  "text": "$140 — standard follow-up (20–30 minutes)"
+                },
+                {
+                  "id": "jade-pay-3",
+                  "text": "$200 — extended follow-up (50–60 minutes)"
+                }
+              ],
+              "insurance": {
+                "carriers": [
+                  {
+                    "id": "jade-ins-1",
+                    "text": "Cigna"
+                  },
+                  {
+                    "id": "jade-ins-2",
+                    "text": "United Healthcare"
+                  },
+                  {
+                    "id": "jade-ins-3",
+                    "text": "Aetna"
+                  },
+                  {
+                    "id": "jade-ins-4",
+                    "text": "Oxford"
+                  },
+                  {
+                    "id": "jade-ins-5",
+                    "text": "Meritain"
+                  },
+                  {
+                    "id": "jade-ins-6",
+                    "text": "Carelon"
+                  },
+                  {
+                    "id": "jade-ins-7",
+                    "text": "Oscar (commercial)"
+                  },
+                  {
+                    "id": "jade-ins-8",
+                    "text": "Most BCBS plans"
+                  }
+                ],
+                "notes": [
+                  {
+                    "id": "jade-note-1",
+                    "text": "BCBS excludes Blue Local, UNC Health Alliance, and other local / closed-network plans."
+                  },
+                  {
+                    "id": "jade-note-2",
+                    "text": "Not in-network with Medicaid or Medicare plans."
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "clinician-amy",
+            "name": "Amy Main, PMHNP, FNP",
+            "title": "Psychiatric Nurse Practitioner",
+            "image": "/amy-main.jpg",
+            "imageAlt": "Amy Main, PMHNP, FNP, clinician at The Sage Institute",
+            "initials": "AM",
+            "bio": [
+              {
+                "id": "amy-bio-1",
+                "text": "I believe that no one should be made to feel guilty about their struggles with mental health, and that everyone deserves to have a safe place to talk about these issues. Just as every person is unique, there is no one right way to treat mental illness. I strive to approach each individual with this in mind, knowing that they may have been through many treatment options already."
+              },
+              {
+                "id": "amy-bio-2",
+                "text": "I know this can be a challenging and frustrating process, but I will listen to your concerns and work with you through the journey. My primary focus is on medication management, while also incorporating lifestyle modifications because of the connection between physical and mental health. My experience includes working with adolescents and adults with a variety of mental health concerns, including depression and anxiety disorders, bipolar disorder, psychotic disorders, and substance use disorders."
+              }
+            ],
+            "quotes": [
+              {
+                "id": "amy-quote-1",
+                "text": "My goal is to provide a welcoming, comfortable experience, where you will feel seen and heard."
+              }
+            ],
+            "sections": [
+              {
+                "id": "amy-focus",
+                "icon": "sparkles",
+                "title": "Areas of focus",
+                "items": [
+                  {
+                    "id": "amy-focus-1",
+                    "text": "Medication management (primary focus)"
+                  },
+                  {
+                    "id": "amy-focus-2",
+                    "text": "Lifestyle modifications that support mental health"
+                  }
+                ]
+              },
+              {
+                "id": "amy-conditions",
+                "icon": "stethoscope",
+                "title": "Conditions I work with",
+                "items": [
+                  {
+                    "id": "amy-cond-1",
+                    "text": "Depression & anxiety disorders"
+                  },
+                  {
+                    "id": "amy-cond-2",
+                    "text": "Bipolar disorder"
+                  },
+                  {
+                    "id": "amy-cond-3",
+                    "text": "Psychotic disorders"
+                  },
+                  {
+                    "id": "amy-cond-4",
+                    "text": "Substance use disorders"
+                  },
+                  {
+                    "id": "amy-cond-5",
+                    "text": "Adolescents and adults"
+                  }
+                ]
+              },
+              {
+                "id": "amy-howiwork",
+                "icon": "heartHandshake",
+                "title": "How I work",
+                "items": [
+                  {
+                    "id": "amy-how-1",
+                    "text": "No guilt or judgement about mental-health struggles"
+                  },
+                  {
+                    "id": "amy-how-2",
+                    "text": "Listening to your concerns and working with you through the journey"
+                  },
+                  {
+                    "id": "amy-how-3",
+                    "text": "A welcoming, comfortable experience where you feel seen and heard"
+                  }
+                ]
+              }
+            ],
+            "practical": {
+              "ages": "Ages 16 and up",
+              "selfPay": [
+                {
+                  "id": "amy-pay-1",
+                  "text": "$280 — intake (60–90 minutes)"
+                },
+                {
+                  "id": "amy-pay-2",
+                  "text": "$140 — standard follow-up (20–30 minutes)"
+                },
+                {
+                  "id": "amy-pay-3",
+                  "text": "$200 — extended follow-up (50–60 minutes)"
+                }
+              ],
+              "insurance": {
+                "carriers": [
+                  {
+                    "id": "amy-ins-1",
+                    "text": "Cigna"
+                  },
+                  {
+                    "id": "amy-ins-2",
+                    "text": "United Healthcare"
+                  },
+                  {
+                    "id": "amy-ins-3",
+                    "text": "Aetna"
+                  },
+                  {
+                    "id": "amy-ins-4",
+                    "text": "Oxford"
+                  },
+                  {
+                    "id": "amy-ins-5",
+                    "text": "Meritain"
+                  },
+                  {
+                    "id": "amy-ins-6",
+                    "text": "Carelon"
+                  },
+                  {
+                    "id": "amy-ins-7",
+                    "text": "Oscar (commercial)"
+                  }
+                ],
+                "notes": [
+                  {
+                    "id": "amy-note-1",
+                    "text": "Not in-network with BCBS."
+                  },
+                  {
+                    "id": "amy-note-2",
+                    "text": "Not in-network with Medicaid or Medicare plans."
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "clinician-lindsey",
+            "name": "Lindsey Rebollar, PMHNP",
+            "title": "Psychiatric Nurse Practitioner",
+            "image": "/lindsey-rebollar.png",
+            "imageAlt": "Lindsey Rebollar, PMHNP, clinician at The Sage Institute",
+            "initials": "LR",
+            "bio": [
+              {
+                "id": "lindsey-bio-1",
+                "text": "Life can feel overwhelming at times, and when you’re struggling, it’s easy to feel like you’re carrying the weight of everything on your own. Whether you’re facing anxiety, depression, trauma, burnout, relationship challenges, or a major life transition, you deserve support from someone who will walk alongside you."
+              },
+              {
+                "id": "lindsey-bio-2",
+                "text": "As a psychiatric provider and nurse with 13 years of experience in emergency medicine and the operating room, I have cared for people during some of their most vulnerable moments. Those experiences taught me the value of compassion, connection, and truly listening to each person’s story. When you work with me, you’ll find someone who combines years of nursing experience with a trauma-informed, compassionate approach to mental health care — because I understand that healing isn’t linear."
+              }
+            ],
+            "quotes": [
+              {
+                "id": "lindsey-quote-1",
+                "text": "My philosophy is simple: nobody walks alone."
+              }
+            ],
+            "sections": [
+              {
+                "id": "lindsey-focus",
+                "icon": "sparkles",
+                "title": "Areas of focus",
+                "items": [
+                  {
+                    "id": "lindsey-focus-1",
+                    "text": "Trauma-informed psychiatric care"
+                  },
+                  {
+                    "id": "lindsey-focus-2",
+                    "text": "13 years of nursing experience in emergency medicine and the operating room"
+                  },
+                  {
+                    "id": "lindsey-focus-3",
+                    "text": "Compassionate, connection-centered care"
+                  }
+                ]
+              },
+              {
+                "id": "lindsey-conditions",
+                "icon": "stethoscope",
+                "title": "Conditions I work with",
+                "items": [
+                  {
+                    "id": "lindsey-cond-1",
+                    "text": "Anxiety"
+                  },
+                  {
+                    "id": "lindsey-cond-2",
+                    "text": "Depression"
+                  },
+                  {
+                    "id": "lindsey-cond-3",
+                    "text": "Trauma"
+                  },
+                  {
+                    "id": "lindsey-cond-4",
+                    "text": "Burnout"
+                  },
+                  {
+                    "id": "lindsey-cond-5",
+                    "text": "Relationship challenges"
+                  },
+                  {
+                    "id": "lindsey-cond-6",
+                    "text": "Major life transitions"
+                  }
+                ]
+              },
+              {
+                "id": "lindsey-howiwork",
+                "icon": "heartHandshake",
+                "title": "How I work",
+                "items": [
+                  {
+                    "id": "lindsey-how-1",
+                    "text": "Nobody walks alone — I'll walk alongside you"
+                  },
+                  {
+                    "id": "lindsey-how-2",
+                    "text": "Truly listening to each person's story"
+                  },
+                  {
+                    "id": "lindsey-how-3",
+                    "text": "Understanding that healing isn't linear"
+                  }
+                ]
+              }
+            ],
+            "practical": {
+              "ages": "Ages 16 and up",
+              "selfPay": [
+                {
+                  "id": "lindsey-pay-1",
+                  "text": "$280 — intake (60–90 minutes)"
+                },
+                {
+                  "id": "lindsey-pay-2",
+                  "text": "$140 — standard follow-up (20–30 minutes)"
+                },
+                {
+                  "id": "lindsey-pay-3",
+                  "text": "$200 — extended follow-up (50–60 minutes)"
+                }
+              ],
+              "insurance": {
+                "carriers": [
+                  {
+                    "id": "lindsey-ins-1",
+                    "text": "Cigna"
+                  },
+                  {
+                    "id": "lindsey-ins-2",
+                    "text": "United Healthcare"
+                  },
+                  {
+                    "id": "lindsey-ins-3",
+                    "text": "Aetna"
+                  },
+                  {
+                    "id": "lindsey-ins-4",
+                    "text": "Oxford"
+                  },
+                  {
+                    "id": "lindsey-ins-5",
+                    "text": "Meritain"
+                  },
+                  {
+                    "id": "lindsey-ins-6",
+                    "text": "Carelon"
+                  },
+                  {
+                    "id": "lindsey-ins-7",
+                    "text": "Oscar (commercial)"
+                  },
+                  {
+                    "id": "lindsey-ins-8",
+                    "text": "Most BCBS plans"
+                  }
+                ],
+                "notes": [
+                  {
+                    "id": "lindsey-note-1",
+                    "text": "BCBS excludes Blue Local, UNC Health Alliance, and other local / closed-network plans."
+                  },
+                  {
+                    "id": "lindsey-note-2",
+                    "text": "Not in-network with Medicaid or Medicare plans."
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "services": {
+      "seoTitle": "Services",
+      "seoDescription": "Medication management, therapy, holistic psychiatry, groups and classes, and yoga, mindfulness, and meditation at The Sage Institute.",
+      "header": {
+        "crumb": "Services",
+        "title": "Our Services",
+        "intro": "Support for your mental, physical, and spiritual health — from medication management and therapy to holistic psychiatry, groups, and mind-body practice."
+      },
+      "learnMoreLabel": "Learn More",
+      "list": [
+        {
+          "id": "service-holistic",
+          "title": "Holistic Psychiatry",
+          "description": "Nutritional Psychiatry (ways to enhance and support your mental health through food choices as well as fostering a mindful and joyful relationship to eating), various supplements, sleep hygiene, spending time in nature, light therapy, movement and/or exercise, social connection, creative expression, spirituality, and mind-body activities to ground and calm your nervous system can all be a part of your mental wellness plan.",
+          "image": "/services/holistic-psychiatry.jpg",
+          "imageAlt": "A composition of fresh, healthy food on a wooden table",
+          "featured": true
+        },
+        {
+          "id": "service-therapy",
+          "title": "Therapy",
+          "description": "Therapy should be as comfortable and destigmatized as chatting over coffee. Talk therapy creates a safe space in your life to process thoughts, emotions, behavioral patterns, transitions, stressors, losses, challenges, and joys. It is a way to reflect in the moment, while looking back at the past and forward to the future. You are more than a diagnosis. You are a human being with a unique story. Therapy can be the mirror to show you your worth, the classroom to learn and practice new skills, and the healing waters to help you transcend your suffering and cultivate meaning, connection, and growth.",
+          "image": "/services/therapy.jpg",
+          "imageAlt": "A woman talking warmly during a video therapy session",
+          "featured": true
+        },
+        {
+          "id": "service-medication",
+          "title": "Medication Management",
+          "description": "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you. We can also assist you to safely come off of psychiatric medications.",
+          "image": "/services/medication-management.jpg",
+          "imageAlt": "A clinician consulting with a client about medication",
+          "featured": false
+        },
+        {
+          "id": "service-groups",
+          "title": "Groups & Classes",
+          "description": "We offer groups and classes to draw on the power of social connection and learning in a group setting and to educate, encourage, and empower each other in mental health and wellness strategies.",
+          "image": "/services/groups-classes.jpg",
+          "imageAlt": "A diverse group sitting together around a couch in conversation",
+          "featured": false
+        },
+        {
+          "id": "service-yoga",
+          "title": "Yoga, Mindfulness, and Meditation",
+          "description": "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continue your practice with the support of a wider community.",
+          "image": "/services/yoga-mindfulness.jpg",
+          "imageAlt": "Two people practicing yoga together on a beach",
+          "featured": false
+        }
+      ],
+      "process": {
+        "eyebrow": "Getting started",
+        "heading": "From intake to first visit",
+        "intro": "Becoming a client is simple — here is what to expect.",
+        "steps": [
+          {
+            "id": "step-intake",
+            "icon": "clipboardList",
+            "number": "01",
+            "title": "Intake",
+            "description": "Complete our secure new client intake form — it takes about 7 minutes and helps us understand where you are and what you're looking for."
+          },
+          {
+            "id": "step-review",
+            "icon": "messageSquare",
+            "number": "02",
+            "title": "Review",
+            "description": "Our team reviews your information, then sends you a text and an invite to our secure messaging app, Spruce Health."
+          },
+          {
+            "id": "step-setup",
+            "icon": "mail",
+            "number": "03",
+            "title": "Setup",
+            "description": "You'll receive an email from TherapyPortal on behalf of The Sage Institute — and, depending on billing status, possibly from Headway.co."
+          },
+          {
+            "id": "step-firstvisit",
+            "icon": "video",
+            "number": "04",
+            "title": "First Visit",
+            "description": "Meet your clinician virtually. We see clients by telehealth when they are in North Carolina at the time of the visit."
+          }
+        ]
+      }
+    },
+    "contact": {
+      "seoTitle": "Contact",
+      "seoDescription": "Get in touch with The Sage Institute — or start your new client intake. Text 336-920-3487 with questions.",
+      "header": {
+        "crumb": "Contact",
+        "title": "Contact Us",
+        "intro": "Questions, scheduling, or ready to begin? We’re easy to reach."
+      },
+      "getInTouch": {
+        "eyebrow": "Get in touch",
+        "intro": "The fastest way to reach us is by text. For new clients, the screening form is the best place to start — it takes about 7 minutes, and our team reviews every submission."
+      },
+      "labels": {
+        "callOrText": "Call or text",
+        "email": "Email",
+        "where": "Where",
+        "hours": "Hours"
+      },
+      "map": {
+        "title": "The Sage Institute — North Carolina",
+        "embedSrc": "https://www.google.com/maps?q=North+Carolina&z=7&output=embed"
+      },
+      "cta": {
+        "heading": "Ready to become a new client?",
+        "description": "Complete our secure screening form — it takes about 7 minutes and opens in a new tab. Once we review your information, we’ll text you with an invite to our secure messaging app, Spruce Health, and guide you through the next steps.",
+        "screeningLabel": "New Client Screening Form",
+        "ageNote": "We see clients age 16 and up, virtually, when they are in North Carolina at the time of the visit.",
+        "establishedHeading": "Already an established client?",
+        "portalLabel": "Visit the Client Portal"
+      }
+    },
+    "events": {
+      "seoTitle": "Events & Classes",
+      "seoDescription": "Upcoming events, groups, and classes at The Sage Institute. Check back soon for new offerings.",
+      "header": {
+        "crumb": "Events & Classes",
+        "title": "Events & Classes",
+        "image": "/events-hero.jpg",
+        "imageAlt": "A dirt road winding through green fields under a bright evening sky"
+      },
+      "emptyState": {
+        "text": "Nothing at this time, check back soon!"
+      },
+      "items": []
+    },
+    "notFound": {
+      "seoTitle": "Page Not Found",
+      "eyebrow": "Page not found",
+      "heading": "We couldn’t find that page",
+      "body": "The page you were looking for may have moved, but you haven’t lost your way — we’re still right here whenever you’re ready.",
+      "homeLabel": "Back home",
+      "contactLabel": "Contact us"
+    }
+  }
+}

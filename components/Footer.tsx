@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks, siteConfig } from "@/lib/site";
+
+import { getContent } from "@/lib/content";
 import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
 
 function FooterHeading({ label }: { label: string }) {
@@ -33,10 +34,13 @@ function ExternalGlyph() {
   );
 }
 
-export function Footer() {
-  const phoneHref = `tel:${siteConfig.contact.phone.replace(/[\s()]/g, "")}`;
+export async function Footer() {
+  const { site } = await getContent();
+  const { contact, social, links, footer, nav } = site;
+
+  const phoneHref = `tel:${contact.phone.replace(/[\s()]/g, "")}`;
   const year = new Date().getFullYear();
-  const taglineWords = siteConfig.tagline.split(",").map((word) => word.trim());
+  const taglineWords = site.tagline.split(",").map((word) => word.trim());
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-br from-forest via-forest to-forest-dark text-cream/80">
@@ -55,7 +59,7 @@ export function Footer() {
         className="pointer-events-none absolute -left-16 bottom-0 top-0 flex items-stretch opacity-[0.06] sm:opacity-[0.12]"
       >
         <Image
-          src="/logo.png"
+          src={site.logo.src}
           alt=""
           width={324}
           height={798}
@@ -69,7 +73,7 @@ export function Footer() {
         className="pointer-events-none absolute -right-20 bottom-0 top-0 hidden items-stretch opacity-[0.07] lg:flex"
       >
         <Image
-          src="/logo.png"
+          src={site.logo.src}
           alt=""
           width={324}
           height={798}
@@ -83,7 +87,7 @@ export function Footer() {
           <div className="md:col-span-2 lg:col-span-5">
             <Link href="/" className="inline-flex items-center">
               <span className="font-serif text-2xl text-cream">
-                The Sage Institute
+                {site.name}
               </span>
             </Link>
             <p className="mt-7 font-serif text-4xl leading-[1.12] text-cream sm:text-5xl">
@@ -99,17 +103,16 @@ export function Footer() {
               ))}
             </p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/75">
-              Calm, thoughtful telehealth psychiatry for North Carolina &mdash;
-              evidence-based care from wherever you feel most at ease.
+              {footer.blurb}
             </p>
           </div>
 
           {/* Explore */}
           <nav aria-label="Footer" className="lg:col-span-2">
-            <FooterHeading label="Explore" />
+            <FooterHeading label={footer.exploreHeading} />
             <ul className="mt-6 space-y-3 text-sm">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+              {nav.map((link) => (
+                <li key={link.id}>
                   <Link
                     href={link.href}
                     className="text-cream/75 transition-colors hover:text-gold-light"
@@ -120,24 +123,24 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href={siteConfig.screeningFormUrl}
+                  href={links.screeningFormUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-cream/75 transition-colors hover:text-gold-light"
                 >
-                  Begin a Screening
+                  {footer.screeningLabel}
                   <ExternalGlyph />
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={siteConfig.clientPortalUrl}
+                  href={links.clientPortalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-cream/75 transition-colors hover:text-gold-light"
                 >
-                  Client Portal
+                  {footer.portalLabel}
                   <ExternalGlyph />
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
@@ -147,25 +150,25 @@ export function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <FooterHeading label="Contact" />
+            <FooterHeading label={footer.contactHeading} />
             <address className="mt-6 space-y-3 text-sm not-italic leading-relaxed">
               <p className="text-cream/75">
-                {siteConfig.contact.address.line1}
-                {siteConfig.contact.address.line2 ? (
+                {contact.addressLine1}
+                {contact.addressLine2 ? (
                   <>
                     <br />
-                    {siteConfig.contact.address.line2}
+                    {contact.addressLine2}
                   </>
                 ) : null}
                 <br />
-                {siteConfig.contact.address.country}
+                {contact.country}
               </p>
               <p>
                 <a
-                  href={`mailto:${siteConfig.contact.email}`}
+                  href={`mailto:${contact.email}`}
                   className="text-cream/75 underline-offset-4 transition-colors hover:text-gold-light hover:underline"
                 >
-                  {siteConfig.contact.email}
+                  {contact.email}
                 </a>
               </p>
               <p>
@@ -173,23 +176,23 @@ export function Footer() {
                   href={phoneHref}
                   className="text-cream/75 transition-colors hover:text-gold-light"
                 >
-                  {siteConfig.contact.phone}
+                  {contact.phone}
                 </a>
               </p>
-              <p className="text-cream/70">{siteConfig.contact.hours}</p>
+              <p className="text-cream/70">{contact.hours}</p>
             </address>
           </div>
 
           {/* Connect */}
           <div className="lg:col-span-2">
-            <FooterHeading label="Connect" />
+            <FooterHeading label={footer.connectHeading} />
             <ul className="mt-6 flex gap-3">
               <li>
                 <a
-                  href={siteConfig.social.facebook}
+                  href={social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="The Sage Institute on Facebook"
+                  aria-label={`${site.name} on Facebook`}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 text-cream/80 transition-colors hover:border-gold-light/70 hover:bg-gold-light/10 hover:text-gold-light"
                 >
                   <FacebookIcon className="h-4 w-4" />
@@ -197,10 +200,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={siteConfig.social.instagram}
+                  href={social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="The Sage Institute on Instagram"
+                  aria-label={`${site.name} on Instagram`}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/25 text-cream/80 transition-colors hover:border-gold-light/70 hover:bg-gold-light/10 hover:text-gold-light"
                 >
                   <InstagramIcon className="h-4 w-4" />
@@ -215,22 +218,22 @@ export function Footer() {
       <div className="relative border-t border-cream/15">
         <div className="container flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/60 sm:flex-row">
           <p>
-            &copy; {year} {siteConfig.name}. All rights reserved.
+            &copy; {year} {site.name}. {footer.rightsText}
           </p>
           <p className="hidden font-serif italic md:block">
-            Set in Playfair Display &amp; Inter
+            {footer.colophon}
           </p>
           <ul className="flex items-center gap-6">
-            <li>
-              <a href="#" className="transition-colors hover:text-gold-light">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-gold-light">
-                Terms of Service
-              </a>
-            </li>
+            {footer.legal.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  className="transition-colors hover:text-gold-light"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

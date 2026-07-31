@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site";
+import { getContent } from "@/lib/content";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const { site } = await getContent();
   return {
-    name: siteConfig.name,
-    short_name: siteConfig.shortName,
-    description: siteConfig.description,
+    name: site.name,
+    short_name: site.shortName,
+    description: site.description,
     start_url: "/",
     display: "standalone",
     background_color: "#F1ECEC",

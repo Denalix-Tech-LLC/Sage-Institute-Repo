@@ -88,3 +88,52 @@ vercel --prod     # production deployment
 
 Or push to GitHub and import the repo at [vercel.com/new](https://vercel.com/new) — no
 configuration is required; Vercel auto-detects Next.js.
+
+## Editing the site content — for the practice owner (no code)
+
+All of the website's words and pictures live in **`content/site-content.json`**, and you
+edit them through a password-protected editor in your browser. You never touch code.
+
+### How to edit
+
+1. Go to **`https://your-site.com/admin`** and enter the admin password.
+2. Pick a tab (Home, About, Services, Contact, Events & Classes, Site & Navigation, SEO,
+   404). Change any text box, or swap a picture with **Choose file** (JPG/PNG/WebP/GIF/AVIF,
+   up to 4 MB). Every image has an **alt text** box beside it — please fill it in.
+3. Lists (team members, services, events) have **+ Add**, **Remove**, and **↑ / ↓** to
+   reorder.
+4. Click **Save** (or **Ctrl+S** / **⌘S**). **Export JSON** downloads a backup at any time.
+
+On the live site, each save is committed to the GitHub repo, the host redeploys, and your
+change goes live in **about a minute or two**. Because every save is a commit, the project's
+history is a complete record — reverting a commit is the undo button. See
+`content/SCHEMA.md` for a field-by-field guide.
+
+### One-time setup on the host (Vercel)
+
+Add these to the project's **Production** environment variables, then **redeploy once**
+(env vars only apply to deployments created after they're added):
+
+| Variable | What it is |
+| --- | --- |
+| `ADMIN_PASSWORD` | The password for `/admin`. Choose a long one. |
+| `GITHUB_TOKEN` | A GitHub token so saves can be committed (see below). |
+| `GITHUB_REPO` | `owner/repo`, e.g. `Denalix-Tech-LLC/Sage-Institute-Repo`. |
+| `GITHUB_BRANCH` | Optional; only if your default branch is **not** `main`. |
+
+Locally (development) you only need `ADMIN_PASSWORD` in `.env.local`; saves write straight
+to the file on disk.
+
+### Creating the GitHub token (fine-grained PAT)
+
+1. GitHub → **Settings** → **Developer settings** → **Personal access tokens** →
+   **Fine-grained tokens** → **Generate new token**.
+2. **Resource owner:** the account/org that owns the repo. (For an org repo, the org must
+   allow fine-grained PATs; if it doesn't, create a **classic** token with the `repo` scope
+   instead.)
+3. **Repository access:** *Only select repositories* → choose this repo.
+4. **Permissions:** **Repository permissions → Contents → Read and write.** Nothing else.
+5. Generate, copy the token, and paste it into the host as `GITHUB_TOKEN`. Redeploy once.
+
+The token is used only on the server and is never sent to the browser.
+

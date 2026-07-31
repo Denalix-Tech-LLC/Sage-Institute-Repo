@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 
 import "./globals.css";
-import { siteConfig } from "@/lib/site";
+import { getContent, resolveSiteUrl } from "@/lib/content";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -18,74 +18,66 @@ const inter = Inter({
   display: "swap",
 });
 
-const defaultTitle = `${siteConfig.name} — Psychiatric Care & Therapy in North Carolina`;
-// Title shown on social share cards (Facebook/LinkedIn og:title, Twitter card).
-const shareTitle = "The Sage Institute — Mental Health and Wellness";
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getContent();
+  const siteUrl = resolveSiteUrl(content);
+  const { site, seo } = content;
 
-// Absolute base for canonical + Open Graph URLs. Defaults to the production
-// domain; set NEXT_PUBLIC_SITE_URL to preview OG cards on a tunnel/staging host.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url;
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: seo.browserTitle,
+      template: `%s | ${site.name}`,
+    },
+    description: site.description,
+    keywords: seo.keywords.map((keyword) => keyword.text),
+    authors: [{ name: site.name }],
+    alternates: {
+      canonical: "./",
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: siteUrl,
+      title: seo.shareTitle,
+      description: site.description,
+      siteName: site.name,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.shareTitle,
+      description: site.description,
+    },
+  };
+}
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: defaultTitle,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: [
-    "psychiatric care",
-    "medication management",
-    "psychotherapy",
-    "telehealth psychiatry",
-    "North Carolina",
-    "psychiatric nurse practitioner",
-    "PMHNP",
-    "holistic psychiatry",
-    "mental health",
-  ],
-  authors: [{ name: siteConfig.name }],
-  alternates: {
-    canonical: "./",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    title: shareTitle,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: shareTitle,
-    description: siteConfig.description,
-  },
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "MedicalClinic",
-  name: siteConfig.name,
-  url: siteUrl,
-  // E.164-style format per Google structured-data guidance; the
-  // human-readable form in siteConfig is used everywhere else on the site.
-  telephone: `+1-${siteConfig.contact.phone}`,
-  description: siteConfig.description,
-  medicalSpecialty: "Psychiatry",
-  areaServed: { "@type": "State", name: "North Carolina" },
-  availableService: [
-    { "@type": "MedicalTherapy", name: "Medication Management" },
-    { "@type": "MedicalTherapy", name: "Psychotherapy" },
-    { "@type": "MedicalTherapy", name: "Holistic Psychiatry" },
-  ],
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const content = await getContent();
+  const siteUrl = resolveSiteUrl(content);
+  const { site } = content;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    name: site.name,
+    url: siteUrl,
+    // E.164-style format per Google structured-data guidance; the
+    // human-readable form in content is used everywhere else on the site.
+    telephone: `+1-${site.contact.phone}`,
+    description: site.description,
+    medicalSpecialty: "Psychiatry",
+    areaServed: { "@type": "State", name: "North Carolina" },
+    availableService: [
+      { "@type": "MedicalTherapy", name: "Medication Management" },
+      { "@type": "MedicalTherapy", name: "Psychotherapy" },
+      { "@type": "MedicalTherapy", name: "Holistic Psychiatry" },
+    ],
+  };
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-cream font-sans text-ink antialiased">
@@ -93,7 +85,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <Navbar />
+        <Navbar
+          nav={site.nav}
+          ctaLabel={site.navbar.ctaLabel}
+          brandName={site.name}
+          logoSrc={site.logo.src}
+        />
         <main className="flex min-h-screen flex-col">{children}</main>
         <Footer />
       </body>

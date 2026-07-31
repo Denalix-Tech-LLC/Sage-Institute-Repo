@@ -5,8 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ClipboardList, LogIn } from "lucide-react";
 
+import type { HomePage } from "@/types/content";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -29,12 +29,22 @@ const item = {
   },
 };
 
-export function HeroSection() {
+interface HeroSectionProps {
+  hero: HomePage["hero"];
+  screeningFormUrl: string;
+  clientPortalUrl: string;
+}
+
+export function HeroSection({
+  hero,
+  screeningFormUrl,
+  clientPortalUrl,
+}: HeroSectionProps) {
   return (
     <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden">
       <Image
-        src="/home-hero.jpg"
-        alt="A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
+        src={hero.image}
+        alt={hero.imageAlt}
         fill
         priority
         sizes="100vw"
@@ -54,24 +64,21 @@ export function HeroSection() {
             variants={item}
             className="font-serif text-5xl font-semibold leading-tight tracking-tight text-cream text-balance sm:text-6xl md:text-7xl"
           >
-            The Sage Institute
+            {hero.title}
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 font-serif text-xl text-gold-light sm:text-2xl"
           >
-            Learn, Heal, Grow
+            {hero.tagline}
           </motion.p>
 
           <motion.p
             variants={item}
             className="mt-8 max-w-2xl text-base leading-relaxed text-cream/85 md:text-lg"
           >
-            Our mission is to help people learn skills to support their mental,
-            physical, and spiritual health; to facilitate a therapeutic space
-            that allows for healing and inspiration; and to promote resilience,
-            vitality, and growth in individuals and in our community.
+            {hero.description}
           </motion.p>
 
           <motion.div
@@ -80,27 +87,27 @@ export function HeroSection() {
           >
             <Button asChild variant="gold" size="lg">
               <a
-                href={siteConfig.screeningFormUrl}
+                href={screeningFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <ClipboardList className="h-4 w-4" />
-                New Client Screening
+                {hero.screeningLabel}
               </a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
               <a
-                href={siteConfig.clientPortalUrl}
+                href={clientPortalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LogIn className="h-4 w-4" />
-                Established Client Portal
+                {hero.portalLabel}
               </a>
             </Button>
             <Button asChild variant="gold" size="lg">
               <Link href="/services">
-                Explore Services <ArrowRight className="h-4 w-4" />
+                {hero.servicesLabel} <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
