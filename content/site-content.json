@@ -1094,13 +1094,6 @@
             "number": "04",
             "title": "First Visit",
             "description": "Meet your clinician virtually. We see clients by telehealth when they are in North Carolina at the time of the visit."
-          },
-          {
-            "id": "id-ms8hbmwq-9ottt9",
-            "icon": "creditCard",
-            "number": "5",
-            "title": "test",
-            "description": "testings tehe description"
           }
         ]
       }
