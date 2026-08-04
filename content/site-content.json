@@ -1024,145 +1024,6 @@
                 ]
               }
             }
-          },
-          {
-            "id": "id-msf2w66m-qa95us",
-            "name": "Josh McKelvey",
-            "title": "Psychiatric Nurse Practitioner",
-            "image": "/uploads/laurie-arena-msf2wm8i-39c064.jpg",
-            "imageAlt": "",
-            "imagePosition": "50% 50%",
-            "imageFit": "cover",
-            "initials": "",
-            "bio": [
-              {
-                "id": "id-msf2w66m-rels3a",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-hmdggw",
-                "text": ""
-              }
-            ],
-            "quotes": [
-              {
-                "id": "id-msf2w66n-04wfn7",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-kqnjec",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-1os3vy",
-                "text": ""
-              }
-            ],
-            "sections": [
-              {
-                "id": "id-msf2w66n-fy1zki",
-                "icon": "sparkles",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-64u7ha",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-tfk70t",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ii509h",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ldrgjh",
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "id-msf2w66n-9rojw0",
-                "icon": "stethoscope",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-gmidqk",
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "id-msf2w66n-2axfr7",
-                "icon": "heartHandshake",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-yil9is",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-7bgii9",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-8106hw",
-                    "text": ""
-                  }
-                ]
-              }
-            ],
-            "practical": {
-              "ages": "",
-              "selfPay": [],
-              "insurance": {
-                "carriers": [
-                  {
-                    "id": "id-msf2w66n-ir93ew",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-03u7w8",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ldj4dd",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-zlaea5",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-sae4yv",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-unxllk",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-uvbck8",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-rggyhq",
-                    "text": ""
-                  }
-                ],
-                "notes": [
-                  {
-                    "id": "id-msf2w66n-ae7287",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-n8hkxo",
-                    "text": ""
-                  }
-                ]
-              }
-            }
           }
         ]
       }
@@ -1223,16 +1084,6 @@
           "description": "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continue your practice with the support of a wider community.",
           "image": "/services/yoga-mindfulness.jpg",
           "imageAlt": "Two people practicing yoga together on a beach",
-          "imagePosition": "50% 50%",
-          "imageFit": "cover",
-          "featured": false
-        },
-        {
-          "id": "id-ms8h81nj-ziriel",
-          "title": "test iteam",
-          "description": "jhbjhbjhbhjbjhbjhbjhbhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhjjttttttttttttttyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyvvvvvvvvvvvvvcccccccccddddddddddddsssssssssssssssssssssssssssqqqqqqqqqqqqq",
-          "image": "/uploads/photo-msf548g5-4ad7c6.jpg",
-          "imageAlt": "",
           "imagePosition": "50% 50%",
           "imageFit": "cover",
           "featured": false
@@ -1319,21 +1170,7 @@
       "emptyState": {
         "text": "Nothing at this time, check back soon!"
       },
-      "items": [
-        {
-          "id": "id-msf25i4s-dvcwo5",
-          "title": "testing event",
-          "date": "august  21st",
-          "description": "testftrdkjtngdkjgnkdfjngkjdfngkdjnfgkdfngkdfjnjbkjgsbdkgjbskkfjksdnkjnskdjfnksjdnfkjsndfkjsnkdfjnkjdnfknsodklgnlksndglknslkgnsldknglkrdnlkwesndglksdnglskndglknslkgnslkngsknglskdnglksnglksnlgksnlkgnslknglsknglksnglksnglksnglksnglknglsknglsknglskgnlskgnlskgnslkgnslgknslknglsknglsknglskgnslkgnslknlknln",
-          "image": "/uploads/photo-msf25bs1-70a7c7.jpg",
-          "imageAlt": "dmnfbdkbksfjgs",
-          "imagePosition": "50% 50%",
-          "imageFit": "cover",
-          "location": "Cleveland",
-          "linkLabel": "",
-          "linkUrl": ""
-        }
-      ]
+      "items": []
     },
     "blog": {
       "seoTitle": "Blog",
@@ -1349,7 +1186,21 @@
       "readMoreLabel": "Read more",
       "backLabel": "Back to all posts",
       "byLabel": "By",
-      "posts": []
+      "posts": [
+        {
+          "id": "id-msf7snlx-xu2vyv",
+          "title": "Welcome",
+          "date": "2026-08-04",
+          "author": "Josh McKelvey",
+          "excerpt": "A short welcome message to the new site.",
+          "body": "Hello everyone and welcome to The Sage Institute's brand new website. Have a little patience with us as we iron out a few kinks such as this new blog. Soon we will be posting some fun, informative, unique, new content. Be sure sure to keep an eye out!\n\nThanks,\n\nYour neighborhood friendly admin assistant.\n\n-Josh",
+          "image": "",
+          "imageAlt": "",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
+          "slug": ""
+        }
+      ]
     },
     "notFound": {
       "seoTitle": "Page Not Found",
