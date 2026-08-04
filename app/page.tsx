@@ -130,6 +130,8 @@ export default async function Home() {
                       src={member.image}
                       alt={member.imageAlt}
                       initials={member.initials}
+                      imagePosition={member.imagePosition}
+                      imageFit={member.imageFit}
                     />
                   </div>
                   <div className="min-w-0 p-5">

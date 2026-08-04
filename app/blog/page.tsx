@@ -7,6 +7,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { getContent } from "@/lib/content";
 import { withSlugs } from "@/lib/blog";
+import { framingStyle } from "@/lib/image-display";
+import { formatDisplayDate, machineDate } from "@/lib/date-display";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { pages } = await getContent();
@@ -58,7 +60,7 @@ export default async function BlogPage() {
                           alt={post.imageAlt}
                           fill
                           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                          className="object-cover"
+                          style={framingStyle(post)}
                         />
                       </Link>
                     ) : null}
@@ -66,7 +68,11 @@ export default async function BlogPage() {
                     <div className="flex min-w-0 flex-1 flex-col p-7 md:p-8">
                       {post.date || post.author ? (
                         <p className="text-xs font-semibold uppercase tracking-wide text-gold-deep [overflow-wrap:anywhere]">
-                          {post.date}
+                          {post.date ? (
+                            <time dateTime={machineDate(post.date)}>
+                              {formatDisplayDate(post.date)}
+                            </time>
+                          ) : null}
                           {post.date && post.author ? " · " : ""}
                           {post.author ? `${blog.byLabel} ${post.author}` : ""}
                         </p>

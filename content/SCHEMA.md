@@ -17,6 +17,9 @@ how it all fits together, for reference.
 3. **Save often.** Click **Save** (or press **Ctrl+S** / **⌘S**). On the live
    site each save is recorded in the project's history, so nothing is ever
    truly lost.
+4. **Use one editor tab at a time.** Saving sends the whole page of content, so
+   if you have `/admin` open in two tabs, whichever you save last wins and the
+   other tab's changes are overwritten. Reload a tab before editing in it.
 
 ## What each section (tab) controls
 
@@ -40,7 +43,36 @@ how it all fits together, for reference.
   **4 MB**), and it uploads and swaps in automatically.
 - Always fill in the **alt text** — a short description of the picture. It helps
   people using screen readers and helps search engines.
-- To leave an image blank (e.g. an optional event photo), clear the path box.
+- To leave an image blank (e.g. an optional event or blog photo), clear the path
+  box. Nothing broken shows up — the picture area is simply skipped.
+
+### Choosing which part of a picture shows (cropping)
+
+The site fits pictures into fixed shapes (for example a wide 16:9 card), so a
+tall photo has to be trimmed somewhere. You decide where:
+
+- **How it fills the frame**
+  - *Fill the frame (crops the edges)* — the normal choice. Fills the space and
+    trims whatever doesn't fit.
+  - *Show the whole picture* — nothing is trimmed; the full picture is fitted
+    inside the space instead.
+- **Click the part of the picture that must stay visible.** Click a face, for
+  instance, and the crop keeps it in view. A dot marks your choice, and the
+  **“How it will look”** box beside it previews the real result.
+- Prefer buttons? The **nine preset spots** (top-left … bottom-right) do the
+  same thing and work with the keyboard.
+
+Your original file is never altered or re-saved — only the framing choice is
+stored, so you can change it as often as you like without losing quality.
+
+## Dates
+
+Date fields use a **calendar picker** — click the box and choose a day. The site
+then writes it out in full, e.g. `August 1, 2026`.
+
+If a date was typed as free text before (like "August 21st"), it keeps showing
+exactly as typed and the editor notes it below the calendar. Pick a date to
+replace it.
 
 ## Adding a list item (example)
 

@@ -10,6 +10,7 @@ import {
   MULTILINE_KEYS,
   type Path,
 } from "@/lib/admin-editor";
+import { formatDisplayDate, isIsoDate } from "@/lib/date-display";
 
 export interface EditorActions {
   update: (path: Path, value: unknown) => void;
@@ -159,14 +160,206 @@ function IconSelect({
   );
 }
 
-function ImageField({
+/** Calendar picker for date fields (stores ISO YYYY-MM-DD). */
+function DateField({
+  keyName,
   value,
   path,
   actions,
 }: {
+  keyName: string;
   value: string;
   path: Path;
   actions: EditorActions;
+}) {
+  const id = useId();
+  const iso = isIsoDate(value) ? value.trim() : "";
+  const legacy = value && !iso ? value : "";
+
+  return (
+    <div className="space-y-1.5">
+      <label htmlFor={id} className={labelClass}>
+        {humanize(keyName)}
+      </label>
+      <input
+        id={id}
+        type="date"
+        className={inputClass}
+        value={iso}
+        onChange={(event) => actions.update(path, event.target.value)}
+      />
+      {iso ? (
+        <p className="text-xs text-stone-500">
+          Shows on the site as <strong>{formatDisplayDate(iso)}</strong>
+        </p>
+      ) : null}
+      {legacy ? (
+        <p className="text-xs text-amber-700">
+          Currently typed as “{legacy}”. Pick a date above to replace it.
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+const POSITION_PRESETS: { label: string; value: string }[] = [
+  { label: "Top left", value: "0% 0%" },
+  { label: "Top", value: "50% 0%" },
+  { label: "Top right", value: "100% 0%" },
+  { label: "Left", value: "0% 50%" },
+  { label: "Centre", value: "50% 50%" },
+  { label: "Right", value: "100% 50%" },
+  { label: "Bottom left", value: "0% 100%" },
+  { label: "Bottom", value: "50% 100%" },
+  { label: "Bottom right", value: "100% 100%" },
+];
+
+/**
+ * Lets the owner choose which part of a picture stays visible when the site
+ * crops it to a fixed shape — by clicking the spot on the picture, or using the
+ * nine preset buttons (keyboard friendly). Nothing is re-encoded; the choice is
+ * stored as a CSS object-position and applied when the page renders.
+ */
+function CropControl({
+  src,
+  position,
+  fit,
+  parentPath,
+  actions,
+}: {
+  src: string;
+  position: string;
+  fit: string;
+  parentPath: Path;
+  actions: EditorActions;
+}) {
+  const imageRef = useRef<HTMLImageElement>(null);
+  const isContain = fit === "contain";
+
+  const setPosition = (next: string) =>
+    actions.update([...parentPath, "imagePosition"], next);
+
+  function pick(event: React.MouseEvent<HTMLImageElement>) {
+    const el = imageRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = Math.min(100, Math.max(0, ((event.clientX - rect.left) / rect.width) * 100));
+    const y = Math.min(100, Math.max(0, ((event.clientY - rect.top) / rect.height) * 100));
+    setPosition(`${Math.round(x)}% ${Math.round(y)}%`);
+  }
+
+  const [xPct, yPct] = position.split(/\s+/);
+
+  return (
+    <div className="space-y-3 rounded-lg border border-stone-200 bg-stone-50/60 p-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="text-xs font-medium text-ink">
+          How it fills the frame
+          <select
+            className={`${inputClass} mt-1`}
+            value={isContain ? "contain" : "cover"}
+            onChange={(event) =>
+              actions.update([...parentPath, "imageFit"], event.target.value)
+            }
+          >
+            <option value="cover">Fill the frame (crops the edges)</option>
+            <option value="contain">Show the whole picture</option>
+          </select>
+        </label>
+      </div>
+
+      {isContain ? (
+        <p className="text-xs text-stone-500">
+          The whole picture is shown, so there is nothing to crop.
+        </p>
+      ) : (
+        <>
+          <p className="text-xs text-stone-600">
+            Click the part of the picture that must stay visible (e.g. a face).
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {/* Click target — the element is the image itself, so click
+                coordinates map straight onto the picture. */}
+            <div className="relative inline-block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                ref={imageRef}
+                src={src}
+                alt=""
+                onClick={pick}
+                className="max-h-40 w-auto cursor-crosshair rounded border border-stone-300"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-forest shadow"
+                style={{ left: xPct, top: yPct }}
+              />
+            </div>
+
+            {/* Live preview in the wide shape most cards use. */}
+            <div className="space-y-1">
+              <span className="block text-xs font-medium text-ink">
+                How it will look
+              </span>
+              <div className="h-24 w-44 overflow-hidden rounded border border-stone-300 bg-white">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt=""
+                  className="h-full w-full"
+                  style={{ objectFit: "cover", objectPosition: position }}
+                />
+              </div>
+              <span className="block text-[11px] text-stone-500">
+                Focus: {position}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-start gap-3">
+            <div>
+              <span className="block text-xs font-medium text-ink">
+                Or pick a spot
+              </span>
+              <div className="mt-1 grid w-fit grid-cols-3 gap-1">
+                {POSITION_PRESETS.map((preset) => (
+                  <button
+                    key={preset.value}
+                    type="button"
+                    title={preset.label}
+                    aria-label={preset.label}
+                    aria-pressed={position === preset.value}
+                    onClick={() => setPosition(preset.value)}
+                    className={
+                      position === preset.value
+                        ? "h-7 w-7 rounded border border-forest bg-forest text-[10px] text-cream"
+                        : "h-7 w-7 rounded border border-stone-300 bg-white text-[10px] text-stone-500 hover:bg-stone-100"
+                    }
+                  >
+                    ●
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function ImageField({
+  value,
+  path,
+  actions,
+  framing,
+  parentPath,
+}: {
+  value: string;
+  path: Path;
+  actions: EditorActions;
+  framing: { imagePosition?: string; imageFit?: string };
+  parentPath: Path;
 }) {
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -245,6 +438,17 @@ function ImageField({
       <span role="status" aria-live="polite" className="block text-xs text-forest">
         {message}
       </span>
+
+      {/* Crop / focus controls appear once there is a picture to frame. */}
+      {value ? (
+        <CropControl
+          src={value}
+          position={framing.imagePosition || "50% 50%"}
+          fit={framing.imageFit || "cover"}
+          parentPath={parentPath}
+          actions={actions}
+        />
+      ) : null}
     </div>
   );
 }
@@ -399,11 +603,13 @@ function FieldRenderer({
   value,
   path,
   actions,
+  siblings,
 }: {
   keyName: string;
   value: unknown;
   path: Path;
   actions: EditorActions;
+  siblings: Record<string, unknown>;
 }) {
   if (keyName === "icon" && typeof value === "string") {
     return <IconSelect value={value} path={path} actions={actions} />;
@@ -413,7 +619,25 @@ function FieldRenderer({
   }
   if (typeof value === "string") {
     if (keyName === "image") {
-      return <ImageField value={value} path={path} actions={actions} />;
+      return (
+        <ImageField
+          value={value}
+          path={path}
+          actions={actions}
+          parentPath={path.slice(0, -1)}
+          framing={{
+            imagePosition:
+              typeof siblings.imagePosition === "string"
+                ? siblings.imagePosition
+                : undefined,
+            imageFit:
+              typeof siblings.imageFit === "string" ? siblings.imageFit : undefined,
+          }}
+        />
+      );
+    }
+    if (keyName === "date") {
+      return <DateField keyName={keyName} value={value} path={path} actions={actions} />;
     }
     return <StringField keyName={keyName} value={value} path={path} actions={actions} />;
   }
@@ -449,6 +673,9 @@ export function ObjectFields({
     <div className="space-y-4">
       {Object.entries(obj).map(([key, value]) => {
         if (key === "id" || key.startsWith("_")) return null;
+        // Framing is edited through the image field's crop control, not as
+        // separate raw text boxes.
+        if (key === "imagePosition" || key === "imageFit") return null;
         return (
           <FieldRenderer
             key={key}
@@ -456,6 +683,7 @@ export function ObjectFields({
             value={value}
             path={[...path, key]}
             actions={actions}
+            siblings={obj}
           />
         );
       })}

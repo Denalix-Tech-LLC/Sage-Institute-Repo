@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 
-interface FounderPhotoProps {
+import { framingStyle, type ImageFraming } from "@/lib/image-display";
+
+interface FounderPhotoProps extends ImageFraming {
   src: string;
   alt: string;
   /** Shown if the image is missing or fails to load. */
@@ -13,8 +15,15 @@ interface FounderPhotoProps {
 /**
  * Founder portrait with a graceful fallback to initials on a forest panel
  * (so the layout never shows a broken image if the photo file is absent).
+ * Framing (crop focus / fit) is owner-controlled from the admin editor.
  */
-export function FounderPhoto({ src, alt, initials }: FounderPhotoProps) {
+export function FounderPhoto({
+  src,
+  alt,
+  initials,
+  imagePosition,
+  imageFit,
+}: FounderPhotoProps) {
   const [errored, setErrored] = useState(false);
 
   // An empty path (e.g. a newly added team member with no photo yet) would
@@ -35,7 +44,7 @@ export function FounderPhoto({ src, alt, initials }: FounderPhotoProps) {
       alt={alt}
       fill
       sizes="(min-width: 1024px) 45vw, 100vw"
-      className="object-cover"
+      style={framingStyle({ imagePosition, imageFit })}
       onError={() => setErrored(true)}
     />
   );

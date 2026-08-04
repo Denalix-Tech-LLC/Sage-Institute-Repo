@@ -132,6 +132,8 @@
       "hero": {
         "image": "/home-hero.jpg",
         "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance",
+        "imagePosition": "50% 50%",
+        "imageFit": "cover",
         "title": "The Sage Institute",
         "tagline": "Learn, Heal, Grow",
         "description": "Our mission is to help people learn skills to support their mental, physical, and spiritual health; to facilitate a therapeutic space that allows for healing and inspiration; and to promote resilience, vitality, and growth in individuals and in our community.",
@@ -207,6 +209,8 @@
             "role": "Founder · PMHNP",
             "image": "/laurie-arena.jpg",
             "imageAlt": "Laurie L. Arena, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "LA"
           },
           {
@@ -215,6 +219,8 @@
             "role": "Psychiatric NP · CNM",
             "image": "/jade-montana.png",
             "imageAlt": "Jade Montana, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "JM"
           },
           {
@@ -223,6 +229,8 @@
             "role": "Psychiatric NP",
             "image": "/amy-main.jpg",
             "imageAlt": "Amy Main, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "AM"
           },
           {
@@ -231,6 +239,8 @@
             "role": "Psychiatric NP",
             "image": "/lindsey-rebollar.png",
             "imageAlt": "Lindsey Rebollar, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "LR"
           }
         ],
@@ -302,13 +312,17 @@
         "eyebrow": "Our mission",
         "heading": "Our mission is to help people learn skills to support their mental, physical, and spiritual health; to facilitate a therapeutic space that allows for healing and inspiration; and to promote resilience, vitality, health, and growth in individuals and in our community.",
         "image": "/home-hero.jpg",
-        "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance"
+        "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance",
+        "imagePosition": "50% 50%",
+        "imageFit": "cover"
       },
       "founder": {
         "eyebrow": "Our founder",
         "sectionHeading": "Meet Laurie Arena",
         "image": "/laurie-arena.jpg",
         "imageAlt": "Laurie L. Arena, MSW, PMHNP, founder of The Sage Institute",
+        "imagePosition": "50% 50%",
+        "imageFit": "cover",
         "initials": "LA",
         "name": "Laurie L. Arena, MSW, PMHNP",
         "role": "Founder · Psychiatric Nurse Practitioner",
@@ -557,6 +571,8 @@
             "title": "Psychiatric Nurse Practitioner · Certified Nurse Midwife",
             "image": "/jade-montana.png",
             "imageAlt": "Jade Montana, PMHNP, CNM, FNP, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "JM",
             "bio": [
               {
@@ -707,6 +723,8 @@
             "title": "Psychiatric Nurse Practitioner",
             "image": "/amy-main.jpg",
             "imageAlt": "Amy Main, PMHNP, FNP, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "AM",
             "bio": [
               {
@@ -853,6 +871,8 @@
             "title": "Psychiatric Nurse Practitioner",
             "image": "/lindsey-rebollar.png",
             "imageAlt": "Lindsey Rebollar, PMHNP, clinician at The Sage Institute",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
             "initials": "LR",
             "bio": [
               {
@@ -1004,6 +1024,145 @@
                 ]
               }
             }
+          },
+          {
+            "id": "id-msf2w66m-qa95us",
+            "name": "Josh McKelvey",
+            "title": "Psychiatric Nurse Practitioner",
+            "image": "/uploads/laurie-arena-msf2wm8i-39c064.jpg",
+            "imageAlt": "",
+            "imagePosition": "50% 50%",
+            "imageFit": "cover",
+            "initials": "",
+            "bio": [
+              {
+                "id": "id-msf2w66m-rels3a",
+                "text": ""
+              },
+              {
+                "id": "id-msf2w66n-hmdggw",
+                "text": ""
+              }
+            ],
+            "quotes": [
+              {
+                "id": "id-msf2w66n-04wfn7",
+                "text": ""
+              },
+              {
+                "id": "id-msf2w66n-kqnjec",
+                "text": ""
+              },
+              {
+                "id": "id-msf2w66n-1os3vy",
+                "text": ""
+              }
+            ],
+            "sections": [
+              {
+                "id": "id-msf2w66n-fy1zki",
+                "icon": "sparkles",
+                "title": "",
+                "items": [
+                  {
+                    "id": "id-msf2w66n-64u7ha",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-tfk70t",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-ii509h",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-ldrgjh",
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "id-msf2w66n-9rojw0",
+                "icon": "stethoscope",
+                "title": "",
+                "items": [
+                  {
+                    "id": "id-msf2w66n-gmidqk",
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "id-msf2w66n-2axfr7",
+                "icon": "heartHandshake",
+                "title": "",
+                "items": [
+                  {
+                    "id": "id-msf2w66n-yil9is",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-7bgii9",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-8106hw",
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "practical": {
+              "ages": "",
+              "selfPay": [],
+              "insurance": {
+                "carriers": [
+                  {
+                    "id": "id-msf2w66n-ir93ew",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-03u7w8",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-ldj4dd",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-zlaea5",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-sae4yv",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-unxllk",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-uvbck8",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-rggyhq",
+                    "text": ""
+                  }
+                ],
+                "notes": [
+                  {
+                    "id": "id-msf2w66n-ae7287",
+                    "text": ""
+                  },
+                  {
+                    "id": "id-msf2w66n-n8hkxo",
+                    "text": ""
+                  }
+                ]
+              }
+            }
           }
         ]
       }
@@ -1024,6 +1183,8 @@
           "description": "Nutritional Psychiatry (ways to enhance and support your mental health through food choices as well as fostering a mindful and joyful relationship to eating), various supplements, sleep hygiene, spending time in nature, light therapy, movement and/or exercise, social connection, creative expression, spirituality, and mind-body activities to ground and calm your nervous system can all be a part of your mental wellness plan.",
           "image": "/services/holistic-psychiatry.jpg",
           "imageAlt": "A composition of fresh, healthy food on a wooden table",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": true
         },
         {
@@ -1032,6 +1193,8 @@
           "description": "Therapy should be as comfortable and destigmatized as chatting over coffee. Talk therapy creates a safe space in your life to process thoughts, emotions, behavioral patterns, transitions, stressors, losses, challenges, and joys. It is a way to reflect in the moment, while looking back at the past and forward to the future. You are more than a diagnosis. You are a human being with a unique story. Therapy can be the mirror to show you your worth, the classroom to learn and practice new skills, and the healing waters to help you transcend your suffering and cultivate meaning, connection, and growth.",
           "image": "/services/therapy.jpg",
           "imageAlt": "A woman talking warmly during a video therapy session",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": true
         },
         {
@@ -1040,6 +1203,8 @@
           "description": "Medication can be an important and foundational tool in supporting your mental health. Our prescribers will partner with you to walk through the process of finding the right medication plan for you. We can also assist you to safely come off of psychiatric medications.",
           "image": "/services/medication-management.jpg",
           "imageAlt": "A clinician consulting with a client about medication",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": false
         },
         {
@@ -1048,6 +1213,8 @@
           "description": "We offer groups and classes to draw on the power of social connection and learning in a group setting and to educate, encourage, and empower each other in mental health and wellness strategies.",
           "image": "/services/groups-classes.jpg",
           "imageAlt": "A diverse group sitting together around a couch in conversation",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": false
         },
         {
@@ -1056,6 +1223,8 @@
           "description": "Yoga, Mindfulness, and Meditation have a growing body of evidence that they can profoundly bolster our mental health. Join us in giving these practices a try or continue your practice with the support of a wider community.",
           "image": "/services/yoga-mindfulness.jpg",
           "imageAlt": "Two people practicing yoga together on a beach",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": false
         },
         {
@@ -1064,6 +1233,8 @@
           "description": "jhbjhbjhbhjbjhbjhbjhbhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhjjttttttttttttttyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyvvvvvvvvvvvvvcccccccccddddddddddddsssssssssssssssssssssssssssqqqqqqqqqqqqq",
           "image": "/uploads/photo-msf548g5-4ad7c6.jpg",
           "imageAlt": "",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
           "featured": false
         }
       ],
@@ -1141,12 +1312,28 @@
         "crumb": "Events & Classes",
         "title": "Events & Classes",
         "image": "/uploads/events-hero-msf2r8ri-30b373.jpg",
-        "imageAlt": "A dirt road winding through green fields under a bright evening sky"
+        "imageAlt": "A dirt road winding through green fields under a bright evening sky",
+        "imagePosition": "50% 50%",
+        "imageFit": "cover"
       },
       "emptyState": {
         "text": "Nothing at this time, check back soon!"
       },
-      "items": []
+      "items": [
+        {
+          "id": "id-msf25i4s-dvcwo5",
+          "title": "testing event",
+          "date": "august  21st",
+          "description": "testftrdkjtngdkjgnkdfjngkjdfngkdjnfgkdfngkdfjnjbkjgsbdkgjbskkfjksdnkjnskdjfnksjdnfkjsndfkjsnkdfjnkjdnfknsodklgnlksndglknslkgnsldknglkrdnlkwesndglksdnglskndglknslkgnslkngsknglskdnglksnglksnlgksnlkgnslknglsknglksnglksnglksnglksnglknglsknglsknglskgnlskgnlskgnslkgnslgknslknglsknglsknglskgnslkgnslknlknln",
+          "image": "/uploads/photo-msf25bs1-70a7c7.jpg",
+          "imageAlt": "dmnfbdkbksfjgs",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
+          "location": "Cleveland",
+          "linkLabel": "",
+          "linkUrl": ""
+        }
+      ]
     },
     "blog": {
       "seoTitle": "Blog",
@@ -1162,19 +1349,7 @@
       "readMoreLabel": "Read more",
       "backLabel": "Back to all posts",
       "byLabel": "By",
-      "posts": [
-        {
-          "id": "id-msf61ppm-6b7yet",
-          "title": "new test blog",
-          "date": "August 1st",
-          "author": "Prasanna Kumar",
-          "excerpt": "test shirtrgsrjgbskdgb,smdbgkmsbdkjns,mdngkjshdgkjshdgkjshkdjghdjkfgn,mxgn,mxng,mn,gmsn,mgn,smng,msng,msng,msng,msng,msng,msng,msng,msng,mfdngbfgkjrtjhrtkjsrgbmxnvmncv mndsbfhsbfjsdbfnsfbc   kuhfkjsdbfbskfjbdskf",
-          "body": " fnsdmfbsmnbmnbmnbmnbmnbddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddffffffffffffffffffffffffffffffffffffffffffffffffffffffffttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
-          "image": "/uploads/photo-msf63er1-6457ba.jpg",
-          "imageAlt": "",
-          "slug": ""
-        }
-      ]
+      "posts": []
     },
     "notFound": {
       "seoTitle": "Page Not Found",

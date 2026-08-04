@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ClipboardList, LogIn } from "lucide-react";
 
 import type { HomePage } from "@/types/content";
+import { framingStyle } from "@/lib/image-display";
 import { Button } from "@/components/ui/button";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -48,7 +49,7 @@ export function HeroSection({
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        style={framingStyle(hero)}
       />
       <div className="absolute inset-0 bg-forest/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/70 via-forest/20 to-forest-dark/40" />

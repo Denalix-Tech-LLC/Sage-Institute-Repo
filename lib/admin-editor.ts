@@ -164,6 +164,8 @@ export const EXTRA_TEMPLATES: Record<string, unknown> = {
     description: "",
     image: "",
     imageAlt: "",
+    imagePosition: "50% 50%",
+    imageFit: "cover",
     location: "",
     linkLabel: "",
     linkUrl: "",
@@ -177,6 +179,8 @@ export const EXTRA_TEMPLATES: Record<string, unknown> = {
     body: "",
     image: "",
     imageAlt: "",
+    imagePosition: "50% 50%",
+    imageFit: "cover",
     slug: "",
   },
 };

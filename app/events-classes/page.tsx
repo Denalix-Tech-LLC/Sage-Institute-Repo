@@ -11,6 +11,8 @@ import {
 
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { getContent } from "@/lib/content";
+import { framingStyle } from "@/lib/image-display";
+import { formatDisplayDate, machineDate } from "@/lib/date-display";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { pages } = await getContent();
@@ -34,7 +36,7 @@ export default async function EventsClassesPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          style={framingStyle(events.header)}
         />
         <div className="absolute inset-0 bg-forest/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent" />
@@ -84,7 +86,7 @@ export default async function EventsClassesPage() {
                               alt={event.imageAlt}
                               fill
                               sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                              className="object-cover"
+                              style={framingStyle(event)}
                             />
                           </div>
                         ) : null}
@@ -94,7 +96,9 @@ export default async function EventsClassesPage() {
                         <div className="flex min-w-0 flex-1 flex-col p-7 md:p-8">
                           {event.date ? (
                             <p className="text-xs font-semibold uppercase tracking-wide text-gold-deep">
-                              {event.date}
+                              <time dateTime={machineDate(event.date)}>
+                                {formatDisplayDate(event.date)}
+                              </time>
                             </p>
                           ) : null}
                           <h2 className="mt-2 min-w-0 font-serif text-xl font-semibold text-forest [overflow-wrap:anywhere]">

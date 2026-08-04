@@ -8,6 +8,8 @@ import { PageHeader } from "@/components/PageHeader";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getContent } from "@/lib/content";
 import { withSlugs, toParagraphs } from "@/lib/blog";
+import { framingStyle } from "@/lib/image-display";
+import { formatDisplayDate, machineDate } from "@/lib/date-display";
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -54,7 +56,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <AnimatedSection className="mx-auto max-w-3xl">
             {post.date || post.author ? (
               <p className="text-xs font-semibold uppercase tracking-wide text-gold-deep [overflow-wrap:anywhere]">
-                {post.date}
+                {post.date ? (
+                  <time dateTime={machineDate(post.date)}>
+                    {formatDisplayDate(post.date)}
+                  </time>
+                ) : null}
                 {post.date && post.author ? " · " : ""}
                 {post.author ? `${blog.byLabel} ${post.author}` : ""}
               </p>
@@ -69,7 +75,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   fill
                   priority
                   sizes="(min-width: 1024px) 60vw, 100vw"
-                  className="object-cover"
+                  style={framingStyle(post)}
                 />
               </div>
             ) : null}

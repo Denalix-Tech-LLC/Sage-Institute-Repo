@@ -8,6 +8,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { getContent } from "@/lib/content";
 import { resolveIcon } from "@/lib/icons";
+import { framingStyle } from "@/lib/image-display";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { pages } = await getContent();
@@ -47,7 +48,7 @@ export default async function ServicesPage() {
                         alt={service.imageAlt}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover"
+                        style={framingStyle(service)}
                       />
                     </div>
                   ) : null}

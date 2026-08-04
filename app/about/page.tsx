@@ -9,6 +9,7 @@ import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/Animate
 import { PageHeader } from "@/components/PageHeader";
 import { getContent } from "@/lib/content";
 import { resolveIcon } from "@/lib/icons";
+import { framingStyle } from "@/lib/image-display";
 import type { PracticalPanel as PracticalPanelData, TextItem } from "@/types/content";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -152,7 +153,7 @@ export default async function AboutPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+                style={framingStyle(about.mission)}
               />
             </div>
           </div>
@@ -176,6 +177,8 @@ export default async function AboutPage() {
                   src={about.founder.image}
                   alt={about.founder.imageAlt}
                   initials={about.founder.initials}
+                  imagePosition={about.founder.imagePosition}
+                  imageFit={about.founder.imageFit}
                 />
               </div>
             </div>
@@ -288,6 +291,8 @@ export default async function AboutPage() {
                         src={member.image}
                         alt={member.imageAlt}
                         initials={member.initials}
+                        imagePosition={member.imagePosition}
+                        imageFit={member.imageFit}
                       />
                     </div>
                   </div>

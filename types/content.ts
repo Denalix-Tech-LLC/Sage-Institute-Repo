@@ -112,6 +112,8 @@ export interface TeamPreviewMember {
   role: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  imageFit?: string;
   initials: string;
 }
 
@@ -121,6 +123,8 @@ export interface HomePage {
   hero: {
     image: string;
     imageAlt: string;
+    imagePosition?: string;
+    imageFit?: string;
     title: string;
     tagline: string;
     description: string;
@@ -176,6 +180,8 @@ export interface Clinician {
   title: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  imageFit?: string;
   initials: string;
   bio: TextItem[];
   quotes: TextItem[];
@@ -188,12 +194,21 @@ export interface AboutPage {
   seoDescription: string;
   header: { crumb: string; title: string; intro: string };
   practicalLabels: { ages: string; selfPay: string; insurance: string };
-  mission: { eyebrow: string; heading: string; image: string; imageAlt: string };
+  mission: {
+    eyebrow: string;
+    heading: string;
+    image: string;
+    imageAlt: string;
+    imagePosition?: string;
+    imageFit?: string;
+  };
   founder: {
     eyebrow: string;
     sectionHeading: string;
     image: string;
     imageAlt: string;
+    imagePosition?: string;
+    imageFit?: string;
     initials: string;
     name: string;
     role: string;
@@ -229,6 +244,8 @@ export interface ServiceItem {
   description: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  imageFit?: string;
   featured: boolean;
 }
 
@@ -282,6 +299,8 @@ export interface EventItem {
   description: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  imageFit?: string;
   location: string;
   linkLabel: string;
   linkUrl: string;
@@ -290,7 +309,14 @@ export interface EventItem {
 export interface EventsPage {
   seoTitle: string;
   seoDescription: string;
-  header: { crumb: string; title: string; image: string; imageAlt: string };
+  header: {
+    crumb: string;
+    title: string;
+    image: string;
+    imageAlt: string;
+    imagePosition?: string;
+    imageFit?: string;
+  };
   emptyState: { text: string };
   items: EventItem[];
 }
@@ -306,6 +332,8 @@ export interface BlogPost {
   body: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  imageFit?: string;
   /** Optional URL override. Left blank, the web address comes from the title. */
   slug: string;
 }
