@@ -1162,7 +1162,19 @@
       "readMoreLabel": "Read more",
       "backLabel": "Back to all posts",
       "byLabel": "By",
-      "posts": []
+      "posts": [
+        {
+          "id": "id-msf61ppm-6b7yet",
+          "title": "new test blog",
+          "date": "August 1st",
+          "author": "Prasanna Kumar",
+          "excerpt": "test shirtrgsrjgbskdgb,smdbgkmsbdkjns,mdngkjshdgkjshdgkjshkdjghdjkfgn,mxgn,mxng,mn,gmsn,mgn,smng,msng,msng,msng,msng,msng,msng,msng,msng,mfdngbfgkjrtjhrtkjsrgbmxnvmncv mndsbfhsbfjsdbfnsfbc   kuhfkjsdbfbskfjbdskf",
+          "body": " fnsdmfbsmnbmnbmnbmnbmnbddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddffffffffffffffffffffffffffffffffffffffffffffffffffffffffttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+          "image": "/uploads/photo-msf63er1-6457ba.jpg",
+          "imageAlt": "",
+          "slug": ""
+        }
+      ]
     },
     "notFound": {
       "seoTitle": "Page Not Found",
