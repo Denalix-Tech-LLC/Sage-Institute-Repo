@@ -10,7 +10,11 @@ import path from "path";
  * can't interleave.
  */
 
-const READONLY_CODES = new Set(["EROFS", "EACCES", "EPERM"]);
+// Filesystem errors that mean "this host won't let us write" → use the GitHub
+// fallback. ENOENT is included because on serverless hosts (Vercel) the
+// function bundle has no `public/` directory at all — static files are served
+// from the CDN — so even creating the folder fails with ENOENT, not EROFS.
+const READONLY_CODES = new Set(["EROFS", "EACCES", "EPERM", "ENOENT"]);
 
 let chain: Promise<unknown> = Promise.resolve();
 
