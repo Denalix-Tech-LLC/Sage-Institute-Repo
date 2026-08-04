@@ -139,8 +139,11 @@ export function PageHeader({ crumb, title, intro, children }: PageHeaderProps) {
                 <path d="M1.5 10.5 C1.5 5.5 5.5 1.5 10.5 1.5 C10.5 6.5 6.5 10.5 1.5 10.5 Z" />
               </svg>
             </li>
-            <li>
-              <span aria-current="page" className="text-gold-light">
+            <li className="min-w-0">
+              <span
+                aria-current="page"
+                className="text-gold-light [overflow-wrap:anywhere]"
+              >
                 {crumb}
               </span>
             </li>
@@ -150,12 +153,14 @@ export function PageHeader({ crumb, title, intro, children }: PageHeaderProps) {
           </ol>
         </nav>
 
-        <h1 className="max-w-3xl font-serif text-3xl leading-[1.12] text-cream [text-wrap:balance] sm:text-4xl md:text-[2.75rem]">
+        {/* overflow-wrap:anywhere so a long unbroken word in an editable
+            title (e.g. a blog post) wraps instead of being clipped. */}
+        <h1 className="max-w-3xl min-w-0 font-serif text-3xl leading-[1.12] text-cream [overflow-wrap:anywhere] [text-wrap:balance] sm:text-4xl md:text-[2.75rem]">
           {title}
         </h1>
 
         {intro ? (
-          <div className="mt-3 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-cream/80 md:text-base">
+          <div className="mt-3 min-w-0 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-cream/80 [overflow-wrap:anywhere] md:text-base">
             {intro}
           </div>
         ) : null}

@@ -295,6 +295,32 @@ export interface EventsPage {
   items: EventItem[];
 }
 
+/* ------------------------------------------------------------------ blog */
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  date: string;
+  author: string;
+  excerpt: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+  /** Optional URL override. Left blank, the web address comes from the title. */
+  slug: string;
+}
+
+export interface BlogPage {
+  seoTitle: string;
+  seoDescription: string;
+  header: { crumb: string; title: string; intro: string };
+  emptyState: { text: string };
+  readMoreLabel: string;
+  backLabel: string;
+  byLabel: string;
+  posts: BlogPost[];
+}
+
 /* -------------------------------------------------------------- notFound */
 
 export interface NotFoundPage {
@@ -318,6 +344,7 @@ export interface SiteContent {
     services: ServicesPage;
     contact: ContactPage;
     events: EventsPage;
+    blog: BlogPage;
     notFound: NotFoundPage;
   };
 }

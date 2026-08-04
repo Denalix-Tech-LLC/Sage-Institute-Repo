@@ -7,6 +7,7 @@ import {
   humanize,
   isSimpleTextItem,
   itemLabel,
+  MULTILINE_KEYS,
   type Path,
 } from "@/lib/admin-editor";
 
@@ -37,7 +38,9 @@ function StringField({
   actions: EditorActions;
 }) {
   const id = useId();
-  const multiline = value.length > 60 || value.includes("\n");
+  const multiline =
+    MULTILINE_KEYS.has(keyName) || value.length > 60 || value.includes("\n");
+  const isBody = keyName === "body";
   return (
     <div className="space-y-1.5">
       <label htmlFor={id} className={labelClass}>
@@ -46,8 +49,14 @@ function StringField({
       {multiline ? (
         <textarea
           id={id}
-          className={`${inputClass} min-h-[4.5rem] resize-y leading-relaxed`}
-          rows={Math.min(10, Math.max(3, Math.ceil(value.length / 70)))}
+          className={`${inputClass} ${
+            isBody ? "min-h-[18rem]" : "min-h-[4.5rem]"
+          } resize-y leading-relaxed`}
+          rows={
+            isBody
+              ? Math.min(30, Math.max(12, Math.ceil(value.length / 70)))
+              : Math.min(10, Math.max(3, Math.ceil(value.length / 70)))
+          }
           value={value}
           onChange={(event) => actions.update(path, event.target.value)}
         />

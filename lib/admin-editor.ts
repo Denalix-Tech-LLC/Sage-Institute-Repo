@@ -33,7 +33,32 @@ const LABEL_OVERRIDES: Record<string, string> = {
   colophon: "Colophon (small print)",
   featured: "Featured (large card)",
   icon: "Icon",
+  author: "Author",
+  excerpt: "Short summary (shown on the blog list)",
+  body: "Post text (press Enter twice to start a new paragraph)",
+  slug: "Web address (optional — leave blank to use the title)",
+  readMoreLabel: "“Read more” link label",
+  backLabel: "“Back to posts” link label",
+  byLabel: "Author prefix (e.g. “By”)",
 };
+
+/**
+ * Fields that should always render as a multi-line textarea, even when empty —
+ * otherwise a new blog post's body would start life as a one-line input.
+ */
+export const MULTILINE_KEYS = new Set([
+  "body",
+  "excerpt",
+  "description",
+  "intro",
+  "blurb",
+  "text",
+  "lead",
+  "disclaimer",
+  "ageNote",
+  "heading",
+  "seoDescription",
+]);
 
 /** Turn a camelCase / snake_case key into a Title Case label. */
 export function humanize(key: string): string {
@@ -142,6 +167,17 @@ export const EXTRA_TEMPLATES: Record<string, unknown> = {
     location: "",
     linkLabel: "",
     linkUrl: "",
+  },
+  "pages.blog.posts": {
+    id: "id-template",
+    title: "",
+    date: "",
+    author: "",
+    excerpt: "",
+    body: "",
+    image: "",
+    imageAlt: "",
+    slug: "",
   },
 };
 

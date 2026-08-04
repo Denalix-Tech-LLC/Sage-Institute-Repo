@@ -31,6 +31,7 @@ const TABS: TabDef[] = [
   { key: "services", label: "Services", path: ["pages", "services"] },
   { key: "contact", label: "Contact", path: ["pages", "contact"] },
   { key: "events", label: "Events & Classes", path: ["pages", "events"] },
+  { key: "blog", label: "Blog", path: ["pages", "blog"] },
   { key: "notFound", label: "404 Page", path: ["pages", "notFound"] },
 ];
 

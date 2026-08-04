@@ -50,6 +50,11 @@
         "id": "nav-events",
         "label": "Events & Classes",
         "href": "/events-classes"
+      },
+      {
+        "id": "nav-blog",
+        "label": "Blog",
+        "href": "/blog"
       }
     ],
     "navbar": {
@@ -1291,6 +1296,22 @@
           "linkUrl": ""
         }
       ]
+    },
+    "blog": {
+      "seoTitle": "Blog",
+      "seoDescription": "Reflections, education, and practical mental-health tools from the clinicians at The Sage Institute.",
+      "header": {
+        "crumb": "Blog",
+        "title": "Blog",
+        "intro": "Reflections, education, and practical tools for your mental health — written by our clinicians."
+      },
+      "emptyState": {
+        "text": "No posts yet, check back soon!"
+      },
+      "readMoreLabel": "Read more",
+      "backLabel": "Back to all posts",
+      "byLabel": "By",
+      "posts": []
     },
     "notFound": {
       "seoTitle": "Page Not Found",

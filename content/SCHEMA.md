@@ -29,6 +29,7 @@ how it all fits together, for reference.
 | **Services** | The **services list** (add / remove / reorder) and the "From intake to first visit" steps. |
 | **Contact** | The contact intro, the labels, the map, and the "become a new client" panel. |
 | **Events & Classes** | The **events list**. When it's empty the page shows "Nothing at this time, check back soon!" Add an event and it appears as a card. |
+| **Blog** | The **blog posts list**. When it's empty the page shows "No posts yet, check back soon!" Each post gets its own web page automatically. |
 | **404 Page** | The message shown when someone hits a broken link. |
 
 ## How images work
@@ -54,6 +55,26 @@ Say you want to add a **new team member** on the About page:
 5. Click **Save**.
 
 Adding a **service** or an **event** works exactly the same way, on their tabs.
+
+## Writing a blog post
+
+1. Open the **Blog** tab and click **+ Add** under **Posts**.
+2. Click **Edit fields** and fill in:
+   - **Title** — the headline.
+   - **Date** — type it however you like, e.g. `August 21, 2026`.
+   - **Author** — e.g. `Laurie Arena, PMHNP`.
+   - **Short summary** — one or two sentences. This is what people see on the
+     blog list, and what search engines show.
+   - **Post text** — the article itself. **Press Enter twice** between
+     paragraphs. No special formatting codes to learn.
+   - **Image** — completely optional. No picture? The post simply shows without
+     one. If you add one, fill in the alt text too.
+   - **Web address** — leave this blank. The address is created from the title
+     automatically (e.g. "Finding calm" → `/blog/finding-calm`). Only fill it in
+     if you need to keep an older link working.
+3. Click **Save**. The post appears at `/blog`, and it gets its own page.
+4. Use **↑ / ↓** to reorder posts (the list order is the order visitors see) and
+   **Remove** to delete a post.
 
 ## Two things the editor does *not* control (by design)
 
