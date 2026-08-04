@@ -132,7 +132,7 @@
       "hero": {
         "image": "/home-hero.jpg",
         "imageAlt": "A stack of balancing stones in a sunlit meadow, symbolising calm and balance",
-        "title": "The SAGE Institute",
+        "title": "The Sage Institute",
         "tagline": "Learn, Heal, Grow",
         "description": "Our mission is to help people learn skills to support their mental, physical, and spiritual health; to facilitate a therapeutic space that allows for healing and inspiration; and to promote resilience, vitality, and growth in individuals and in our community.",
         "screeningLabel": "New Client Screening",
@@ -1004,143 +1004,6 @@
                 ]
               }
             }
-          },
-          {
-            "id": "id-msf2w66m-qa95us",
-            "name": "Josh McKelvey",
-            "title": "Psychiatric Nurse Practitioner",
-            "image": "/uploads/laurie-arena-msf2wm8i-39c064.jpg",
-            "imageAlt": "",
-            "initials": "",
-            "bio": [
-              {
-                "id": "id-msf2w66m-rels3a",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-hmdggw",
-                "text": ""
-              }
-            ],
-            "quotes": [
-              {
-                "id": "id-msf2w66n-04wfn7",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-kqnjec",
-                "text": ""
-              },
-              {
-                "id": "id-msf2w66n-1os3vy",
-                "text": ""
-              }
-            ],
-            "sections": [
-              {
-                "id": "id-msf2w66n-fy1zki",
-                "icon": "sparkles",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-64u7ha",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-tfk70t",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ii509h",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ldrgjh",
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "id-msf2w66n-9rojw0",
-                "icon": "stethoscope",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-gmidqk",
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "id-msf2w66n-2axfr7",
-                "icon": "heartHandshake",
-                "title": "",
-                "items": [
-                  {
-                    "id": "id-msf2w66n-yil9is",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-7bgii9",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-8106hw",
-                    "text": ""
-                  }
-                ]
-              }
-            ],
-            "practical": {
-              "ages": "",
-              "selfPay": [],
-              "insurance": {
-                "carriers": [
-                  {
-                    "id": "id-msf2w66n-ir93ew",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-03u7w8",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-ldj4dd",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-zlaea5",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-sae4yv",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-unxllk",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-uvbck8",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-rggyhq",
-                    "text": ""
-                  }
-                ],
-                "notes": [
-                  {
-                    "id": "id-msf2w66n-ae7287",
-                    "text": ""
-                  },
-                  {
-                    "id": "id-msf2w66n-n8hkxo",
-                    "text": ""
-                  }
-                ]
-              }
-            }
           }
         ]
       }
@@ -1199,7 +1062,7 @@
           "id": "id-ms8h81nj-ziriel",
           "title": "test iteam",
           "description": "jhbjhbjhbhjbjhbjhbjhbhmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhjjttttttttttttttyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyvvvvvvvvvvvvvcccccccccddddddddddddsssssssssssssssssssssssssssqqqqqqqqqqqqq",
-          "image": "",
+          "image": "/uploads/photo-msf548g5-4ad7c6.jpg",
           "imageAlt": "",
           "featured": false
         }
@@ -1283,19 +1146,7 @@
       "emptyState": {
         "text": "Nothing at this time, check back soon!"
       },
-      "items": [
-        {
-          "id": "id-msf25i4s-dvcwo5",
-          "title": "testing event",
-          "date": "august  21st",
-          "description": "testftrdkjtngdkjgnkdfjngkjdfngkdjnfgkdfngkdfjnjbkjgsbdkgjbskkfjksdnkjnskdjfnksjdnfkjsndfkjsnkdfjnkjdnfknsodklgnlksndglknslkgnsldknglkrdnlkwesndglksdnglskndglknslkgnslkngsknglskdnglksnglksnlgksnlkgnslknglsknglksnglksnglksnglksnglknglsknglsknglskgnlskgnlskgnslkgnslgknslknglsknglsknglskgnslkgnslknlknln",
-          "image": "/uploads/photo-msf25bs1-70a7c7.jpg",
-          "imageAlt": "dmnfbdkbksfjgs",
-          "location": "Cleveland",
-          "linkLabel": "",
-          "linkUrl": ""
-        }
-      ]
+      "items": []
     },
     "blog": {
       "seoTitle": "Blog",
