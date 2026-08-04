@@ -33,7 +33,9 @@ function DetailCard({
       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest/5">
         <Icon className="h-5 w-5 text-forest" aria-hidden="true" />
       </div>
-      <h3 className="mt-4 font-serif text-lg text-forest">{title}</h3>
+      <h3 className="mt-4 font-serif text-lg text-forest [overflow-wrap:anywhere]">
+        {title}
+      </h3>
       <ul className="mt-4 space-y-2.5">
         {items.map((item) => (
           <li
@@ -41,7 +43,7 @@ function DetailCard({
             className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
           >
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-            <span>{item.text}</span>
+            <span className="min-w-0 [overflow-wrap:anywhere]">{item.text}</span>
           </li>
         ))}
       </ul>
@@ -64,7 +66,9 @@ function PracticalPanel({
           <Users className="h-5 w-5 text-forest" aria-hidden="true" />
         </div>
         <h3 className="mt-4 font-serif text-lg text-forest">{labels.ages}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-gray-600">{ages}</p>
+        <p className="mt-3 text-sm leading-relaxed text-gray-600 [overflow-wrap:anywhere]">
+          {ages}
+        </p>
       </div>
 
       <div className="p-7">
@@ -79,7 +83,7 @@ function PracticalPanel({
               className="flex gap-2.5 text-sm leading-relaxed text-gray-600"
             >
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
-              <span>{rate.text}</span>
+              <span className="min-w-0 [overflow-wrap:anywhere]">{rate.text}</span>
             </li>
           ))}
         </ul>
@@ -96,7 +100,7 @@ function PracticalPanel({
           {insurance.carriers.map((carrier) => (
             <span
               key={carrier.id}
-              className="rounded-full border border-stone-200/60 bg-cream px-3 py-1 text-xs text-gray-700"
+              className="max-w-full rounded-full border border-stone-200/60 bg-cream px-3 py-1 text-xs text-gray-700 [overflow-wrap:anywhere]"
             >
               {carrier.text}
             </span>
@@ -104,7 +108,10 @@ function PracticalPanel({
         </div>
         <ul className="mt-4 space-y-1.5">
           {insurance.notes.map((note) => (
-            <li key={note.id} className="text-xs leading-relaxed text-gray-500">
+            <li
+              key={note.id}
+              className="text-xs leading-relaxed text-gray-500 [overflow-wrap:anywhere]"
+            >
               {note.text}
             </li>
           ))}
@@ -173,14 +180,14 @@ export default async function AboutPage() {
               </div>
             </div>
 
-            <div>
-              <h3 className="font-serif text-2xl font-semibold text-forest">
+            <div className="min-w-0">
+              <h3 className="font-serif text-2xl font-semibold text-forest [overflow-wrap:anywhere]">
                 {about.founder.name}
               </h3>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-gold-deep">
+              <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-gold-deep [overflow-wrap:anywhere]">
                 {about.founder.role}
               </p>
-              <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700">
+              <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700 [overflow-wrap:anywhere]">
                 {about.founder.paragraphs.map((paragraph) => (
                   <p key={paragraph.id}>{paragraph.text}</p>
                 ))}
@@ -203,7 +210,7 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3">
+          <StaggerGroup className="mt-14 grid gap-6 md:grid-cols-3 [&>*]:min-w-0">
             {about.philosophy.cards.map((card) => (
               <StaggerItem key={card.id}>
                 <DetailCard icon={resolveIcon(card.icon)} title={card.title} items={card.items} />
@@ -248,7 +255,7 @@ export default async function AboutPage() {
               {about.philosophy.influences.chips.map((influence) => (
                 <span
                   key={influence.id}
-                  className="rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm"
+                  className="max-w-full rounded-full border border-stone-200/60 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm [overflow-wrap:anywhere]"
                 >
                   {influence.text}
                 </span>
@@ -274,7 +281,7 @@ export default async function AboutPage() {
           <div className="mt-16 space-y-16 md:space-y-24">
             {about.team.members.map((member, index) => (
               <AnimatedSection key={member.id}>
-                <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+                <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16 [&>*]:min-w-0">
                   <div className={index % 2 === 1 ? "lg:order-last" : ""}>
                     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-stone-200/60 shadow-sm">
                       <FounderPhoto
@@ -284,14 +291,14 @@ export default async function AboutPage() {
                       />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-semibold text-forest">
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-2xl font-semibold text-forest [overflow-wrap:anywhere]">
                       {member.name}
                     </h3>
-                    <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-gold-deep">
+                    <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-gold-deep [overflow-wrap:anywhere]">
                       {member.title}
                     </p>
-                    <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700">
+                    <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-gray-700 [overflow-wrap:anywhere]">
                       {member.bio.map((paragraph) => (
                         <p key={paragraph.id}>{paragraph.text}</p>
                       ))}
@@ -300,7 +307,7 @@ export default async function AboutPage() {
                       {member.quotes.map((quote) => (
                         <blockquote
                           key={quote.id}
-                          className="border-l-2 border-gold/60 pl-4 text-[15px] italic leading-relaxed text-ink/80"
+                          className="border-l-2 border-gold/60 pl-4 text-[15px] italic leading-relaxed text-ink/80 [overflow-wrap:anywhere]"
                         >
                           &ldquo;{quote.text}&rdquo;
                         </blockquote>
@@ -309,7 +316,7 @@ export default async function AboutPage() {
                   </div>
                 </div>
 
-                <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
+                <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3 [&>*]:min-w-0">
                   {member.sections.map((section) => (
                     <StaggerItem key={section.id}>
                       <DetailCard

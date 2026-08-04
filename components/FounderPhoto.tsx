@@ -17,7 +17,9 @@ interface FounderPhotoProps {
 export function FounderPhoto({ src, alt, initials }: FounderPhotoProps) {
   const [errored, setErrored] = useState(false);
 
-  if (errored) {
+  // An empty path (e.g. a newly added team member with no photo yet) would
+  // make next/image error, so fall straight through to the initials panel.
+  if (!src || errored) {
     return (
       <div className="flex h-full w-full items-center justify-center bg-forest">
         <span className="font-serif text-6xl font-semibold text-cream/90">

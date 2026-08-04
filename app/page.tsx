@@ -46,7 +46,7 @@ export default async function Home() {
       {/* Stats bento */}
       <section className="bg-cream">
         <AnimatedSection className="container py-24 md:py-32">
-          <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:auto-rows-fr">
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4 lg:auto-rows-fr [&>*]:min-w-0">
             {/* Featured cell */}
             <div className="col-span-2 flex flex-col justify-center rounded-2xl bg-forest p-8 text-cream md:row-span-2">
               <span className="block h-px w-12 bg-gold" />
@@ -59,12 +59,14 @@ export default async function Home() {
             {home.stats.items.map((stat) => (
               <div
                 key={stat.id}
-                className="rounded-2xl border border-stone-200/60 bg-white p-6 text-center transition-transform duration-300 hover:-translate-y-1"
+                className="min-w-0 rounded-2xl border border-stone-200/60 bg-white p-6 text-center transition-transform duration-300 hover:-translate-y-1"
               >
-                <div className="font-serif text-4xl font-semibold text-forest">
+                <div className="font-serif text-4xl font-semibold text-forest [overflow-wrap:anywhere]">
                   {stat.value}
                 </div>
-                <div className="mt-1 text-sm text-gray-600">{stat.label}</div>
+                <div className="mt-1 text-sm text-gray-600 [overflow-wrap:anywhere]">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -84,7 +86,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3 [&>*]:min-w-0">
             {home.servicesPreview.cards.map((card) => (
               <StaggerItem key={card.id}>
                 <ServiceCard
@@ -119,7 +121,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <StaggerGroup className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <StaggerGroup className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4 [&>*]:min-w-0">
             {home.teamPreview.members.map((member) => (
               <StaggerItem key={member.id}>
                 <div className="group h-full overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1">
@@ -130,11 +132,11 @@ export default async function Home() {
                       initials={member.initials}
                     />
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-serif text-base font-semibold text-forest">
+                  <div className="min-w-0 p-5">
+                    <h3 className="font-serif text-base font-semibold text-forest [overflow-wrap:anywhere]">
                       {member.name}
                     </h3>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-gold-deep">
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-gold-deep [overflow-wrap:anywhere]">
                       {member.role}
                     </p>
                   </div>
@@ -171,7 +173,7 @@ export default async function Home() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest/5">
                   <ShieldCheck className="h-6 w-6 text-forest" aria-hidden="true" />
                 </div>
-                <div className="mt-6 space-y-5 leading-relaxed text-gray-600">
+                <div className="mt-6 space-y-5 leading-relaxed text-gray-600 [overflow-wrap:anywhere]">
                   {home.rights.lawParagraphs.map((paragraph) => (
                     <p key={paragraph.id}>{paragraph.text}</p>
                   ))}
@@ -187,7 +189,7 @@ export default async function Home() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest font-serif text-sm text-cream">
                       {String(index + 1).padStart(2, "0")}
                     </div>
-                    <p className="text-sm leading-relaxed text-gray-600">
+                    <p className="min-w-0 text-sm leading-relaxed text-gray-600 [overflow-wrap:anywhere]">
                       {item.text}
                     </p>
                   </div>

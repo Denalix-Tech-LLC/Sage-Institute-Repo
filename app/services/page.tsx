@@ -31,28 +31,34 @@ export default async function ServicesPage() {
 
       <section className="py-24 md:py-32">
         <div className="container">
-          <StaggerGroup className="grid grid-cols-1 gap-6 md:grid-cols-6">
+          <StaggerGroup className="grid grid-cols-1 gap-6 md:grid-cols-6 [&>*]:min-w-0">
             {services.list.map((service) => (
               <StaggerItem
                 key={service.id}
                 className={service.featured ? "md:col-span-3" : "md:col-span-6 lg:col-span-2"}
               >
                 <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-7 md:p-8">
+                  {/* Only render the image area when a picture is set, so a
+                      newly added service doesn't show a broken-image box. */}
+                  {service.image ? (
+                    <div className="relative aspect-[16/9] w-full overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : null}
+                  {/* min-w-0 + overflow-wrap:anywhere so a long unbroken word
+                      can't push past the card edge and get clipped. */}
+                  <div className="flex min-w-0 flex-1 flex-col p-7 md:p-8">
                     <h2
                       className={
                         service.featured
-                          ? "font-serif text-2xl font-semibold text-forest"
-                          : "font-serif text-xl font-semibold text-forest"
+                          ? "min-w-0 font-serif text-2xl font-semibold text-forest [overflow-wrap:anywhere]"
+                          : "min-w-0 font-serif text-xl font-semibold text-forest [overflow-wrap:anywhere]"
                       }
                     >
                       {service.title}
@@ -60,8 +66,8 @@ export default async function ServicesPage() {
                     <p
                       className={
                         service.featured
-                          ? "mt-4 flex-grow leading-relaxed text-gray-600"
-                          : "mt-3 flex-grow text-sm leading-relaxed text-gray-600"
+                          ? "mt-4 min-w-0 flex-grow leading-relaxed text-gray-600 [overflow-wrap:anywhere]"
+                          : "mt-3 min-w-0 flex-grow text-sm leading-relaxed text-gray-600 [overflow-wrap:anywhere]"
                       }
                     >
                       {service.description}
@@ -93,7 +99,7 @@ export default async function ServicesPage() {
             </p>
           </AnimatedSection>
 
-          <StaggerGroup className="relative mt-16 grid gap-8 md:mt-20 md:grid-cols-4 md:gap-6">
+          <StaggerGroup className="relative mt-16 grid gap-8 md:mt-20 md:grid-cols-4 md:gap-6 [&>*]:min-w-0">
             <div
               className="absolute left-0 right-0 top-7 hidden border-t border-stone-200/60 md:block"
               aria-hidden="true"
@@ -115,12 +121,16 @@ export default async function ServicesPage() {
                   <div className="absolute left-0 top-0 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-stone-200/60 bg-forest font-serif text-lg text-cream md:relative md:mb-6">
                     {step.number}
                   </div>
-                  <div className="rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm md:flex-1">
+                  <div className="min-w-0 rounded-2xl border border-stone-200/60 bg-white p-6 shadow-sm md:flex-1">
                     <div className="flex items-center gap-3">
                       <Icon className="h-5 w-5 shrink-0 text-gold" aria-hidden="true" />
-                      <h3 className="font-serif text-lg text-forest">{step.title}</h3>
+                      <h3 className="min-w-0 font-serif text-lg text-forest [overflow-wrap:anywhere]">
+                        {step.title}
+                      </h3>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-gray-600">{step.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-gray-600 [overflow-wrap:anywhere]">
+                      {step.description}
+                    </p>
                   </div>
                 </StaggerItem>
               );
