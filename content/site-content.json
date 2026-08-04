@@ -1088,20 +1088,7 @@
             ],
             "practical": {
               "ages": "",
-              "selfPay": [
-                {
-                  "id": "id-msf2w66n-zzpbhm",
-                  "text": ""
-                },
-                {
-                  "id": "id-msf2w66n-izpjmq",
-                  "text": ""
-                },
-                {
-                  "id": "id-msf2w66n-wtlxpy",
-                  "text": ""
-                }
-              ],
+              "selfPay": [],
               "insurance": {
                 "carriers": [
                   {
