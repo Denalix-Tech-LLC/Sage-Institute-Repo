@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarDays, ChevronRight, MapPin, ArrowRight } from "lucide-react";
+import {
+  CalendarDays,
+  ChevronRight,
+  ChevronDown,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 
 import { AnimatedSection, StaggerGroup, StaggerItem } from "@/components/AnimatedSection";
 import { getContent } from "@/lib/content";
@@ -62,51 +68,78 @@ export default async function EventsClassesPage() {
               </div>
             </AnimatedSection>
           ) : (
-            <StaggerGroup className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <StaggerGroup className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 [&>*]:min-w-0">
               {events.items.map((event) => (
                 <StaggerItem key={event.id}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                    {event.image ? (
-                      <div className="relative aspect-[16/9] w-full overflow-hidden">
-                        <Image
-                          src={event.image}
-                          alt={event.imageAlt}
-                          fill
-                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    ) : null}
-                    <div className="flex flex-1 flex-col p-7 md:p-8">
-                      {event.date ? (
-                        <p className="text-xs font-semibold uppercase tracking-wide text-gold-deep">
-                          {event.date}
-                        </p>
-                      ) : null}
-                      <h2 className="mt-2 font-serif text-xl font-semibold text-forest">
-                        {event.title}
-                      </h2>
-                      {event.location ? (
-                        <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-gray-600">
-                          <MapPin className="h-4 w-4 shrink-0 text-forest" aria-hidden="true" />
-                          {event.location}
-                        </p>
-                      ) : null}
-                      <p className="mt-3 flex-grow text-sm leading-relaxed text-gray-600">
-                        {event.description}
-                      </p>
+                  {/* Native <details> so the whole card is a click/keyboard
+                      target with no JavaScript. The registration link lives in
+                      the panel, never inside <summary> (nested-interactive). */}
+                  <article className="h-full overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1">
+                    <details className="group h-full">
+                      <summary className="flex min-w-0 cursor-pointer list-none flex-col [&::-webkit-details-marker]:hidden">
+                        {event.image ? (
+                          <div className="relative aspect-[16/9] w-full overflow-hidden">
+                            <Image
+                              src={event.image}
+                              alt={event.imageAlt}
+                              fill
+                              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : null}
+                        {/* min-w-0 + overflow-wrap:anywhere so a very long
+                            unbroken word can't force the card wider than its
+                            column (break-words alone doesn't shrink min-content). */}
+                        <div className="flex min-w-0 flex-1 flex-col p-7 md:p-8">
+                          {event.date ? (
+                            <p className="text-xs font-semibold uppercase tracking-wide text-gold-deep">
+                              {event.date}
+                            </p>
+                          ) : null}
+                          <h2 className="mt-2 min-w-0 font-serif text-xl font-semibold text-forest [overflow-wrap:anywhere]">
+                            {event.title}
+                          </h2>
+                          {event.location ? (
+                            <p className="mt-2 flex min-w-0 items-start gap-1.5 text-sm text-gray-600">
+                              <MapPin
+                                className="mt-0.5 h-4 w-4 shrink-0 text-forest"
+                                aria-hidden="true"
+                              />
+                              <span className="min-w-0 [overflow-wrap:anywhere]">
+                                {event.location}
+                              </span>
+                            </p>
+                          ) : null}
+                          {/* Clamped to 3 lines while collapsed, full when open */}
+                          <p className="mt-3 line-clamp-3 min-w-0 text-sm leading-relaxed text-gray-600 [overflow-wrap:anywhere] group-open:line-clamp-none">
+                            {event.description}
+                          </p>
+                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-forest">
+                            <span className="group-open:hidden">View details</span>
+                            <span className="hidden group-open:inline">Show less</span>
+                            <ChevronDown
+                              className="h-4 w-4 transition-transform duration-200 group-open:rotate-180"
+                              aria-hidden="true"
+                            />
+                          </span>
+                        </div>
+                      </summary>
+
                       {event.linkUrl && event.linkLabel ? (
-                        <a
-                          href={event.linkUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-forest transition-all hover:gap-2.5"
-                        >
-                          {event.linkLabel}
-                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                        </a>
+                        <div className="border-t border-stone-200/60 px-7 pb-7 pt-5 md:px-8 md:pb-8">
+                          <a
+                            href={event.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 break-all text-sm font-medium text-forest transition-all hover:gap-2.5"
+                          >
+                            {event.linkLabel}
+                            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                          </a>
+                        </div>
                       ) : null}
-                    </div>
+                    </details>
                   </article>
                 </StaggerItem>
               ))}
