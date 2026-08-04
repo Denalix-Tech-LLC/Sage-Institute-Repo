@@ -1135,13 +1135,25 @@
       "header": {
         "crumb": "Events & Classes",
         "title": "Events & Classes",
-        "image": "/events-hero.jpg",
+        "image": "/uploads/photo-msf20kci-89d5c3.jpg",
         "imageAlt": "A dirt road winding through green fields under a bright evening sky"
       },
       "emptyState": {
         "text": "Nothing at this time, check back soon!"
       },
-      "items": []
+      "items": [
+        {
+          "id": "id-msf25i4s-dvcwo5",
+          "title": "testing event",
+          "date": "august  21st",
+          "description": "testftrdkjtngdkjgnkdfjngkjdfngkdjnfgkdfngkdfjn",
+          "image": "/uploads/photo-msf25bs1-70a7c7.jpg",
+          "imageAlt": "dmnfbdkbksfjgs",
+          "location": "Cleveland",
+          "linkLabel": "",
+          "linkUrl": ""
+        }
+      ]
     },
     "notFound": {
       "seoTitle": "Page Not Found",
