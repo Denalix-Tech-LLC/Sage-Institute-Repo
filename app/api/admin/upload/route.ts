@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import crypto from "crypto";
 
-import { isAuthed } from "@/lib/admin-auth";
+import { resolveScope } from "@/lib/admin-auth";
 import { writeFileAtomic } from "@/lib/admin-save";
 import { commitFileToGithub } from "@/lib/admin-github";
 
@@ -21,7 +21,8 @@ const EXT_BY_MIME: Record<string, string> = {
 };
 
 export async function POST(request: NextRequest) {
-  if (!isAuthed(request)) {
+  // Either panel may upload images.
+  if (!resolveScope(request)) {
     return NextResponse.json({ ok: false, error: "Unauthorized." }, { status: 401 });
   }
 

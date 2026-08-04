@@ -96,10 +96,21 @@ edit them through a password-protected editor in your browser. You never touch c
 
 ### How to edit
 
-1. Go to **`https://your-site.com/admin`** and enter the admin password.
-2. Pick a tab (Home, About, Services, Contact, Events & Classes, Site & Navigation, SEO,
-   404). Change any text box, or swap a picture with **Choose file** (JPG/PNG/WebP/GIF/AVIF,
-   up to 4 MB). Every image has an **alt text** box beside it — please fill it in.
+There are **two editors**, each with its own password:
+
+| URL | Password | Covers |
+| --- | --- | --- |
+| `/admin` | `ADMIN_PASSWORD` | Home, About, Services, Contact, SEO, navigation, footer, 404 |
+| `/admin-blogs` | `ADMIN_BLOG_PASSWORD` | Blog posts and Events & Classes only |
+
+The split is enforced server-side: a blog-editor save cannot alter site pages, and a
+site-editor save cannot alter blog posts or events, so the two can never overwrite each
+other. Give the blog password to whoever writes posts.
+
+1. Go to **`https://your-site.com/admin`** (or **`/admin-blogs`**) and enter the password.
+2. Pick a tab. Change any text box, pick dates from the **calendar**, or swap a picture with
+   **Choose file** (JPG/PNG/WebP/GIF/AVIF, up to 4 MB). Every image has an **alt text** box
+   and a **crop control** — click the part of the picture that must stay visible.
 3. Lists (team members, services, events) have **+ Add**, **Remove**, and **↑ / ↓** to
    reorder.
 4. Click **Save** (or **Ctrl+S** / **⌘S**). **Export JSON** downloads a backup at any time.
@@ -116,13 +127,14 @@ Add these to the project's **Production** environment variables, then **redeploy
 
 | Variable | What it is |
 | --- | --- |
-| `ADMIN_PASSWORD` | The password for `/admin`. Choose a long one. |
+| `ADMIN_PASSWORD` | The password for `/admin` (site-wide content). Choose a long one. |
+| `ADMIN_BLOG_PASSWORD` | The password for `/admin-blogs` (blog + events only). |
 | `GITHUB_TOKEN` | A GitHub token so saves can be committed (see below). |
 | `GITHUB_REPO` | `owner/repo`, e.g. `Denalix-Tech-LLC/Sage-Institute-Repo`. |
 | `GITHUB_BRANCH` | Optional; only if your default branch is **not** `main`. |
 
-Locally (development) you only need `ADMIN_PASSWORD` in `.env.local`; saves write straight
-to the file on disk.
+Locally (development) you only need `ADMIN_PASSWORD` and `ADMIN_BLOG_PASSWORD` in
+`.env.local`; saves write straight to the file on disk.
 
 ### Creating the GitHub token (fine-grained PAT)
 

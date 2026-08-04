@@ -67,15 +67,47 @@ export function writeFileAtomic(
  * Validate that a parsed payload is a full content document before it is
  * written, so a malformed request can never truncate the real file.
  */
+function isObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function hasText(node: unknown, key: string): boolean {
+  return isObject(node) && typeof node[key] === "string" && node[key] !== "";
+}
+
 export function isValidContentDoc(doc: unknown): boolean {
-  if (!doc || typeof doc !== "object") return false;
-  const root = doc as Record<string, unknown>;
-  if (!root.site || typeof root.site !== "object") return false;
-  if (!root.seo || typeof root.seo !== "object") return false;
-  if (!root.pages || typeof root.pages !== "object") return false;
-  const pages = root.pages as Record<string, unknown>;
-  const required = ["home", "about", "services", "contact", "events", "notFound"];
-  return required.every(
-    (key) => pages[key] && typeof pages[key] === "object"
-  );
+  if (!isObject(doc)) return false;
+
+  const { site, seo, pages } = doc;
+  if (!isObject(site) || !isObject(seo) || !isObject(pages)) return false;
+
+  // Landmarks in the site block — an empty-but-correctly-shaped object is not
+  // a real document and must not be allowed to erase the file.
+  if (!hasText(site, "name") || !hasText(site, "tagline")) return false;
+  if (!Array.isArray(site.nav)) return false;
+  if (!isObject(site.contact) || !isObject(site.footer)) return false;
+  if (!hasText(seo, "browserTitle")) return false;
+
+  const required = [
+    "home",
+    "about",
+    "services",
+    "contact",
+    "events",
+    "blog",
+    "notFound",
+  ];
+  if (!required.every((key) => isObject(pages[key]))) return false;
+
+  // Landmarks inside each page section.
+  const p = pages as Record<string, Record<string, unknown>>;
+  if (!isObject(p.home.hero) || !isObject(p.home.stats)) return false;
+  if (!isObject(p.about.team) || !isObject(p.about.philosophy)) return false;
+  if (!Array.isArray(p.services.list)) return false;
+  if (!isObject(p.contact.cta)) return false;
+  if (!Array.isArray(p.events.items)) return false;
+  if (!Array.isArray(p.blog.posts)) return false;
+  if (!hasText(p.notFound, "heading")) return false;
+
+  return true;
 }

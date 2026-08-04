@@ -17,32 +17,39 @@ import { ObjectFields, type EditorActions } from "@/components/admin/Fields";
 
 type Status = { type: "info" | "success" | "error"; text: string } | null;
 
-interface TabDef {
+export interface TabDef {
   key: string;
   label: string;
   path: Path;
 }
 
-const TABS: TabDef[] = [
-  { key: "site", label: "Site & Navigation", path: ["site"] },
-  { key: "seo", label: "SEO", path: ["seo"] },
-  { key: "home", label: "Home", path: ["pages", "home"] },
-  { key: "about", label: "About", path: ["pages", "about"] },
-  { key: "services", label: "Services", path: ["pages", "services"] },
-  { key: "contact", label: "Contact", path: ["pages", "contact"] },
-  { key: "events", label: "Events & Classes", path: ["pages", "events"] },
-  { key: "blog", label: "Blog", path: ["pages", "blog"] },
-  { key: "notFound", label: "404 Page", path: ["pages", "notFound"] },
-];
+interface AdminClientProps {
+  initialContent: SiteContent;
+  /** Which panel this is — decides the password and what a save may change. */
+  scope: "admin" | "blog";
+  /** Sections shown as tabs in this panel. */
+  tabs: TabDef[];
+  /** Heading shown in the toolbar and on the login screen. */
+  panelTitle: string;
+  /** One-line description on the login screen. */
+  loginHint: string;
+}
 
-export function AdminClient({ initialContent }: { initialContent: SiteContent }) {
+export function AdminClient({
+  initialContent,
+  scope,
+  tabs,
+  panelTitle,
+  loginHint,
+}: AdminClientProps) {
+  const TABS = tabs;
   const [content, setContent] = useState<SiteContent>(initialContent);
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState<Status>(null);
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [configured, setConfigured] = useState(true);
-  const [activeTab, setActiveTab] = useState("site");
+  const [activeTab, setActiveTab] = useState(tabs[0]?.key ?? "");
   const [reloginOpen, setReloginOpen] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -103,7 +110,9 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
     setSaving(true);
     setStatus({ type: "info", text: "Saving…" });
     try {
-      const res = await fetch("/api/admin/save", {
+      // The scope tells the server which panel is saving — a browser may hold
+      // both editors' cookies, and each panel may only write its own sections.
+      const res = await fetch(`/api/admin/save?scope=${scope}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(content),
@@ -132,7 +141,7 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
       savingRef.current = false;
       setSaving(false);
     }
-  }, [content]);
+  }, [content, scope]);
 
   // Keep the latest save in a ref so the key handler never goes stale.
   const saveRef = useRef(save);
@@ -141,7 +150,7 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
   // Check the session once on mount.
   useEffect(() => {
     let alive = true;
-    fetch("/api/admin/session")
+    fetch(`/api/admin/session?scope=${scope}`)
       .then((res) => res.json())
       .then((data) => {
         if (!alive) return;
@@ -154,7 +163,7 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
     return () => {
       alive = false;
     };
-  }, []);
+  }, [scope]);
 
   // Ctrl/Cmd+S saves (also guarded by savingRef).
   useEffect(() => {
@@ -187,7 +196,8 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "site-content.json";
+    anchor.download =
+      scope === "blog" ? "blog-events-content.json" : "site-content.json";
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();
@@ -202,7 +212,7 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ password, scope }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) {
@@ -220,7 +230,11 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
   }
 
   async function logout() {
-    await fetch("/api/admin/logout", { method: "POST" }).catch(() => {});
+    await fetch("/api/admin/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ scope }),
+    }).catch(() => {});
     setAuthed(false);
   }
 
@@ -241,14 +255,18 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
           onSubmit={login}
           className="w-full max-w-sm rounded-2xl border border-stone-200/70 bg-white p-8 shadow-sm"
         >
-          <h1 className="font-serif text-2xl font-semibold text-forest">Site Editor</h1>
-          <p className="mt-2 text-sm text-gray-600">
-            Enter the admin password to edit the website’s text and images.
-          </p>
+          <h1 className="font-serif text-2xl font-semibold text-forest">
+            {panelTitle}
+          </h1>
+          <p className="mt-2 text-sm text-gray-600">{loginHint}</p>
           {!configured ? (
             <p className="mt-4 rounded-lg bg-amber-50 p-3 text-xs text-amber-800">
-              Heads up: <code>ADMIN_PASSWORD</code> is not set on this host, so login
-              will not work until it is configured and the site is redeployed.
+              Heads up:{" "}
+              <code>
+                {scope === "blog" ? "ADMIN_BLOG_PASSWORD" : "ADMIN_PASSWORD"}
+              </code>{" "}
+              is not set on this host, so login will not work until it is
+              configured and the site is redeployed.
             </p>
           ) : null}
           <label htmlFor="admin-password" className="mt-6 block text-sm font-medium text-ink">
@@ -288,7 +306,9 @@ export function AdminClient({ initialContent }: { initialContent: SiteContent })
       <div className="sticky top-20 z-30 border-b border-stone-200/70 bg-cream/95 backdrop-blur">
         <div className="container flex flex-wrap items-center justify-between gap-3 py-3">
           <div className="flex items-center gap-3">
-            <h1 className="font-serif text-lg font-semibold text-forest">Site Editor</h1>
+            <h1 className="font-serif text-lg font-semibold text-forest">
+              {panelTitle}
+            </h1>
             {dirty ? (
               <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700">
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />

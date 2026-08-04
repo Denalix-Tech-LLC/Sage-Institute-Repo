@@ -2,8 +2,24 @@
 
 All of the website's words and pictures live in one file: **`site-content.json`**
 (right next to this one). You normally never touch that file directly — you edit
-everything through the **`/admin`** editor in your browser. This page explains
-how it all fits together, for reference.
+everything through one of **two editors** in your browser. This page explains how
+it all fits together, for reference.
+
+## The two editors
+
+| Editor | Password | What it can change |
+| --- | --- | --- |
+| **`/admin`** — Site Editor | `ADMIN_PASSWORD` | Home, About, Services, Contact, SEO, navigation, footer, 404 |
+| **`/admin-blogs`** — Blog & Events Editor | `ADMIN_BLOG_PASSWORD` | Blog posts and Events & Classes only |
+
+They are deliberately separated, so you can hand the blog password to whoever
+writes posts without giving them the rest of the site. This is enforced on the
+server, not just hidden in the screen: a save from the blog editor **cannot**
+change site pages, and a save from the site editor **cannot** change blog posts
+or events. Neither can accidentally overwrite the other's work.
+
+Each editor has its own password and its own login — signing into one does not
+sign you into the other.
 
 ## The golden rules
 
@@ -17,9 +33,10 @@ how it all fits together, for reference.
 3. **Save often.** Click **Save** (or press **Ctrl+S** / **⌘S**). On the live
    site each save is recorded in the project's history, so nothing is ever
    truly lost.
-4. **Use one editor tab at a time.** Saving sends the whole page of content, so
-   if you have `/admin` open in two tabs, whichever you save last wins and the
-   other tab's changes are overwritten. Reload a tab before editing in it.
+4. **Use one tab per editor.** If you open the *same* editor in two tabs,
+   whichever you save last wins and the other tab's changes are lost — reload a
+   tab before editing in it. Having `/admin` and `/admin-blogs` open at the same
+   time is fine; they cannot overwrite each other.
 
 ## What each section (tab) controls
 
@@ -31,8 +48,8 @@ how it all fits together, for reference.
 | **About** | The About page: mission, the founder (Laurie), the philosophy cards, and the **team list** (add / remove / reorder clinicians). |
 | **Services** | The **services list** (add / remove / reorder) and the "From intake to first visit" steps. |
 | **Contact** | The contact intro, the labels, the map, and the "become a new client" panel. |
-| **Events & Classes** | The **events list**. When it's empty the page shows "Nothing at this time, check back soon!" Add an event and it appears as a card. |
-| **Blog** | The **blog posts list**. When it's empty the page shows "No posts yet, check back soon!" Each post gets its own web page automatically. |
+| **Events & Classes** *(in `/admin-blogs`)* | The **events list**. When it's empty the page shows "Nothing at this time, check back soon!" Add an event and it appears as a card. |
+| **Blog** *(in `/admin-blogs`)* | The **blog posts list**. When it's empty the page shows "No posts yet, check back soon!" Each post gets its own web page automatically. |
 | **404 Page** | The message shown when someone hits a broken link. |
 
 ## How images work
@@ -90,10 +107,11 @@ Adding a **service** or an **event** works exactly the same way, on their tabs.
 
 ## Writing a blog post
 
-1. Open the **Blog** tab and click **+ Add** under **Posts**.
+1. Go to **`/admin-blogs`**, sign in with the blog password, open the **Blog**
+   tab and click **+ Add** under **Posts**.
 2. Click **Edit fields** and fill in:
    - **Title** — the headline.
-   - **Date** — type it however you like, e.g. `August 21, 2026`.
+   - **Date** — click the box and pick the day from the calendar.
    - **Author** — e.g. `Laurie Arena, PMHNP`.
    - **Short summary** — one or two sentences. This is what people see on the
      blog list, and what search engines show.

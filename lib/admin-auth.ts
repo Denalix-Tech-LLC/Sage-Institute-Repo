@@ -2,20 +2,41 @@ import crypto from "crypto";
 import type { NextRequest } from "next/server";
 
 /**
- * Minimal shared-password auth for the /admin editor. No database, no accounts.
- * The password lives only in the ADMIN_PASSWORD env var and is never sent to
- * the client or embedded in the bundle. The cookie stores a sha256 token
- * derived from the password — not the password itself.
+ * Minimal shared-password auth for the two editor panels. No database, no
+ * accounts. Passwords live only in env vars and are never sent to the client;
+ * the cookie stores a sha256 token derived from the password.
+ *
+ *  - "admin" scope (/admin)        -> ADMIN_PASSWORD       -> site-wide content
+ *  - "blog"  scope (/admin-blogs)  -> ADMIN_BLOG_PASSWORD  -> Blog + Events only
+ *
+ * Each scope has its own cookie and its own token namespace, so one panel's
+ * cookie can never authenticate the other.
  */
 
-export const ADMIN_COOKIE = "sage_admin";
-const TOKEN_NAMESPACE = "sage-institute-admin:v1:";
+export type Scope = "admin" | "blog";
+
+export const COOKIES: Record<Scope, string> = {
+  admin: "sage_admin",
+  blog: "sage_admin_blog",
+};
+
+const NAMESPACES: Record<Scope, string> = {
+  admin: "sage-institute-admin:v1:",
+  blog: "sage-institute-admin-blog:v1:",
+};
+
+/** Sections of the content document the blog panel is allowed to change. */
+export const BLOG_SCOPE_SECTIONS = ["blog", "events"] as const;
+
+export function isScope(value: unknown): value is Scope {
+  return value === "admin" || value === "blog";
+}
 
 /** The cookie token derived from a password (never the raw password). */
-export function deriveToken(password: string): string {
+export function deriveToken(scope: Scope, password: string): string {
   return crypto
     .createHash("sha256")
-    .update(TOKEN_NAMESPACE + password)
+    .update(NAMESPACES[scope] + password)
     .digest("hex");
 }
 
@@ -29,18 +50,38 @@ export function safeEqual(a: string, b: string): boolean {
   return crypto.timingSafeEqual(ha, hb);
 }
 
-/** The configured admin password, or "" when unset. */
-export function adminPassword(): string {
-  return process.env.ADMIN_PASSWORD || "";
+/** The configured password for a scope, or "" when unset. */
+export function scopePassword(scope: Scope): string {
+  const value =
+    scope === "admin"
+      ? process.env.ADMIN_PASSWORD
+      : process.env.ADMIN_BLOG_PASSWORD;
+  return value || "";
 }
 
-/** True when the request carries a cookie matching the configured password. */
-export function isAuthed(request: NextRequest): boolean {
-  const password = adminPassword();
+/** True when the request carries a valid cookie for that scope. */
+export function isAuthedFor(request: NextRequest, scope: Scope): boolean {
+  const password = scopePassword(scope);
   if (!password) return false;
-  const cookie = request.cookies.get(ADMIN_COOKIE)?.value ?? "";
+  const cookie = request.cookies.get(COOKIES[scope])?.value ?? "";
   if (!cookie) return false;
-  return safeEqual(cookie, deriveToken(password));
+  return safeEqual(cookie, deriveToken(scope, password));
+}
+
+/**
+ * Which panel this request is acting as.
+ *
+ * A browser can hold both cookies at once (someone opens both editors), so the
+ * caller states which panel it is via `?scope=` and that wins as long as the
+ * request is actually authenticated for it. Without a usable hint we fall back
+ * to whichever cookie is valid, preferring the site-wide one.
+ */
+export function resolveScope(request: NextRequest): Scope | null {
+  const requested = request.nextUrl.searchParams.get("scope");
+  if (isScope(requested) && isAuthedFor(request, requested)) return requested;
+  if (isAuthedFor(request, "admin")) return "admin";
+  if (isAuthedFor(request, "blog")) return "blog";
+  return null;
 }
 
 /** Cookie options shared by login (set) and logout (clear). */

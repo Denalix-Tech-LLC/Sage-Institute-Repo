@@ -8,8 +8,8 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       userAgent: "*",
       allow: "/",
       // Dormant, noindexed screening route; PHI intake lives off-site.
-      // The admin editor is also kept out of search results.
-      disallow: ["/intake", "/admin"],
+      // Both editor panels are also kept out of search results.
+      disallow: ["/intake", "/admin", "/admin-blogs"],
     },
     sitemap: `${site.url}/sitemap.xml`,
   };
