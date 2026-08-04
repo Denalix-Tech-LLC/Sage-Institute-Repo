@@ -1319,21 +1319,7 @@
       "emptyState": {
         "text": "Nothing at this time, check back soon!"
       },
-      "items": [
-        {
-          "id": "id-msf25i4s-dvcwo5",
-          "title": "testing event",
-          "date": "august  21st",
-          "description": "testftrdkjtngdkjgnkdfjngkjdfngkdjnfgkdfngkdfjnjbkjgsbdkgjbskkfjksdnkjnskdjfnksjdnfkjsndfkjsnkdfjnkjdnfknsodklgnlksndglknslkgnsldknglkrdnlkwesndglksdnglskndglknslkgnslkngsknglskdnglksnglksnlgksnlkgnslknglsknglksnglksnglksnglksnglknglsknglsknglskgnlskgnlskgnslkgnslgknslknglsknglsknglskgnslkgnslknlknln",
-          "image": "/uploads/photo-msf25bs1-70a7c7.jpg",
-          "imageAlt": "dmnfbdkbksfjgs",
-          "imagePosition": "50% 50%",
-          "imageFit": "cover",
-          "location": "Cleveland",
-          "linkLabel": "",
-          "linkUrl": ""
-        }
-      ]
+      "items": []
     },
     "blog": {
       "seoTitle": "Blog",
