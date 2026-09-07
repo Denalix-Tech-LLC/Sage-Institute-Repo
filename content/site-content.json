@@ -1329,6 +1329,19 @@
           "imagePosition": "50% 50%",
           "imageFit": "cover",
           "slug": ""
+        },
+        {
+          "id": "id-mtrdc7lu-og1kjd",
+          "title": "CBTish",
+          "date": "2026-09-07",
+          "author": "Joshua D Mckelvey",
+          "excerpt": "CBT isn’t magic, and self-help isn’t a substitute for therapy. But evidence supports using simple tools like reducing avoidance, testing fearful predictions, tracking patterns, and applying structured sleep strategies to make meaningful changes on your own.\n",
+          "body": "Cognitive behavioral therapy is one of the most studied forms of psychotherapy, but some of its most useful lessons are surprisingly practical.\n\n\nThat does not mean self-help is equivalent to therapy. It isn’t. Professional guidance matters, especially for severe anxiety, trauma, OCD, eating disorders, major depression, or anything causing significant impairment. But the research does suggest that some cognitive-behavioral tools can be useful outside the therapy room.\n\n\nOne of the clearest ideas is simple: avoidance tends to reinforce fear. In CBT, people gradually approach situations they would normally avoid, giving the brain a chance to learn that discomfort is survivable and predictions are not always accurate. For everyday life, that might mean making the phone call you have been avoiding, speaking up in a meeting, or staying in a mildly uncomfortable social situation instead of immediately escaping.\n\n\nAnother useful tool is the behavioral experiment. Rather than arguing endlessly with a thought like “If I ask this question, everyone will think I’m stupid,” test it. Ask the question. Observe what actually happens. Then update your belief based on evidence rather than fear.\n\n\nSelf-monitoring can also help. Briefly tracking a situation, your reaction, what you did, and what happened afterward can reveal patterns that are difficult to see in the moment. The goal is not to analyze every thought you have. Human beings already do enough unnecessary paperwork. The point is to notice recurring loops.\n\n\nSleep is another area where self-guided CBT has meaningful evidence. Internet-delivered CBT for insomnia can improve sleep, especially when it includes structured techniques such as stimulus control, regular wake times, and reducing the association between bed and prolonged wakefulness.\n\n\nThe larger lesson is not that people can “therapy themselves” out of every problem. It is that some psychological skills can be practiced independently.\n\n\nA useful CBT-inspired question is: What am I predicting, what am I avoiding, and what small action could help me test reality? That is not magical thinking. It is practice. And sometimes practice, done consistently, is enough to move things in a better direction.\n\n\nReferences: Carpenter et al. (2018); Öst et al. (2015); Schaeuffele et al. (2024); Trauer et al. (2015); Zachariae et al. (2016).\n",
+          "image": "/uploads/brain-mtrdnhbk-cbc2c8.png",
+          "imageAlt": "Picture of cartoon brain",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
+          "slug": ""
         }
       ]
     },
