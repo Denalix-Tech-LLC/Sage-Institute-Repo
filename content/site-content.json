@@ -1289,7 +1289,7 @@
       },
       "readMoreLabel": "Read more",
       "backLabel": "Back to all posts",
-      "byLabel": "By",
+      "byLabel": "By Laurie Arena, PMHNP, MSW, MSN",
       "posts": [
         {
           "id": "id-msf7snlx-xu2vyv",
@@ -1410,6 +1410,19 @@
         },
         {
           "id": "id-mu4c9zo1-g2pxko",
+          "title": "",
+          "date": "",
+          "author": "",
+          "excerpt": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "imagePosition": "50% 50%",
+          "imageFit": "cover",
+          "slug": ""
+        },
+        {
+          "id": "id-mu4ca5tc-wf1umj",
           "title": "",
           "date": "",
           "author": "",
